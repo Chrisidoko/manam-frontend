@@ -1,7 +1,6 @@
-/* eslint-disable */
-
+// src/app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
+import Image from "next/image";
 
 // Blog data
 const blogs = [
@@ -37,64 +36,29 @@ const blogs = [
   },
 ];
 
-// Mock API function to simulate fetching blog data
-async function getBlogBySlug(slug: string) {
-  // This simulates an API call with a Promise
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const blog = blogs.find((b) => b.slug === slug);
-      resolve(blog || null);
-    }, 10);
-  });
-}
+// Types
+type PageParams = {
+  slug: string;
+};
 
-// Generate static params for build time
-export async function generateStaticParams() {
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }));
-}
-
-// Generate metadata for each blog page
-export async function generateMetadata({
-  params,
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
-  const blog = (await getBlogBySlug(params.slug)) as any;
-
-  if (!blog) {
-    return {
-      title: "Blog Not Found",
-    };
-  }
-
-  return {
-    title: blog.title,
-    description: blog.content.substring(0, 160),
-  };
-}
-
-// Page component with explicit Promise handling
-export default async function BlogPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  // Get the blog data with explicit Promise handling
-  const blog = (await getBlogBySlug(params.slug)) as any;
+// Server component
+export default function Page({ params }: { params: PageParams }) {
+  // Find the blog matching the slug
+  const blog = blogs.find((b) => b.slug === params.slug);
 
   // If no blog found, return 404
-  if (!blog) return notFound();
+  if (!blog) {
+    notFound();
+  }
 
   // Share links
-  // const currentUrl = `https://manam.com/blog/${slug}`;
-  // const shareLinks = {
-  //   facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
-  //   twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(blog.title)}`,
-  //   linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(blog.title)}`,
-  //   whatsapp: `https://wa.me/?text=${encodeURIComponent(blog.title + " " + currentUrl)}`,
-  // };
+  const currentUrl = `https://manam.com/blog/${params.slug}`;
+  const shareLinks = {
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(blog.title)}`,
+    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(blog.title)}`,
+    whatsapp: `https://wa.me/?text=${encodeURIComponent(blog.title + " " + currentUrl)}`,
+  };
 
   return (
     <div className="max-w-3xl mx-auto py-10 mt-36 flex flex-col overflow-hidden px-3">
@@ -116,7 +80,7 @@ export default async function BlogPage({
       {/* border */}
       <div className="mt-16 md:border-y md:border-gray-200 "></div>
 
-      {/* <div className="mt-6 flex gap-4 items-center">
+      <div className="mt-6 flex gap-4 items-center">
         <span className="text-gray-700 font-medium">Share:</span>
 
         <a
@@ -151,7 +115,7 @@ export default async function BlogPage({
         >
           WhatsApp
         </a>
-      </div> */}
+      </div>
     </div>
   );
 }
