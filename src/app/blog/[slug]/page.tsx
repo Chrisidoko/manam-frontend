@@ -1,6 +1,6 @@
 // src/app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
-// import Image from "next/image";
+import type { Metadata } from "next";
 
 // Blog data
 const blogs = [
@@ -36,23 +36,47 @@ const blogs = [
   },
 ];
 
-// Types
-type PageParams = {
-  slug: string;
-};
-
-// Server component
-export default function Page({ params }: { params: PageParams }) {
-  // Find the blog matching the slug
+// Generate metadata for the page
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const blog = blogs.find((b) => b.slug === params.slug);
 
-  // If no blog found, return 404
   if (!blog) {
-    notFound();
+    return {
+      title: "Blog Not Found",
+    };
+  }
+
+  return {
+    title: blog.title,
+    description: blog.content.substring(0, 160),
+  };
+}
+
+// Generate static paths for the dynamic routes
+export function generateStaticParams() {
+  return blogs.map((blog) => ({
+    slug: blog.slug,
+  }));
+}
+
+// Define the blog page component with explicit type annotation
+export default function Page(props: { params: { slug: string } }) {
+  const { slug } = props.params;
+
+  // Find the blog matching the slug
+  const blog = blogs.find((b) => b.slug === slug);
+
+  // Handle 404 case
+  if (!blog) {
+    return notFound();
   }
 
   // Share links
-  const currentUrl = `https://manam.com/blog/${params.slug}`;
+  const currentUrl = `https://manam.com/blog/${slug}`;
   const shareLinks = {
     facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
     twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(blog.title)}`,
