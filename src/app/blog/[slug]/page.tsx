@@ -1,6 +1,6 @@
 // src/app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
-import Image from "next/image";
+// import Image from "next/image";
 
 // Blog data
 const blogs = [
