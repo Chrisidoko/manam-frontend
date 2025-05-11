@@ -1,7 +1,7 @@
 "use client";
 
 // src/app/blog/[slug]/page.tsx
-import { notFound } from "next/navigation";
+// import { notFound } from "next/navigation";
 import { use } from "react";
 
 // Blog data
