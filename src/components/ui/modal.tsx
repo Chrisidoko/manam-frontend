@@ -96,8 +96,8 @@ export default function Modal({
                 <div className="mt-2 md:border-y md:border-[#f7f6f9]"></div>
                 <h2 className="text-sm font-bold mt-8">Reservation Summary</h2>
                 <p className="text-xs text-gray-700 mt-4">
-                  You're about to reserve a spot for <strong>{price}</strong>{" "}
-                  <br />
+                  You&apos;re about to reserve a spot for{" "}
+                  <strong>{price}</strong> <br />
                   Event is on <strong>{date}</strong>.
                 </p>
 
@@ -147,7 +147,7 @@ export default function Modal({
             <div className="px-4">
               <h2 className="text-sm font-bold mt-4">Reservation Summary</h2>
               <p className="text-sm text-gray-700 mt-4">
-                You're about to reserve a spot for <strong>{price}</strong>{" "}
+                You&apos;re about to reserve a spot for <strong>{price}</strong>{" "}
                 <br />
                 <br />
                 Event is on <strong>{date}</strong>.

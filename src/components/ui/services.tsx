@@ -17,7 +17,7 @@ export default function Services() {
         Bring your organization <br /> to life with us
       </h2>
       <p className="mt-6 max-w-2xl text-lg text-gray-600">
-        Empowering your organization's growth with tailored services that
+        Empowering your organization&apos;s growth with tailored services that
         ensures your ambitions becomes a reality.
       </p>
       <div className="mt-12 w-full h-full grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-7">
