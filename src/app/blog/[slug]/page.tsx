@@ -35,15 +35,19 @@ const blogs = [
   },
 ];
 
-// Type for the page parameters
-type Props = {
-  params: {
-    slug: string;
-  };
-};
+// Generate static paths at build time
+export async function generateStaticParams() {
+  return blogs.map((blog) => ({
+    slug: blog.slug,
+  }));
+}
 
 // Generate metadata for each blog page
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}): Promise<Metadata> {
   const blog = blogs.find((b) => b.slug === params.slug);
 
   if (!blog) {
@@ -59,7 +63,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 }
 
 // Page component
-export default function BlogPage({ params }: Props) {
+export default async function BlogPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   // Extract the slug directly from params
   const { slug } = params;
 
