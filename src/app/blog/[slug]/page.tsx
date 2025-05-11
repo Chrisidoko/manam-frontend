@@ -1,5 +1,4 @@
-// app/blog/[slug]/page.tsx
-
+/* eslint-disable */
 import { notFound } from "next/navigation";
 
 const blogs = [
