@@ -1,6 +1,8 @@
+"use client";
+
 // src/app/blog/[slug]/page.tsx
 import { notFound } from "next/navigation";
-import type { Metadata } from "next";
+import { use } from "react";
 
 // Blog data
 const blogs = [
@@ -36,48 +38,22 @@ const blogs = [
   },
 ];
 
-// Define params type as a Promise
-type ParamsType = Promise<{ slug: string }>;
-
-// Generate metadata for the page
-export async function generateMetadata({
+// Define the blog page component using React.use
+export default function Page({
   params,
 }: {
-  params: ParamsType;
-}): Promise<Metadata> {
-  const { slug } = await params;
-  const blog = blogs.find((b) => b.slug === slug);
-
-  if (!blog) {
-    return {
-      title: "Blog Not Found",
-    };
-  }
-
-  return {
-    title: blog.title,
-    description: blog.content.substring(0, 160),
-  };
-}
-
-// Generate static paths for the dynamic routes
-export function generateStaticParams() {
-  return blogs.map((blog) => ({
-    slug: blog.slug,
-  }));
-}
-
-// Define the blog page component with Promise params
-export default async function Page({ params }: { params: ParamsType }) {
-  // Await the params Promise to get the slug
-  const { slug } = await params;
+  params: Promise<{ slug: string }>;
+}) {
+  // Use React.use to unwrap the params Promise
+  const { slug } = use(params);
 
   // Find the blog matching the slug
   const blog = blogs.find((b) => b.slug === slug);
 
   // Handle 404 case
   if (!blog) {
-    return notFound();
+    // Note: notFound() might behave differently in client components
+    return <div>Blog not found</div>;
   }
 
   // Share links
