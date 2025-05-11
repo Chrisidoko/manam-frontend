@@ -36,13 +36,17 @@ const blogs = [
   },
 ];
 
+// Define params type as a Promise
+type ParamsType = Promise<{ slug: string }>;
+
 // Generate metadata for the page
 export async function generateMetadata({
   params,
 }: {
-  params: { slug: string };
+  params: ParamsType;
 }): Promise<Metadata> {
-  const blog = blogs.find((b) => b.slug === params.slug);
+  const { slug } = await params;
+  const blog = blogs.find((b) => b.slug === slug);
 
   if (!blog) {
     return {
@@ -63,9 +67,10 @@ export function generateStaticParams() {
   }));
 }
 
-// Define the blog page component with explicit type annotation
-export default function Page(props: { params: { slug: string } }) {
-  const { slug } = props.params;
+// Define the blog page component with Promise params
+export default async function Page({ params }: { params: ParamsType }) {
+  // Await the params Promise to get the slug
+  const { slug } = await params;
 
   // Find the blog matching the slug
   const blog = blogs.find((b) => b.slug === slug);
