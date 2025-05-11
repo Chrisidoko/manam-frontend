@@ -1,6 +1,8 @@
+"use client";
 // app/event/[slug]/page.tsx
 
-import { notFound } from "next/navigation";
+// import { notFound } from "next/navigation";
+import { use } from "react";
 import { RiBankLine } from "@remixicon/react";
 import { Checkout } from "@/components/ui/checkout";
 import Image from "next/image";
@@ -53,17 +55,25 @@ const events = [
   },
 ];
 
-export default async function EventPage({
+// Defining the blog page component using React.use
+export default function EventPage({
   params,
 }: {
-  params: { slug: string };
+  params: Promise<{ slug: string }>;
 }) {
-  // ✅ Safely resolve params.slug before use
-  const { slug } = await Promise.resolve(params);
+  // Use React.use to unwrap the params Promise
+  const { slug } = use(params);
 
   const event = events.find((b) => b.slug === slug);
-
-  if (!event) return notFound();
+  // Handle 404 case
+  if (!event) {
+    // Note: notFound() might behave differently in client components
+    return (
+      <div className="w-full text-lg flex items-center justify-center">
+        Event not found
+      </div>
+    );
+  }
 
   const currentUrl = `https://manam.com/blog/${slug}`;
 
@@ -175,17 +185,6 @@ export default async function EventPage({
           WhatsApp
         </a>
       </div>
-
-      {/* modal */}
-      {/* {showModal && (
-        <Modal
-          price={event.price}
-          date={event.event_date}
-          image={event.image}
-          title={event.title}
-          onClose={() => setShowModal(false)}
-        />
-      )} */}
     </div>
   );
 }

@@ -38,7 +38,7 @@ const blogs = [
   },
 ];
 
-// Define the blog page component using React.use
+// Defining the blog page component using React.use
 export default function Page({
   params,
 }: {
@@ -53,7 +53,11 @@ export default function Page({
   // Handle 404 case
   if (!blog) {
     // Note: notFound() might behave differently in client components
-    return <div>Blog not found</div>;
+    return (
+      <div className="w-full text-lg flex items-center justify-center">
+        Blog not found
+      </div>
+    );
   }
 
   // Share links
