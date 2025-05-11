@@ -1,4 +1,5 @@
 import { notFound } from "next/navigation";
+import type { Metadata } from "next";
 
 // Blog data
 const blogs = [
@@ -34,8 +35,31 @@ const blogs = [
   },
 ];
 
+// Type for the page parameters
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+// Generate metadata for each blog page
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const blog = blogs.find((b) => b.slug === params.slug);
+
+  if (!blog) {
+    return {
+      title: "Blog Not Found",
+    };
+  }
+
+  return {
+    title: blog.title,
+    description: blog.content.substring(0, 160),
+  };
+}
+
 // Page component
-export default function BlogPage({ params }: { params: { slug: string } }) {
+export default function BlogPage({ params }: Props) {
   // Extract the slug directly from params
   const { slug } = params;
 
