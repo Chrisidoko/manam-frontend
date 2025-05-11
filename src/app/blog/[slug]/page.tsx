@@ -1,6 +1,6 @@
-/* eslint-disable */
 import { notFound } from "next/navigation";
 
+// Blog data
 const blogs = [
   {
     title: "NGX market resilience: A comprehensive analysis",
@@ -34,33 +34,24 @@ const blogs = [
   },
 ];
 
-export default async function BlogPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  // ✅ Safely resolve params.slug before use
+// Page component
+export default function BlogPage({ params }: { params: { slug: string } }) {
+  // Extract the slug directly from params
   const { slug } = params;
 
+  // Find the blog matching the slug
   const blog = blogs.find((b) => b.slug === slug);
 
+  // If no blog found, return 404
   if (!blog) return notFound();
 
+  // Share links
   const currentUrl = `https://manam.com/blog/${slug}`;
-
   const shareLinks = {
-    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
-      currentUrl
-    )}`,
-    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
-      currentUrl
-    )}&text=${encodeURIComponent(blog.title)}`,
-    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
-      currentUrl
-    )}&title=${encodeURIComponent(blog.title)}`,
-    whatsapp: `https://wa.me/?text=${encodeURIComponent(
-      blog.title + " " + currentUrl
-    )}`,
+    facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
+    twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(blog.title)}`,
+    linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(currentUrl)}&title=${encodeURIComponent(blog.title)}`,
+    whatsapp: `https://wa.me/?text=${encodeURIComponent(blog.title + " " + currentUrl)}`,
   };
 
   return (
