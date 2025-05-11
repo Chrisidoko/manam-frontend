@@ -41,7 +41,7 @@ export default async function BlogPage({
   params: { slug: string };
 }) {
   // ✅ Safely resolve params.slug before use
-  const { slug } = await Promise.resolve(params);
+  const { slug } = params;
 
   const blog = blogs.find((b) => b.slug === slug);
 
