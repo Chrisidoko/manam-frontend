@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
 import { Navigation } from "@/components/ui/Navbar";
 import Footer from "@/components/ui/Footer";
-import "./globals.css";
+import "@/app/globals.css";
+import PersistentLayout from "./PersistentLayout";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -26,12 +26,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.className} min-h-screen scroll-auto antialiased`}
-      >
-        <Navigation />
+      <body className={inter.className}>
+        {/* <Navigation />
         {children}
-        <Footer />
+        <Footer /> */}
+        <PersistentLayout>{children}</PersistentLayout>
       </body>
     </html>
   );

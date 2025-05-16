@@ -47,22 +47,50 @@ export default function Footer() {
               Street, Central Business District, Fct-Abuja.
             </p>
             <div className="flex space-x-6">
-              <RiInstagramLine
-                size={21}
-                className="text-gray-500 cursor-pointer"
-              />
-              <RiLinkedinBoxLine
-                size={21}
-                className="text-gray-500 cursor-pointer"
-              />
-              <RiTwitterLine
-                size={21}
-                className="text-gray-500 cursor-pointer"
-              />
-              <RiFacebookCircleLine
-                size={21}
-                className="text-gray-500 cursor-pointer"
-              />
+              <Link
+                href="https://www.instagram.com/manamprofessionalservices"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
+              >
+                <RiInstagramLine
+                  size={21}
+                  className="text-gray-500 cursor-pointer hover:text-gray-700 transition-colors"
+                />
+              </Link>
+              <Link
+                href="https://www.linkedin.com/manamprofessionalservices"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
+              >
+                <RiLinkedinBoxLine
+                  size={21}
+                  className="text-gray-500 cursor-pointer"
+                />
+              </Link>
+              <Link
+                href="https://x.com/manam121212"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
+              >
+                <RiTwitterLine
+                  size={21}
+                  className="text-gray-500 cursor-pointer"
+                />
+              </Link>
+              <Link
+                href="https://web.facebook.com/manamprofessionalservices"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Follow us on Instagram"
+              >
+                <RiFacebookCircleLine
+                  size={21}
+                  className="text-gray-500 cursor-pointer"
+                />
+              </Link>
             </div>
             <div></div>
           </div>

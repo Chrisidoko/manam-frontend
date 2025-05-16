@@ -60,7 +60,7 @@ export default function TeamGallery() {
               title="Training Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
-              className="w-full h-[500px] border-0"
+              className="w-full h-[300px] sm:h-[500px] border-0"
             ></iframe>
           </div>
         </div>

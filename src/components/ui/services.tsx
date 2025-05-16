@@ -26,8 +26,8 @@ export default function Services() {
           <h2 className="text-3xl font-bold">Human Capital Development</h2>
           <p className="mt-2 w-[70%] text-sm text-[#667085]">
             {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+            We believe that people are the core of every successful
+            organization.{" "}
           </p>
           <p className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold">
             View More <RiArrowRightUpLine size={20} />
@@ -37,7 +37,7 @@ export default function Services() {
             width={210}
             height={180}
             alt="Human Capital Development Services"
-            className="absolute bottom-0 right-5 w-32 h-28 sm:w-40 sm:h-36 md:w-[210px] md:h-[190px]"
+            className="absolute bottom-0 right-5 w-32 sm:w-40 md:w-[210px]"
           />
         </div>
         {/* Management Consultancy */}
@@ -45,8 +45,8 @@ export default function Services() {
           <h2 className="mt-6 text-3xl font-bold">Management Consultancy </h2>
           <p className="mt-2 w-[70%] text-sm">
             {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+            We work closely with our clients to understand their organizational
+            structure, market positioning, and internal capabilities{" "}
           </p>
           <p className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold">
             View More <RiArrowRightUpLine size={20} />
@@ -56,7 +56,7 @@ export default function Services() {
             width={160}
             height={60}
             alt="Management Consultancy "
-            className="absolute bottom-3 sm:bottom-6 right-1 w-28 h-31 sm:w-40 sm:h-36 md:bottom-12 md:w-[160px] md:h-[190px]"
+            className="absolute bottom-9 sm:bottom-6 right-1 w-34 sm:w-40 md:bottom-12 md:w-[160px]"
           />
         </div>
       </div>
@@ -66,10 +66,10 @@ export default function Services() {
           <h2 className="mt-2 text-3xl text-white font-bold">
             Assurance Services
           </h2>
-          <p className="mt-2 w-[70%] text-sm text-[#e0f3fe]">
+          <p className="mt-2 w-[64%] sm:w-[70%] text-sm text-[#e0f3fe]">
             {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+            Our Assurance Services provide clients with confidence in the
+            accuracy and integrity of their financial information.{" "}
           </p>
           <p className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold">
             View More <RiArrowRightUpLine size={20} />
@@ -79,7 +79,7 @@ export default function Services() {
             width={120}
             height={60}
             alt="Assurance Services"
-            className="absolute top-3 right-4"
+            className="absolute top-18 right-4 2xl:top-3 2xl:right-4 w-22 sm:w-30 sm:h-40"
           />
         </div>
         <div className="relative bg-[#E6EEF3] col-span-2 p-6 lg:p-8 rounded-2xl lg:rounded-3xl cursor-pointer">
@@ -88,8 +88,8 @@ export default function Services() {
           </h2>
           <p className="mt-2 w-[60%] text-sm text-[#065c86]">
             {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+            We offer comprehensive tax advisory and due diligence services that
+            help businesses navigate the complexities of local tax laws{" "}
           </p>
           <p className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold">
             View More <RiArrowRightUpLine size={20} />
@@ -99,17 +99,17 @@ export default function Services() {
             width={160}
             height={60}
             alt="Taxation/Due Diligence"
-            className="absolute bottom-10 right-0"
+            className="absolute bottom-4 right-4 xl:bottom-14 xl:right-0"
           />
         </div>
         <div className="relative overflow-hidden bg-[#0e172a] col-span-2 p-6 lg:p-8 rounded-2xl lg:rounded-3xl cursor-pointer">
           <h2 className="mt-2 text-2xl text-white font-bold">
             Corporate Recovery and Insolvency
           </h2>
-          <p className="mt-2 w-[60%] text-sm text-[#98a2b2]">
+          <p className="mt-2 w-[66%] text-sm text-[#98a2b2]">
             {" "}
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua.{" "}
+            We support stakeholders through debt resolution, turnaround
+            strategies, liquidation processes, and creditor negotiations.{" "}
           </p>
           <p className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold">
             View More <RiArrowRightUpLine size={20} />
@@ -119,7 +119,7 @@ export default function Services() {
             width={160}
             height={60}
             alt="Taxation/Due Diligence"
-            className="absolute bottom-2 right-2 rotate-[-22deg] w-38 h-28 sm:w-40 sm:h-36 md:w-[220px] md:h-[120px]"
+            className="absolute bottom-1 right-2 rotate-[-22deg] w-38 sm:w-32 md:w-[200px]"
           />
         </div>
       </div>

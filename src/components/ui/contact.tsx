@@ -10,28 +10,28 @@ export default function Contact() {
       <Badge>Contact Us</Badge>
 
       <div className="mt-12 ">
-        <div className="w-full flex flex-col items-center h-70 gap-1 py-12 md:py-14 px-5 bg-[#07314a] rounded-2xl lg:rounded-3xl">
-          <h2 className="m-0 font-bold text-white text-3xl md:text-3xl xl:text-4xl">
+        <div className="w-full flex flex-col items-center h-56 sm:h-70 gap-1 py-10 md:py-14 px-5 bg-[#07314a] rounded-2xl lg:rounded-3xl">
+          <h2 className="m-0 font-bold text-white text-center text-2xl md:text-3xl xl:text-4xl">
             DO YOU HAVE A QUESTION?
           </h2>
-          <p className="mb-0 mt-4 text-white text-sm md:text-xl">
+          <p className="mb-0 mt-2 sm:mt-4 text-white text-sm md:text-xl">
             {" "}
             Contact us through your preferred channel{" "}
           </p>
           <div className="mt-4 flex justify-center gap-3">
             <a
-              href="mailto:enquiries@dnamazcapital.com"
-              className="text-gray-200 bg-[#0095da] !border-none relative w-12 h-12 flex justify-center items-center rounded-lg line-no-box cursor-pointer focus:text-brand-800 font-medium hover:text-brand-700 no-underline text-base text-gray-900"
+              href="mailto:info@manamprofessionals.com"
+              className="text-gray-200 bg-[#0095da] !border-none relative w-10 h-10 sm:w-12 sm:h-12 flex justify-center items-center rounded-lg line-no-box cursor-pointer focus:text-brand-800 font-medium hover:text-brand-700 no-underline text-base text-gray-900"
             >
               <RiMailSendLine className="text-white" />
             </a>
             <a
-              href="https://wa.me/2348188654881?text=Hi%20there%2C%20I%20have%20a%20question"
+              href="https://wa.me/2349160422222?text=Hi%20there%2C%20I%20have%20a%20question"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2 bg-green-500 hover:bg-green-600 text-white rounded-lg cursor-pointer"
+              className="flex items-center w-10 h-10 sm:w-12 sm:h-12 bg-green-500 hover:bg-green-600 text-white rounded-lg cursor-pointer"
             >
-              <RiWhatsappLine className="text-white" />
+              <RiWhatsappLine className="text-white mx-auto" />
             </a>
           </div>
         </div>
