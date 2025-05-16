@@ -1,6 +1,6 @@
 import { Badge } from "../Badge";
 import Image from "next/image";
-import { RiArrowRightUpLine } from "@remixicon/react";
+// import { RiArrowRightUpLine } from "@remixicon/react";
 
 export default function Services2() {
   return (

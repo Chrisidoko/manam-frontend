@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Navigation } from "@/components/ui/Navbar";
-import Footer from "@/components/ui/Footer";
+// import { Navigation } from "@/components/ui/Navbar";
+// import Footer from "@/components/ui/Footer";
 import "@/app/globals.css";
 import PersistentLayout from "./PersistentLayout";
 
