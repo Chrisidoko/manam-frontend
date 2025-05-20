@@ -54,7 +54,7 @@ export default function Contactpage() {
           message: data.error || "Failed to send message. Please try again.",
         });
       }
-    } catch (error) {
+    } catch (_error) {
       setSubmitStatus({
         success: false,
         message: "An error occurred. Please try again later.",
