@@ -1,48 +1,47 @@
+// import { siteConfig } from "@/app/siteConfig";
 import { Badge } from "@/components/Badge";
 import Image from "next/image";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
+import { formatInTimeZone } from "date-fns-tz";
 
-const events = [
-  {
-    title: "AI in financial markets",
-    event_date: "Tue, Jun 16 • 7:00PM",
-    event_location: "Abuja, Nigeria",
-    price: "₦5000",
-    image: "/gc-registration.png", // valid image
-    href: "/event/ai-in-financial-markets",
-    slug: "ai-in-financial-markets",
-  },
-  {
-    title: "Business Analytics for Growth",
-    event_date: "Sat, May 13 • 6:00PM",
-    event_location: "Kaduna, Nigeria",
-    price: "Free",
-    image: "/Conference-2025.png", // valid image
-    href: "/event/business-analytics-for-growth",
-    slug: "business-analytics-for-growth",
-  },
-  {
-    title: "Implications for businesses in 2025",
-    event_date: "Fri, May 20 • 12:00PM",
-    event_location: "Online",
-    price: "₦12000",
-    image: "", // no image
-    href: "/event/implications-for-businesse-in-2025",
-    slug: "implications-for-businesse-in-2025",
-  },
-  {
-    title: "Women in business 2025",
-    event_date: "Fri, May 20 • 12:00PM",
-    event_location: "Abuja, Nigeria",
-    price: "₦12000",
-    image: "/3rd-conference.png", // valid image
-    href: "/event/women-in-business-2025",
-    slug: "women-in-business-2025",
-  },
-];
+export interface EventCreator {
+  _id: string;
+  username: string;
+  email: string;
+}
 
-export default function Events() {
+export interface Event {
+  _id: string;
+  event_creator: EventCreator;
+  event_name: string;
+  event_date: string; // ISO string
+  event_location: string;
+  event_description: string;
+  event_organizer: string;
+  price: number;
+  event_image: string;
+  event_type: string;
+  space_available: number;
+  event_status: string;
+  slug: string;
+  event_id: string;
+  date_created: string; // ISO string
+}
+
+export default async function Events() {
+  const res = await fetch("https://mana-event.onrender.com/api/event", {
+    next: { revalidate: 0 }, // disable caching
+  });
+
+  const data = await res.json();
+
+  if (!data?.events) {
+    return <div>Error loading events.</div>;
+  }
+
+  const events = data.events;
+
   return (
     <div className="mt-36 flex flex-col overflow-hidden px-3">
       <section
@@ -64,18 +63,18 @@ export default function Events() {
           Explore our training events, your opportunity to connect and learn
         </p>
       </section>
+
       <section className="mb-10">
-        {/* blogs grid */}
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-4">
-          {events.map((event, index) => (
+          {events.map((event: Event) => (
             <div
-              key={index}
+              key={event._id}
               className="flex flex-col rounded-xl hover:shadow-md hover:shadow-black/15 ring-2 ring-gray-200/80"
             >
               <div className="relative w-full h-34">
                 <Image
-                  src={event.image ? event.image : "/No-Image.png"}
-                  alt="image"
+                  src={event.event_image || "/No-Image.png"}
+                  alt={event.event_name}
                   fill
                   className="object-cover rounded-md"
                 />
@@ -84,20 +83,27 @@ export default function Events() {
                 <div className="w-fit bg-[#edeafb] font-semibold px-3 py-1 rounded-lg text-xs text-[#585163] leading-4 tracking-tighter">
                   {event.event_location}
                 </div>
+
                 <Link
                   className="line-clamp-2 font-semibold text-gray-900"
                   href={`/event/${event.slug}`}
                 >
-                  {event.title}
+                  {event.event_name}
                 </Link>
 
                 <span className="text-xs text-[#4b5563]">
-                  {event.event_date}
+                  {formatInTimeZone(
+                    event.event_date,
+                    "Africa/Lagos",
+                    "EEE, MMM d • h:mmaaa"
+                  )}
                 </span>
+
                 <div className="group relative text-[#141d22] text-sm font-semibold px-1 py-1 rounded-2xl inline-flex items-center">
-                  {event.price}
+                  ₦{event.price}
                 </div>
-                <span className="text-xs">TechWorld Inc</span>
+
+                <span className="text-xs">{event.event_organizer}</span>
               </div>
             </div>
           ))}

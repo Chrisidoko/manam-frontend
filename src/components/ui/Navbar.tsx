@@ -73,9 +73,11 @@ export function Navigation() {
             </div>
           </nav>
           {/* <RiSearchLine className="ml-auto mr-4" /> */}
-          <Button className="hidden h-10 font-semibold md:flex">
-            Contact Us
-          </Button>
+          <Link href={siteConfig.baseLinks.contact}>
+            <Button className="hidden h-10 font-semibold md:flex">
+              Contact Us
+            </Button>
+          </Link>
 
           <div className="flex gap-x-2 md:hidden">
             <Button> Contact Us</Button>

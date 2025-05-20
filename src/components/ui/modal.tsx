@@ -1,6 +1,7 @@
 // components/ui/modal.tsx
 import Image from "next/image";
 import { RiCloseLine } from "@remixicon/react";
+import { formatInTimeZone } from "date-fns-tz";
 
 type ModalProps = {
   price: string;
@@ -40,7 +41,7 @@ export default function Modal({
                 </span>
               </div>
 
-              <form className="mt-4 grid grid-cols-2 gap-x-4 gap-y-6">
+              <form className="mt-4 grid grid-cols-1 sm:grid-cols-2 gap-x-4 gap-y-6">
                 <div>
                   <label className="block text-xs font-medium text-gray-700">
                     Full Name
@@ -97,12 +98,21 @@ export default function Modal({
                 <h2 className="text-sm font-bold mt-8">Reservation Summary</h2>
                 <p className="text-xs text-gray-700 mt-4">
                   You&apos;re about to reserve a spot for{" "}
-                  <strong>{price}</strong> <br />
-                  Event is on <strong>{date}</strong>.
+                  <strong>₦{price}</strong> <br />
+                  Event is on{" "}
+                  <strong>
+                    {" "}
+                    {formatInTimeZone(
+                      date,
+                      "Africa/Lagos",
+                      "EEE, MMM d • h:mmaaa"
+                    )}
+                  </strong>
+                  .
                 </p>
 
                 <span className="mt-4 font-bold flex items-center justify-between">
-                  Total: <p>{price}</p>
+                  Total: <p>₦{price}</p>
                 </span>
               </div>
               {/* disclaimer */}
@@ -147,15 +157,24 @@ export default function Modal({
             <div className="px-4">
               <h2 className="text-sm font-bold mt-4">Reservation Summary</h2>
               <p className="text-sm text-gray-700 mt-4">
-                You&apos;re about to reserve a spot for <strong>{price}</strong>{" "}
+                You&apos;re about to reserve a spot for{" "}
+                <strong>₦{price}</strong> <br />
                 <br />
-                <br />
-                Event is on <strong>{date}</strong>.
+                Event is on{" "}
+                <strong>
+                  {" "}
+                  {formatInTimeZone(
+                    date,
+                    "Africa/Lagos",
+                    "EEE, MMM d • h:mmaaa"
+                  )}
+                </strong>
+                .
               </p>
               {/* border */}
               <div className="mt-8 md:border-y md:border-[#f7f6f9]"></div>
               <span className="mt-12 font-bold flex items-center justify-between">
-                Total: <p>{price}</p>
+                Total: <p>₦{price}</p>
               </span>
             </div>
           </div>

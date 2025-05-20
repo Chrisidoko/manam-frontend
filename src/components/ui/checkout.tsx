@@ -4,6 +4,7 @@
 import { useState } from "react";
 import { RiInformationLine } from "@remixicon/react";
 import Modal from "@/components/ui/modal";
+import { formatInTimeZone } from "date-fns-tz";
 
 type CheckoutProps = {
   price: string;
@@ -24,7 +25,7 @@ export function Checkout({ price, date, image, title }: CheckoutProps) {
           <span className="text-xl font-semibold">24</span>
         </div>
         <span className="flex gap-2 items-center font-semibold">
-          {price}
+          ₦{price}
           <div
             className="flex items-center justify-center rounded-full h-7 w-7 hover:bg-[#eeedf2] cursor-pointer"
             onClick={() => setShowInfo(!showInfo)}
@@ -34,7 +35,8 @@ export function Checkout({ price, date, image, title }: CheckoutProps) {
         </span>
         {showInfo && (
           <p className="text-xs text-gray-600 text-right">
-            Sales end on {date}
+            Sales end on{" "}
+            {formatInTimeZone(date, "Africa/Lagos", "EEE, MMM d • h:mmaaa")}
           </p>
         )}
         <button

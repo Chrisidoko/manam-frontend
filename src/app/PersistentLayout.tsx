@@ -13,7 +13,7 @@ export default function PersistentLayout({
 
   // Routes that should NOT show Navigation or Footer
   const excludedRoutes = [
-    "/admin/login",
+    "/admin",
     "/admin/overview",
     "/admin/blogs",
     "/admin/events",

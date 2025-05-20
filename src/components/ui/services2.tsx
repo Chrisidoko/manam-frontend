@@ -53,7 +53,7 @@ export default function Services2() {
           <h2 className="text-xl sm:text-3xl font-bold">
             Management Consultancy{" "}
           </h2>
-          <p className="sm:mt-2 w-[70%] text-xs sm:text-sm">
+          <p className="sm:mt-2 w-[76%] text-xs sm:text-sm">
             {" "}
             <br />
             Our Management Consultancy services focus on delivering practical
@@ -72,7 +72,7 @@ export default function Services2() {
             width={160}
             height={60}
             alt="Management Consultancy "
-            className="absolute bottom-16 sm:bottom-6 right-0 w-38 sm:w-40 sm:h-36 md:bottom-12 md:w-[160px] md:h-[190px]"
+            className="absolute bottom-16 sm:bottom-6 right-0 w-38 sm:w-46 md:bottom-12 md:w-[180px]"
           />
         </div>
       </div>
@@ -151,7 +151,7 @@ export default function Services2() {
             width={160}
             height={60}
             alt="Taxation/Due Diligence"
-            className="absolute bottom-2 right-0 rotate-[-22deg] xl:right-6 w-38 sm:w-50 sm:h-46"
+            className="absolute bottom-2 right-0 rotate-[-24deg] xl:right-6 w-38 sm:w-50 sm:h-46"
           />
         </div>
       </div>

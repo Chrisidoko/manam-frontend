@@ -2,10 +2,9 @@
 
 import { TabNavigation, TabNavigationLink } from "@/components/TabNavigation";
 import Link from "next/link";
-// import { Notifications } from "./Notifications"
 
 import { usePathname } from "next/navigation";
-// import { Logo } from "../../../public/Logo"
+
 import { DropdownUserProfile } from "./UserProfile";
 
 function Navigation() {
@@ -14,7 +13,6 @@ function Navigation() {
     <div className="shadow-s sticky top-0 z-20 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 pt-3">
         <div>
-          {/* <span className="sr-only">Your Company</span> */}
           <img src="/manam(s).png" alt="manam logo" className="w-28" />
         </div>
         <div className="flex h-[42px] flex-nowrap gap-1">
