@@ -19,9 +19,12 @@ interface Event {
   event_organizer?: string;
 }
 
-const Event = async ({ params }: { params: { slug: string } }) => {
+// Update the params type definition
+type Params = Promise<{ slug: string }>;
+
+const Event = async ({ params }: { params: Params }) => {
   try {
-    // Await the params object first to access its properties
+    // Await the params object to access its properties
     const { slug } = await params;
 
     // Fetch ALL events
