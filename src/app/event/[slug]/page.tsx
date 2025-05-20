@@ -18,12 +18,13 @@ interface Event {
   event_description?: string;
   event_organizer?: string;
 }
+type EventPageProps = {
+  params: {
+    slug: string;
+  };
+};
 
-export default async function EventPage({
-  params,
-}: {
-  params: { slug: string };
-}) {
+export default async function EventPage({ params }: EventPageProps) {
   // Ensure we have a slug parameter
   if (!params.slug) return notFound();
 
