@@ -37,7 +37,11 @@ export default async function Events() {
   const data = await res.json();
 
   if (!data?.events) {
-    return <div>Error loading events.</div>;
+    return (
+      <div className="w-full mt-[40%] flex justify-center">
+        Error loading events.
+      </div>
+    );
   }
 
   const events = data.events;

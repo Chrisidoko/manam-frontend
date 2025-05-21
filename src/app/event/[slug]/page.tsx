@@ -54,6 +54,23 @@ const Event = async ({ params }: { params: Params }) => {
       organizer: event.event_organizer || "Event Organizer",
     };
 
+    const currentUrl = `https://manam.com/event/${eventData.slug}`;
+
+    const shareLinks = {
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
+        currentUrl
+      )}`,
+      twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(
+        currentUrl
+      )}&text=${encodeURIComponent(eventData.title)}`,
+      linkedin: `https://www.linkedin.com/shareArticle?mini=true&url=${encodeURIComponent(
+        currentUrl
+      )}&title=${encodeURIComponent(eventData.title)}`,
+      whatsapp: `https://wa.me/?text=${encodeURIComponent(
+        eventData.title + " " + currentUrl
+      )}`,
+    };
+
     return (
       <div className="max-w-5xl mx-auto py-10 mt-22 flex flex-col overflow-hidden px-3">
         <div className="relative w-full h-96 mt-4">
@@ -117,6 +134,42 @@ const Event = async ({ params }: { params: Params }) => {
         </div>
 
         <div className="mt-16 md:border-y md:border-gray-200 "></div>
+        <div className="mt-6 flex gap-4 items-center">
+          <span className="text-gray-700 font-medium">Share:</span>
+
+          <a
+            href={shareLinks.facebook}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            Facebook
+          </a>
+          <a
+            href={shareLinks.twitter}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-400 hover:underline"
+          >
+            Twitter
+          </a>
+          <a
+            href={shareLinks.linkedin}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-700 hover:underline"
+          >
+            LinkedIn
+          </a>
+          <a
+            href={shareLinks.whatsapp}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-green-600 hover:underline"
+          >
+            WhatsApp
+          </a>
+        </div>
       </div>
     );
   } catch (error) {
