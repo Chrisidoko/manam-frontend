@@ -39,6 +39,9 @@ const buttons = [
 const blogsPerPage = 9;
 
 export default function BlogList({ blogs }: BlogListProps) {
+  //only image the link below
+  const api_url = "https://mana-event.onrender.com";
+
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
 
@@ -85,14 +88,18 @@ export default function BlogList({ blogs }: BlogListProps) {
           <div key={blog._id} className="flex flex-col">
             <div className="relative w-full h-64">
               <Image
-                src={blog.imageUrl || "/No-Image.png"}
+                src={
+                  blog.imageUrl
+                    ? `${api_url}/${blog.imageUrl.replace(/^\/+/, "")}`
+                    : "/No-Image.png"
+                }
                 alt={blog.title}
                 fill
                 className="object-cover"
               />
             </div>
-            <div className="mt-2 flex items-center justify-between text-sm">
-              <span>
+            <div className="mt-4 flex items-center justify-between text-sm">
+              <span className="text-[#7c8083] text-xs leading">
                 {formatInTimeZone(
                   blog.updatedAt,
                   "Africa/Lagos",
@@ -103,7 +110,10 @@ export default function BlogList({ blogs }: BlogListProps) {
                 {blog.category || "Advisory"}
               </div>
             </div>
-            <Link className="py-3 text-gray-900" href={`/blog/${blog.slug}`}>
+            <Link
+              className="py-3 font-semibold text-lg text-gray-900"
+              href={`/blog/${blog.slug}`}
+            >
               {blog.title}
             </Link>
           </div>

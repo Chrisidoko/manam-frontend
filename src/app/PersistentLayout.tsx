@@ -17,6 +17,7 @@ export default function PersistentLayout({
     "/admin/overview",
     "/admin/blogs",
     "/admin/events",
+    "/admin/user",
   ];
 
   const showLayout = !excludedRoutes.includes(pathname);

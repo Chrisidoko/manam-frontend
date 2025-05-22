@@ -6,9 +6,18 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 import { DropdownUserProfile } from "./UserProfile";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 function Navigation() {
   const pathname = usePathname();
+  const [role, setRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    const cookieRole = Cookies.get("role");
+    setRole(cookieRole || null);
+  }, []);
+
   return (
     <div className="shadow-s sticky top-0 z-20 bg-white">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 pt-3">
@@ -43,6 +52,15 @@ function Navigation() {
           >
             <Link href="/admin/blogs">Blogs</Link>
           </TabNavigationLink>
+          {role === "superAdmin" && (
+            <TabNavigationLink
+              className="inline-flex gap-2"
+              asChild
+              active={pathname === "/admin/user"}
+            >
+              <Link href="/admin/user">Users</Link>
+            </TabNavigationLink>
+          )}
         </div>
       </TabNavigation>
     </div>

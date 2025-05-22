@@ -2,6 +2,7 @@
 
 import { notFound } from "next/navigation";
 import { formatInTimeZone } from "date-fns-tz";
+import Image from "next/image";
 
 export interface BlogCreator {
   _id: string;
@@ -25,6 +26,8 @@ export interface Blog {
 type Params = Promise<{ slug: string }>;
 
 const BlogPage = async ({ params }: { params: Params }) => {
+  //only image the link below
+  const api_url = "https://mana-event.onrender.com";
   try {
     // Await the params object to access its properties
     const { slug } = await params;
@@ -62,10 +65,15 @@ const BlogPage = async ({ params }: { params: Params }) => {
           </span>
         </div>
         <div className="relative w-full h-96 mt-4">
-          <img
-            src={blog.imageUrl || "/No-Image.png"}
+          <Image
+            src={
+              blog.imageUrl
+                ? `${api_url}/${blog.imageUrl.replace(/^\/+/, "")}`
+                : "/No-Image.png"
+            }
             alt={blog.title}
-            className="object-cover w-full h-full"
+            fill
+            className="object-fit"
           />
         </div>
         <p className="mt-6 text-gray-700 whitespace-pre-line">{blog.content}</p>

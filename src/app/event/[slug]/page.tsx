@@ -23,6 +23,8 @@ interface Event {
 type Params = Promise<{ slug: string }>;
 
 const Event = async ({ params }: { params: Params }) => {
+  //only image the link below
+  const api_url = "https://mana-event.onrender.com";
   try {
     // Await the params object to access its properties
     const { slug } = await params;
@@ -75,11 +77,14 @@ const Event = async ({ params }: { params: Params }) => {
       <div className="max-w-5xl mx-auto py-10 mt-22 flex flex-col overflow-hidden px-3">
         <div className="relative w-full h-96 mt-4">
           <Image
-            src={eventData.image}
-            alt={eventData.title}
+            src={
+              event.event_image
+                ? `${api_url}/${event.event_image.replace(/^\/+/, "")}`
+                : "/No-Image.png"
+            }
+            alt={event.event_name}
             fill
-            className="object-cover w-full h-full"
-            priority
+            className="object-cover rounded-md"
           />
         </div>
         <div className="grid sm:grid-cols-[2fr_1fr] gap-4">

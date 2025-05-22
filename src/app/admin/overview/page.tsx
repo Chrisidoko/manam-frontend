@@ -7,6 +7,9 @@ import { Divider } from "@/components/Divider";
 import { DataTable } from "@/components/ui/data-table-overview/DataTable";
 import { columns } from "@/components/ui/data-table-overview/columns";
 import { agents } from "@/data/agents/agents";
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import Cookies from "js-cookie";
 import React from "react";
 
 type AgentType = {
@@ -24,10 +27,20 @@ type AgentType = {
 };
 
 export default function SupportDashboard() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = Cookies.get("token");
+    const role = Cookies.get("role");
+
+    if (!token || role !== "superAdmin") {
+      router.push("/admin");
+    }
+  }, []);
   // const [isOpen, setIsOpen] = React.useState(false);
   return (
     <main>
-      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+      <div className="flex flex-col gap-4 py-2 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-2xl font-semibold text-gray-900">
             Overview Dashboard

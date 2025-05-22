@@ -30,6 +30,9 @@ export interface Event {
 }
 
 export default async function Events() {
+  //only image the link below
+  const api_url = "https://mana-event.onrender.com";
+
   const res = await fetch("https://mana-event.onrender.com/api/event", {
     next: { revalidate: 0 }, // disable caching
   });
@@ -77,7 +80,11 @@ export default async function Events() {
             >
               <div className="relative w-full h-34">
                 <Image
-                  src={event.event_image || "/No-Image.png"}
+                  src={
+                    event.event_image
+                      ? `${api_url}/${event.event_image.replace(/^\/+/, "")}`
+                      : "/No-Image.png"
+                  }
                   alt={event.event_name}
                   fill
                   className="object-cover rounded-md"
