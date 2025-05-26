@@ -24,6 +24,7 @@ type AgentType = {
   minutes_called: number;
   minutes_booked: number;
   ticket_generation: boolean;
+  amount: string;
 };
 
 export default function SupportDashboard() {
@@ -49,8 +50,6 @@ export default function SupportDashboard() {
             Real-time monitoring and insights into your web application
           </p>
         </div>
-
-        {/* <TicketDrawer open={isOpen} onOpenChange={setIsOpen} /> */}
       </div>
       <Divider />
       <dl className="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">

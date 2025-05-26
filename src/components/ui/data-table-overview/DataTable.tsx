@@ -24,6 +24,7 @@ import {
 import { useState } from "react";
 import { Filterbar } from "./DataTableFilterbar";
 import { DataTablePagination } from "./DataTablePagination";
+import { useMemo } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fuzzyFilter: FilterFn<any> = (
@@ -40,22 +41,49 @@ const fuzzyFilter: FilterFn<any> = (
   return itemRank.passed;
 };
 
-interface DataTableProps<TData> {
+interface DataTableProps<TData extends { start_date: string }> {
   columns: ColumnDef<TData>[];
   data: TData[];
 }
 
-export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
+export function DataTable<TData extends { start_date: string }>({
+  columns,
+  data,
+}: DataTableProps<TData>) {
   const pageSize = 16;
   const [globalFilter, setGlobalFilter] = useState("");
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
+  const [month, setMonth] = useState(new Date().getMonth());
+  const [year, setYear] = useState(new Date().getFullYear());
 
   const registeredFilterValue = columnFilters.find(
     (filter) => filter.id === "registered"
   )?.value as boolean | undefined;
 
+  // const filteredData = data.filter((item) => {
+  //   const date = new Date(item.start_date); // <- make sure item.end_date is a valid date string
+  //   return date.getMonth() === month && date.getFullYear() === year;
+  // });
+
+  const filteredData = useMemo(() => {
+    return data.filter((item) => {
+      if (!item.start_date) return false;
+
+      const date = new Date(item.start_date);
+      if (isNaN(date.getTime())) return false;
+
+      const itemMonth = date.getMonth();
+      const itemYear = date.getFullYear();
+
+      // Only include items from 2024 and beyond
+      if (itemYear < 2024) return false;
+
+      return itemMonth === month && itemYear === year;
+    });
+  }, [data, month, year]);
+
   const table = useReactTable({
-    data,
+    data: filteredData,
     columns,
     enableColumnResizing: false,
     filterFns: {
@@ -89,7 +117,12 @@ export function DataTable<TData>({ columns, data }: DataTableProps<TData>) {
         setRegisteredOnly={(checked: boolean) => {
           table.getColumn("registered")?.setFilterValue(checked || null);
         }}
+        setMonth={setMonth}
+        setYear={setYear}
+        month={month}
+        year={year}
       />
+
       <div className="relative overflow-hidden overflow-x-auto">
         <Table>
           <TableHead>

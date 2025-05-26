@@ -40,7 +40,6 @@ export default function About() {
         </p>
       </section>
       <TeamGallery />
-
       <Faqs />
     </div>
   );

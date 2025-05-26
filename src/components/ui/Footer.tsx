@@ -14,8 +14,8 @@ const navigation = {
     { name: "Tax & Assurance", href: "#", external: false },
   ],
   resources: [
-    { name: "FAQs", href: "/pricing#faq-title", external: false },
-    { name: "Blogs", href: "/pricing#faq-title", external: false },
+    { name: "FAQs", href: "/about#faq-title", external: false },
+    { name: "Blogs", href: "/blogs#blogs-page", external: false },
     { name: "YouTube", href: "https://www.youtube.com/", external: true },
   ],
   company: [
@@ -37,7 +37,7 @@ const navigation = {
 export default function Footer() {
   return (
     <footer id="footer">
-      <div className="bg-[#e9ecf0] mx-auto max-full mt-40 px-40 px-3 pb-8 pt-16 sm:pt-24 lg:pt-32">
+      <div className="mx-auto max-full mt-40 sm:px-40 px-3 pb-8 pt-16 sm:pt-24 lg:pt-32 bg-[#e9ecf0]">
         <div className="xl:grid xl:grid-cols-3 xl:gap-20">
           <div className="space-y-8">
             <img

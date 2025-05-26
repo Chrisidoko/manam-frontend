@@ -30,7 +30,7 @@ export default function Hero() {
         className="inline-block animate-slide-up-fade bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text p-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-6xl"
         style={{ animationDuration: "700ms" }}
       >
-        Welcome to Manam Professional services
+        Manam Professional services
         <br />
         Navigating Business. Delivering Excellence
         {/* We don’t just offer services <br /> we create value */}
@@ -42,9 +42,9 @@ export default function Hero() {
         Our approach blends responsiveness with the highest standards of
         professionalism, independence, and objectivity.
       </p>
-      <div className="z-20 -mt-32 h-[16rem] sm:h-[26rem] w-full overflow-hidden sm:-mt-36">
-        <div className="hidden md:block absolute bottom-0 h-3/5 w-full bg-gradient-to-b from-transparent via-[#e0f3fe] to-[#0095da] z-10" />
-        <div className="absolute inset-x-6 bottom-12 top-110 m-auto max-w-4xl md:top-2/3 z-20">
+      <div className="z-20 -mt-16 h-[16rem] sm:h-[26rem] w-full overflow-hidden sm:-mt-36">
+        <div className="absolute bottom-0 h-2/5 sm:h-3/5 w-full bg-gradient-to-b from-transparent via-[#e0f3fe] to-[#0095da] z-10" />
+        <div className="absolute inset-x-6 bottom-12 top-126 m-auto max-w-4xl md:top-2/3 z-20">
           <div className="flex justify-between rounded-lg border border-white/[60%] bg-white/[50%] px-6 py-6 shadow-xl backdrop-blur sm:grid md:grid-cols-3 md:gap-x-10  md:p-8">
             {features.map((item) => (
               <div key={item.name} className="flex flex-col items-start gap-2">

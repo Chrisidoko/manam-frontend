@@ -77,32 +77,27 @@ export function Navigation() {
                 className="px-2 py-1 text-gray-900"
                 href={siteConfig.baseLinks.about}
               >
-                About
+                Company
               </Link>
 
               {/* Services Dropdown */}
-              <div className="relative" ref={servicesDropdownRef}>
-                <button
-                  onClick={() => setOpenServicesDropdown(!openServicesDropdown)}
-                  className="px-2 py-1 text-gray-900 hover:underline focus:outline-none"
-                >
+              <div className="relative group">
+                <button className="px-2 py-1 text-gray-900 hover:underline focus:outline-none">
                   Services
                 </button>
-                {openServicesDropdown && (
-                  <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-51">
-                    {services.map((service) => (
-                      <li key={service.slug}>
-                        <Link
-                          href={`/services/${service.slug}`}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
-                          onClick={() => setOpenServicesDropdown(false)}
-                        >
-                          {service.name}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                )}
+
+                <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  {services.map((service) => (
+                    <li key={service.slug}>
+                      <Link
+                        href={`/services/${service.slug}`}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        {service.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
               </div>
 
               <Link
@@ -129,7 +124,9 @@ export function Navigation() {
 
           {/* Mobile Menu Toggle */}
           <div className="flex gap-x-2 md:hidden">
-            <Button>Contact Us</Button>
+            <Link href={siteConfig.baseLinks.contact}>
+              <Button>Contact Us</Button>
+            </Link>
             <Button
               onClick={() => setOpenMobileMenu(!openMobileMenu)}
               variant="light"

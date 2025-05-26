@@ -67,7 +67,7 @@ export const columns = [
       );
     },
   }),
-  columnHelper.accessor("end_date", {
+  columnHelper.accessor("start_date", {
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Transaction" />
     ),
@@ -80,20 +80,9 @@ export const columns = [
       return (
         <div className="flex flex-col gap-1">
           <span className="tabular-nums text-gray-900">
-            {row.original.end_date ? (
-              <>
-                End:{" "}
-                {new Date(row.original.end_date).toLocaleDateString("en-GB", {
-                  day: "2-digit",
-                  month: "2-digit",
-                  year: "numeric",
-                })}
-              </>
-            ) : (
-              <Badge className="px-1.5 py-0.5" variant="success">
-                Paid
-              </Badge>
-            )}
+            <Badge className="px-1.5 py-0.5" variant="success">
+              Paid
+            </Badge>
           </span>
           <span className="text-xs tabular-nums text-gray-500">
             Date:{" "}
@@ -140,6 +129,23 @@ export const columns = [
         <div className="flex flex-col gap-1">
           <span className="text-gray-900">{row.original.account}</span>
           <span className="text-xs text-gray-500">Dnamaz Capital</span>
+        </div>
+      );
+    },
+  }),
+  columnHelper.accessor("amount", {
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Amount" />
+    ),
+    enableSorting: false,
+    meta: {
+      className: "text-left",
+      displayName: "Amount",
+    },
+    cell: ({ row }) => {
+      return (
+        <div className="flex flex-col gap-1">
+          <span className="text-gray-900">₦{row.original.amount}</span>
         </div>
       );
     },
