@@ -37,7 +37,7 @@ const navigation = {
 export default function Footer() {
   return (
     <footer id="footer">
-      <div className="mx-auto max-full mt-40 sm:px-40 px-3 pb-8 pt-16 sm:pt-24 lg:pt-32 bg-[#e9ecf0]">
+      <div className="mx-auto max-full mt-40 sm:px-40 px-3 pb-8 pt-16 sm:pt-24 lg:pt-32 bg-[#07314a]">
         <div className="xl:grid xl:grid-cols-3 xl:gap-20">
           <div className="space-y-8">
             <img
@@ -46,7 +46,7 @@ export default function Footer() {
               className="w-32 sm:w-40"
             />
 
-            <p className="text-sm leading-6 text-gray-600">
+            <p className="text-sm leading-6 text-white">
               6th Floor, Yobe Investment House, Plot 1332, Ralph Shodeinde
               Street, Central Business District, Fct-Abuja.
             </p>
@@ -59,7 +59,7 @@ export default function Footer() {
               >
                 <RiInstagramLine
                   size={21}
-                  className="text-gray-500 cursor-pointer hover:text-gray-700 transition-colors"
+                  className="text-white cursor-pointer hover:text-[#0095da] transition-colors"
                 />
               </Link>
               <Link
@@ -70,7 +70,7 @@ export default function Footer() {
               >
                 <RiLinkedinBoxLine
                   size={21}
-                  className="text-gray-500 cursor-pointer"
+                  className="text-white hover:text-[#0095da] cursor-pointer"
                 />
               </Link>
               <Link
@@ -81,7 +81,7 @@ export default function Footer() {
               >
                 <RiTwitterLine
                   size={21}
-                  className="text-gray-500 cursor-pointer"
+                  className="text-white hover:text-[#0095da] cursor-pointer"
                 />
               </Link>
               <Link
@@ -92,7 +92,7 @@ export default function Footer() {
               >
                 <RiFacebookCircleLine
                   size={21}
-                  className="text-gray-500 cursor-pointer"
+                  className="text-white hover:text-[#0095da] cursor-pointer"
                 />
               </Link>
             </div>
@@ -103,7 +103,7 @@ export default function Footer() {
               {/*return to check mobile grid*/}
               <div></div>
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">
+                <h3 className="text-sm font-semibold leading-6 text-white">
                   Products
                 </h3>
                 <ul
@@ -114,7 +114,7 @@ export default function Footer() {
                   {navigation.product.map((item) => (
                     <li key={item.name} className="w-fit">
                       <Link
-                        className="flex rounded-md text-sm text-gray-500 transition hover:text-gray-900"
+                        className="flex rounded-md text-sm text-white transition hover:text-[#0095da]"
                         href={item.href}
                         target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
@@ -136,7 +136,7 @@ export default function Footer() {
             </div>
             <div className="grid grid-cols-2 gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">
+                <h3 className="text-sm font-semibold leading-6 text-white">
                   Resources
                 </h3>
                 <ul
@@ -147,7 +147,7 @@ export default function Footer() {
                   {navigation.resources.map((item) => (
                     <li key={item.name} className="w-fit">
                       <Link
-                        className="flex rounded-md text-sm text-gray-500 transition hover:text-gray-900"
+                        className="flex rounded-md text-sm text-white transition hover:text-[#0095da]"
                         href={item.href}
                         target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
@@ -168,7 +168,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-gray-900">
+                <h3 className="text-sm font-semibold leading-6 text-white">
                   Company
                 </h3>
                 <ul
@@ -179,7 +179,7 @@ export default function Footer() {
                   {navigation.company.map((item) => (
                     <li key={item.name} className="w-fit">
                       <Link
-                        className="flex rounded-md text-sm text-gray-500 transition hover:text-gray-900"
+                        className="flex rounded-md text-sm text-white transition hover:text-[#0095da]"
                         href={item.href}
                         target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
@@ -202,7 +202,7 @@ export default function Footer() {
           </div>
         </div>
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-gray-300 pt-8 sm:mt-20 sm:flex-row lg:mt-24">
-          <p className="text-sm leading-5 text-gray-500">
+          <p className="text-sm leading-5 text-white">
             &copy; {new Date().getFullYear()} Manam, Professional Services. All
             rights reserved.
           </p>
