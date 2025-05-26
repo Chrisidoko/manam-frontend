@@ -25,7 +25,7 @@ export default function Features() {
       <Badge>Company Overview</Badge>
       <h2
         id="features-title"
-        className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-5xl"
+        className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-6xl"
       >
         Delivering Strategic Financial Solutions.
       </h2>

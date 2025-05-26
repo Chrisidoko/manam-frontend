@@ -114,13 +114,6 @@ export default function Loginform() {
             {loading ? "Signing in..." : "Sign in"}
           </button>
         </form>
-
-        <p className="mt-6 text-sm text-gray-600 font-light">
-          Forgot your password?{" "}
-          <a href="#" className="font-medium text-blue-500 hover:text-blue-600">
-            Reset password
-          </a>
-        </p>
       </div>
     </div>
   );

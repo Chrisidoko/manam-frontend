@@ -16,11 +16,15 @@ const navigation = {
   resources: [
     { name: "FAQs", href: "/pricing#faq-title", external: false },
     { name: "Blogs", href: "/pricing#faq-title", external: false },
-    { name: "YouTube", href: "#", external: true },
+    { name: "YouTube", href: "https://www.youtube.com/", external: true },
   ],
   company: [
     { name: "About", href: "/about", external: false },
-    { name: "Careers", href: "#", external: true },
+    {
+      name: "Careers",
+      href: "https://www.linkedin.com/manamprofessionalservices",
+      external: true,
+    },
     { name: "Contact", href: "#", external: false },
   ],
   legal: [
@@ -33,7 +37,7 @@ const navigation = {
 export default function Footer() {
   return (
     <footer id="footer">
-      <div className="mx-auto max-w-6xl px-3 pb-8 pt-16 sm:pt-24 lg:pt-32">
+      <div className="bg-[#e9ecf0] mx-auto max-full mt-40 px-40 px-3 pb-8 pt-16 sm:pt-24 lg:pt-32">
         <div className="xl:grid xl:grid-cols-3 xl:gap-20">
           <div className="space-y-8">
             <img
@@ -197,7 +201,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-gray-200 pt-8 sm:mt-20 sm:flex-row lg:mt-24">
+        <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-gray-300 pt-8 sm:mt-20 sm:flex-row lg:mt-24">
           <p className="text-sm leading-5 text-gray-500">
             &copy; {new Date().getFullYear()} Manam, Professional Services. All
             rights reserved.

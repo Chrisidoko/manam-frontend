@@ -27,15 +27,16 @@ export default function About() {
           </Balancer>
         </h1>
         <p className="mt-6 max-w-2xl text-lg text-gray-700">
-          Manam Professional Services is a Nigerian firm with offices in Kaduna
-          and Abuja, that delivers cost-effective, high-quality solutions
-          tailored to your business needs.
+          Manam Professional Services is a trusted provider of Management
+          Consultancy, taxation, Assurance and training services, with offices
+          in Kaduna, Kano and Abuja.
           <br />
           <br />
-          Our approach blends responsiveness with the highest standards of
-          professionalism, independence, and objectivity. We invest heavily in
-          training our team to ensure top-tier expertise, because we know our
-          clients expect nothing less.
+          We are committed to delivering cost-effective, high-quality solutions
+          tailored to meet the specific needs of your business. Our team
+          combines deep industry knowledge with a personalized approach,
+          ensuring that every client receives expert guidance and measurable
+          results.
         </p>
       </section>
       <TeamGallery />

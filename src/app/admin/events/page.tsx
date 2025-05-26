@@ -73,19 +73,19 @@ export default function EventDashboard() {
     fetchEvents(page);
   }, [page]);
 
-  const handleDelete = async (blogId: string, onSuccess: () => void) => {
+  const handleDelete = async (eventId: string, onSuccess: () => void) => {
     const token = Cookies.get("token"); // Assuming you're storing token this way
     if (!token) {
       alert("No token found. Please log in.");
       return;
     }
 
-    const confirmed = confirm("Are you sure you want to delete this blog?");
+    const confirmed = confirm("Are you sure you want to delete this event?");
     if (!confirmed) return;
 
     try {
       const res = await fetch(
-        `https://mana-event.onrender.com/api/delete-blog/${blogId}`,
+        `https://mana-event.onrender.com/api/delete-event/${eventId}`,
         {
           method: "DELETE",
           headers: {
@@ -142,10 +142,10 @@ export default function EventDashboard() {
                   <div
                     className="text-red-500 cursor-pointer"
                     onClick={() =>
-                      handleDelete(event._id, () => {
+                      handleDelete(event.event_id, () => {
                         // optional: filter the blog out of state
                         setEvents((prev) =>
-                          prev.filter((b) => b._id !== event._id)
+                          prev.filter((b) => b.event_id !== event.event_id)
                         );
                       })
                     }

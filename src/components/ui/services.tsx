@@ -1,6 +1,7 @@
 import { Badge } from "../Badge";
 import Image from "next/image";
 import { RiArrowRightUpLine } from "@remixicon/react";
+import Link from "next/link";
 
 export default function Services() {
   return (
@@ -12,7 +13,7 @@ export default function Services() {
 
       <h2
         id="code-example-title"
-        className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-5xl"
+        className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-6xl"
       >
         Bring your organization <br /> to life with us
       </h2>
@@ -23,15 +24,20 @@ export default function Services() {
       <div className="mt-12 w-full h-full grid grid-cols-1 md:grid-cols-5 gap-5 md:gap-7">
         {/* Human Capital Development */}
         <div className="bg-white col-span-3 px-6 py-7 rounded-2xl lg:rounded-3xl cursor-pointer overflow-hidden relative">
-          <h2 className="text-3xl font-bold">Human Capital Development</h2>
+          <h2 className=" tracking-tight text-xl sm:text-3xl font-bold">
+            Human Capital Development
+          </h2>
           <p className="mt-2 w-[70%] text-sm text-[#667085]">
             {" "}
             We believe that people are the core of every successful
             organization.{" "}
           </p>
-          <p className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold">
+          <Link
+            href="/services/human-capital-development"
+            className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold"
+          >
             View More <RiArrowRightUpLine size={20} />
-          </p>
+          </Link>
           <Image
             src="/hands.png"
             width={210}
@@ -41,29 +47,33 @@ export default function Services() {
           />
         </div>
         {/* Management Consultancy */}
-        <div className="relative w-full bg-gradient-to-br from-[#b9e8fe] to-[#7cd6fd] col-span-2 p-6 lg:p-8 rounded-2xl lg:rounded-3xl cursor-pointer">
-          <h2 className="mt-6 text-3xl font-bold">Management Consultancy </h2>
+        <div className="relative w-full bg-gradient-to-br from-[#b9e8fe] to-[#7cd6fd] col-span-3 sm:col-span-2 p-6 lg:p-8 rounded-2xl lg:rounded-3xl cursor-pointer">
+          <h2 className="mt-6 text-xl sm:text-3xl font-bold">
+            Management Consultancy{" "}
+          </h2>
           <p className="mt-2 w-[70%] text-sm">
-            {" "}
             We work closely with our clients to understand their organizational
-            structure, market positioning, and internal capabilities{" "}
+            structure, market positioning, and internal capabilities.
           </p>
-          <p className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold">
+          <Link
+            href="/services/management-consultancy"
+            className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold"
+          >
             View More <RiArrowRightUpLine size={20} />
-          </p>
+          </Link>
           <Image
             src="/knight.png"
             width={160}
             height={60}
             alt="Management Consultancy "
-            className="absolute bottom-9 sm:bottom-6 right-1 w-34 sm:w-40 md:bottom-12 md:w-[160px]"
+            className="absolute bottom-6 sm:bottom-6 right-1 w-34 sm:w-40 md:bottom-12 md:w-[160px]"
           />
         </div>
       </div>
 
       <div className="mt-8 w-full grid grid-cols-1 md:grid-cols-6 gap-5 md:gap-7">
         <div className="relative bg-[#065c86] col-span-2 p-6 lg:p-8 rounded-2xl lg:rounded-3xl cursor-pointer">
-          <h2 className="mt-2 text-3xl text-white font-bold">
+          <h2 className="mt-2 text-xl sm:text-3xl text-white font-bold">
             Assurance Services
           </h2>
           <p className="mt-2 w-[64%] sm:w-[70%] text-sm text-[#e0f3fe]">
@@ -71,9 +81,12 @@ export default function Services() {
             Our Assurance Services provide clients with confidence in the
             accuracy and integrity of their financial information.{" "}
           </p>
-          <p className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold">
+          <Link
+            href="/services/assurance-services"
+            className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold"
+          >
             View More <RiArrowRightUpLine size={20} />
-          </p>
+          </Link>
           <Image
             src="/shield.png"
             width={120}
@@ -83,7 +96,7 @@ export default function Services() {
           />
         </div>
         <div className="relative bg-[#E6EEF3] col-span-2 p-6 lg:p-8 rounded-2xl lg:rounded-3xl cursor-pointer">
-          <h2 className="mt-2 text-3xl text-[#07314a] font-bold">
+          <h2 className="mt-2 tracking-tight text-xl sm:text-3xl text-[#07314a] font-bold">
             Taxation/Due Diligence
           </h2>
           <p className="mt-2 w-[60%] text-sm text-[#065c86]">
@@ -91,19 +104,22 @@ export default function Services() {
             We offer comprehensive tax advisory and due diligence services that
             help businesses navigate the complexities of local tax laws{" "}
           </p>
-          <p className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold">
+          <Link
+            href="/services/taxation-and-due-diligence"
+            className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold"
+          >
             View More <RiArrowRightUpLine size={20} />
-          </p>
+          </Link>
           <Image
             src="/stack.png"
             width={160}
             height={60}
             alt="Taxation/Due Diligence"
-            className="absolute bottom-4 right-4 xl:bottom-14 xl:right-0"
+            className="absolute bottom-4 right-4 xl:bottom-14 xl:right-0 w-36 sm:w-38"
           />
         </div>
         <div className="relative overflow-hidden bg-[#0e172a] col-span-2 p-6 lg:p-8 rounded-2xl lg:rounded-3xl cursor-pointer">
-          <h2 className="mt-2 text-2xl text-white font-bold">
+          <h2 className="mt-2 text-xl sm:text-2xl text-white font-bold">
             Corporate Recovery and Insolvency
           </h2>
           <p className="mt-2 w-[66%] text-sm text-[#98a2b2]">
@@ -111,9 +127,12 @@ export default function Services() {
             We support stakeholders through debt resolution, turnaround
             strategies, liquidation processes, and creditor negotiations.{" "}
           </p>
-          <p className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold">
+          <Link
+            href="/services/corporate-recovery-and-insolvency"
+            className="mt-4 flex items-center gap-1 text-[#0095DA] font-semibold"
+          >
             View More <RiArrowRightUpLine size={20} />
-          </p>
+          </Link>
           <Image
             src="/arrow.png"
             width={160}
