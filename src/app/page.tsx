@@ -3,7 +3,8 @@ import Hero2 from "@/components/ui/Hero2";
 import Products from "@/components/ui/products";
 // import LogoCloud from "@/components/ui/LogoCloud";
 import Features from "@/components/ui/Features";
-import Services from "@/components/ui/services";
+// import Services from "@/components/ui/services";
+import Services2 from "@/components/ui/services2";
 import Contact from "@/components/ui/contact";
 
 export default function Home() {
@@ -14,8 +15,10 @@ export default function Home() {
 
       {/* <LogoCloud /> */}
       <Products />
-      <Services />
+      {/* <Services /> */}
+      <Services2 />
       <Features />
+
       <Contact />
     </main>
   );

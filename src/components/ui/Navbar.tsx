@@ -52,7 +52,7 @@ export function Navigation() {
         "fixed inset-x-3 top-4 z-50 mx-auto flex max-w-6xl transform-gpu animate-slide-down-fade justify-center rounded-xl border border-transparent px-3 py-3 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1.03)] will-change-transform",
         openMobileMenu ? "h-auto pb-6" : "h-16",
         scrolled || openMobileMenu
-          ? "backdrop-blur-nav max-w-3xl border-gray-100 bg-white/80 shadow-xl shadow-black/5"
+          ? "backdrop-blur-nav max-w-4xl border-gray-100 bg-white/80 shadow-xl shadow-black/5"
           : "bg-white/0"
       )}
     >
@@ -61,7 +61,11 @@ export function Navigation() {
           {/* Logo */}
           <Link href={siteConfig.baseLinks.home} aria-label="Home">
             <span className="sr-only">manam-logo</span>
-            <img src="/manam(s).png" alt="manam logo" className="w-28" />
+            <img
+              src="/manam(s).png"
+              alt="manam logo"
+              className="w-30 sm:w-36 "
+            />
           </Link>
 
           {/* Desktop Nav */}

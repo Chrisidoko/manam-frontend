@@ -1,95 +1,101 @@
 "use client";
 
-// import HeroImage from "./HeroImage"
-
 import { useEffect, useState } from "react";
-import Image from "next/image";
 
-const features = [
-  {
-    name: "Advisory",
-    description:
-      "Strategic management consulting to drive growth, optimize operations, and expand global reach.",
-  },
-  {
-    name: "Tax & Assurance",
-    description:
-      "Providing trusted tax advisory and assurance services to ensure compliance, transparency, and financial integrity",
-  },
-  {
-    name: "Training",
-    description:
-      "Empowering our clients with up-to-date financial knowledge and skills for improved decision-making and performance.",
-  },
-];
+// Using placeholder images for testing - replace with your actual image paths
+const images = ["/1390.jpg", "/4122.jpg", "/tree.jpg"];
 
 export default function Hero2() {
   const [index, setIndex] = useState(0);
+  const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({});
 
   useEffect(() => {
     const interval = setInterval(() => {
-      setIndex((prevIndex) => (prevIndex + 1) % features.length);
-    }, 10000); // Change every 4 seconds
+      setIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 4000); // Faster for testing - change back to 6000
     return () => clearInterval(interval);
   }, []);
+
+  const handleImageError = (imageIndex: any) => {
+    setImageErrors((prev) => ({ ...prev, [imageIndex]: true }));
+    console.error(
+      `Failed to load image at index ${imageIndex}: ${images[imageIndex]}`
+    );
+  };
+
+  const handleImageLoad = (imageIndex: any) => {
+    console.log(`Successfully loaded image at index ${imageIndex}`);
+  };
+
   return (
-    <section
-      aria-labelledby="hero-title"
-      className="mt-32 flex flex-col  sm:mt-40"
-    >
-      <div className="flex flex-col-reverse lg:flex-row items-center gap-4">
-        {/* Left Sliding Text Section */}
-        <div className="overflow-hidden mt-10 ml-2 sm:ml-26 w-full sm:w-[50%] h-70 relative">
+    <div className="w-full">
+      <div className="bg-white h-[14vh]"></div>
+      <section className="relative h-[86vh] w-full overflow-hidden bg-gray-900">
+        {/* Background images */}
+        {images.map((src, i) => (
           <div
-            className="flex transition-transform duration-700 ease-in-out"
-            style={{ transform: `translateX(-${index * 100}%)` }}
+            key={i}
+            className={`absolute inset-0 w-full h-full transition-opacity duration-1000 ${
+              index === i ? "opacity-100" : "opacity-0"
+            }`}
+            style={{ zIndex: index === i ? 1 : 0 }}
           >
-            {features.map((feature, i) => (
-              <div key={i} className="w-full min-w-full px-4 sm:px-10">
-                <h1 className="py-2 bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text text-transparent text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
-                  {feature.name}
-                </h1>
-                <p className="mt-6 max-w-lg text-xl text-gray-700 z-50">
-                  {feature.description}
-                </p>
+            {imageErrors[i] ? (
+              <div className="w-full h-full bg-red-900 flex items-center justify-center text-white">
+                <div className="text-center">
+                  <div className="text-xl mb-2">❌</div>
+                  <div>Image {i + 1} failed to load</div>
+                  <div className="text-sm opacity-70 mt-1 break-all px-4">
+                    {src}
+                  </div>
+                </div>
               </div>
-            ))}
+            ) : (
+              <img
+                src={src}
+                alt={`Slide ${i + 1}`}
+                className="w-full h-full object-cover"
+                onError={() => handleImageError(i)}
+                onLoad={() => handleImageLoad(i)}
+                loading={i === 0 ? "eager" : "lazy"}
+              />
+            )}
+          </div>
+        ))}
+
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/20 z-10" />
+
+        {/* Foreground content */}
+        <div className="relative z-20 flex items-center h-full px-6 sm:px-38">
+          <div className="max-w-4xl text-white">
+            <h1
+              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
+              style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.4)" }}
+            >
+              Manam Professional services
+            </h1>
+
+            <p className="mt-6 text-lg sm:text-3xl text-gray-200">
+              Navigating Business. Delivering Excellence
+            </p>
+
+            {/* Navigation dots */}
+            <div className="flex space-x-2 mt-8">
+              {images.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setIndex(i)}
+                  className={`w-3 h-3 rounded-full transition-colors ${
+                    index === i ? "bg-white" : "bg-white/50"
+                  }`}
+                  aria-label={`Go to slide ${i + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </div>
-
-        {/* Right side: stacked/overlapping images */}
-        <div className="hidden sm:block w-full lg:w-1/2 flex justify-center relative">
-          {/* Top image */}
-          <div className="w-70 h-70 mr-68 rounded-xl overflow-hidden shadow-lg z-20 relative">
-            <Image
-              src="/image1.jpg"
-              alt="Image 1"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          {/* Bottom image – offset */}
-          <div className="w-70 h-70 mr-6 rounded-xl overflow-hidden shadow-lg absolute top-20 right-20 z-70">
-            <Image
-              src="/tree(1).jpg"
-              alt="Image 2"
-              fill
-              className="object-cover"
-            />
-          </div>
-
-          {/* badge */}
-          <div className="absolute top-2 right-60 bg-gray-800 text-white tracking-tight font-semibold px-4 py-2 rounded-sm text-sm z-30">
-            100+ <br />
-            Happy Clients
-          </div>
-        </div>
-      </div>
-
-      <div className="z-20 h-[16rem] sm:h-[26rem] w-full overflow-hidden -mt-18 sm:-mt-38">
-        <div className="absolute bottom-0 h-3/5 w-full bg-gradient-to-b from-transparent via-[#e0f3fe] to-[#0095da] z-10" />
-      </div>
-    </section>
+      </section>
+    </div>
   );
 }

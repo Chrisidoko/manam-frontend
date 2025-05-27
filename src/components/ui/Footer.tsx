@@ -113,10 +113,8 @@ export default function Footer() {
                 >
                   {navigation.product.map((item) => (
                     <li key={item.name} className="w-fit">
-                      <Link
+                      <span
                         className="flex rounded-md text-sm text-white transition hover:text-[#0095da]"
-                        href={item.href}
-                        target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
                       >
                         <span>{item.name}</span>
@@ -128,7 +126,7 @@ export default function Footer() {
                             />
                           </div>
                         )}
-                      </Link>
+                      </span>
                     </li>
                   ))}
                 </ul>

@@ -10,7 +10,7 @@ export default function Contact() {
       <Badge>Contact Us</Badge>
 
       <div className="mt-12 ">
-        <div className="w-full flex flex-col items-center h-56 sm:h-70 gap-1 py-10 md:py-14 px-5 bg-[#07314a] rounded-2xl lg:rounded-3xl">
+        <div className="w-full flex flex-col items-center h-56 sm:h-70 gap-1 py-10 md:py-14 px-5 bg-[#0095da] rounded-2xl lg:rounded-3xl">
           <h2 className="m-0 font-bold text-white text-center text-2xl md:text-3xl xl:text-4xl">
             DO YOU HAVE A QUESTION?
           </h2>
@@ -21,7 +21,7 @@ export default function Contact() {
           <div className="mt-4 flex justify-center gap-3">
             <a
               href="mailto:info@manamprofessionals.com"
-              className="text-gray-200 bg-[#0095da] !border-none relative w-10 h-10 sm:w-12 sm:h-12 flex justify-center items-center rounded-lg line-no-box cursor-pointer focus:text-brand-800 font-medium hover:text-brand-700 no-underline text-base text-gray-900"
+              className="text-gray-200 bg-[#07314a] !border-none relative w-10 h-10 sm:w-12 sm:h-12 flex justify-center items-center rounded-lg line-no-box cursor-pointer focus:text-brand-800 font-medium hover:text-brand-700 no-underline text-base text-gray-900"
             >
               <RiMailSendLine className="text-white" />
             </a>
