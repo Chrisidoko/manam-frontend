@@ -1,7 +1,7 @@
 // import Hero from "@/components/ui/Hero";
 import Hero2 from "@/components/ui/Hero2";
 import Products from "@/components/ui/products";
-// import LogoCloud from "@/components/ui/LogoCloud";
+import LogoCloud from "@/components/ui/LogoCloud";
 import Features from "@/components/ui/Features";
 // import Services from "@/components/ui/services";
 import Services2 from "@/components/ui/services2";
@@ -13,13 +13,12 @@ export default function Home() {
       {/* <Hero /> */}
       <Hero2 />
 
-      {/* <LogoCloud /> */}
       <Products />
       {/* <Services /> */}
       <Services2 />
       <Features />
-
-      <Contact />
+      <LogoCloud />
+      {/* <Contact /> */}
     </main>
   );
 }

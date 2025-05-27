@@ -1,3 +1,5 @@
+import { Badge } from "../Badge";
+
 export default function LogoCloud() {
   return (
     <section
@@ -6,10 +8,11 @@ export default function LogoCloud() {
       className="mt-24 flex animate-slide-up-fade flex-col items-center justify-center gap-y-6 text-center sm:mt-1"
       style={{ animationDuration: "1500ms" }}
     >
-      <p className="text-lg font-medium tracking-tighter text-gray-800">
+      <Badge className="mt-26 text-2xl"> Partners</Badge>
+      <p className="text-lg tracking-tighter text-gray-600">
         Partnering with leading financial institutions.
       </p>
-      <div className="grid grid-cols-2 gap-6 gap-y-4 text-gray-900 md:grid-cols-4 md:gap-x-20">
+      <div className="mt-16 grid grid-cols-2 gap-6 gap-y-4 text-gray-900 md:grid-cols-4 md:gap-x-20">
         {[
           { src: "/dnamaz.png", alt: "dnamazcapital", className: "w-16" },
           {
