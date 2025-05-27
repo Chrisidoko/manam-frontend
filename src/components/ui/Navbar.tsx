@@ -9,6 +9,12 @@ import React from "react";
 import { services } from "@/app/services/services";
 import { Button } from "../Button";
 
+const company = [
+  { name: "About Us", path: "/about" },
+  { name: "Our Team", path: "/#" },
+  { name: "Company profile", path: "/#" },
+];
+
 export function Navigation() {
   const scrolled = useScroll(15);
   const [openMobileMenu, setOpenMobileMenu] = React.useState(false);
@@ -77,12 +83,31 @@ export function Navigation() {
               >
                 Home
               </Link>
-              <Link
+              {/* <Link
                 className="px-2 py-1 text-gray-900"
                 href={siteConfig.baseLinks.about}
               >
                 Company
-              </Link>
+              </Link> */}
+              {/* Company Dropdown */}
+              <div className="relative group">
+                <button className="px-2 py-1 text-gray-900 hover:underline focus:outline-none">
+                  Company
+                </button>
+
+                <ul className="absolute left-0 mt-2 w-48 bg-white border border-gray-200 shadow-lg rounded-md z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  {company.map((company) => (
+                    <li key={company.name}>
+                      <Link
+                        href={company.path}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        {company.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
 
               {/* Services Dropdown */}
               <div className="relative group">
