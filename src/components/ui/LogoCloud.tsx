@@ -27,7 +27,7 @@ const logos = [
   {
     src: "/eurofoam.png",
     alt: "eurofoam",
-    className: "w-38",
+    className: "w-42",
   },
 
   {
@@ -65,7 +65,7 @@ export default function LogoCloud() {
       </div>
 
       <div className="mt-26 mb-26 relative overflow-hidden w-full">
-        <div className="flex animate-scroll whitespace-nowrap gap-10">
+        <div className="flex animate-scroll whitespace-nowrap gap-10 w-max">
           {[...logos, ...logos].map((logo, i) => (
             <img
               key={i}

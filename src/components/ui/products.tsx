@@ -23,18 +23,18 @@ export default function Products() {
     <section
       id="products"
       aria-label="Company logos"
-      className="hidden sm:block flex animate-slide-up-fade flex-col items-center justify-center gap-y-6 text-center sm:mt-1"
+      className="flex animate-slide-up-fade flex-col items-center justify-center gap-y-6 text-center sm:mt-1"
       style={{ animationDuration: "1500ms" }}
     >
       <h3 className="mt-24 text-[#a9b7c5]">WHAT WE DO</h3>
-      <h2 className="w-[76%] mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-2xl font-bold tracking-tighter text-transparent sm:text-4xl md:text-4xl">
+      <h2 className="w-full sm:w-[76%] mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-2xl font-bold tracking-tighter text-transparent sm:text-4xl md:text-4xl">
         We an Africa-focused firm, that ensures financial integrity, and deliver
         empowering training.
       </h2>
-      <p className="mt-2 text-gray-600">
+      <p className="mt-2 px-2 text-gray-600">
         Our diversified proposition delivers value across the board
       </p>
-      <div className="sm:mt-10 flex justify-between px-2 py-6 sm:grid md:grid-cols-3 md:gap-x-10  md:px-50">
+      <div className="sm:mt-10 flex flex-col sm:flex-row gap-4 justify-between px-2 py-6 md:gap-10  md:px-50">
         {features.map((item) => (
           <div
             key={item.name}
@@ -42,7 +42,7 @@ export default function Products() {
           >
             <Badge className="text-2xl"> {item.name}</Badge>
 
-            <p className="hidden sm:block mt-2 text-center leading-6 text-[#4B4949]">
+            <p className="mt-2 text-center leading-6 text-[#4B4949]">
               {item.description}
             </p>
           </div>
