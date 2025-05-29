@@ -1,6 +1,15 @@
 // app/service/services.ts
 export const services = [
   {
+    slug: "taxation-and-due-diligence",
+    name: "Taxation / Due Diligence",
+    description:
+      "We offer comprehensive tax advisory and due diligence services that help businesses navigate the complexities of local tax laws while maintaining compliance and optimizing tax positions. Our experienced professionals provide guidance on corporate tax planning, VAT compliance, and withholding tax management. Through our due diligence services, we support clients in mergers, acquisitions, and investments, ensuring transparency, minimizing risks, and safeguarding business interests.",
+    image: "/stack.png",
+    bgColor: "#E6EEF3",
+    textColor: "#000000",
+  },
+  {
     slug: "human-capital-development",
     name: "Human Capital Development",
     description:
@@ -27,15 +36,7 @@ export const services = [
     bgColor: "#065c86",
     textColor: "#FFFFFF",
   },
-  {
-    slug: "taxation-and-due-diligence",
-    name: "Taxation / Due Diligence",
-    description:
-      "We offer comprehensive tax advisory and due diligence services that help businesses navigate the complexities of local tax laws while maintaining compliance and optimizing tax positions. Our experienced professionals provide guidance on corporate tax planning, VAT compliance, and withholding tax management. Through our due diligence services, we support clients in mergers, acquisitions, and investments, ensuring transparency, minimizing risks, and safeguarding business interests.",
-    image: "/stack.png",
-    bgColor: "#E6EEF3",
-    textColor: "#000000",
-  },
+
   {
     slug: "corporate-recovery-and-insolvency",
     name: "Corporate Recovery and Insolvency",

@@ -1,18 +1,33 @@
-import { Badge } from "../Badge";
+// import { Badge } from "../Badge";
 
 export default function LogoCloud() {
   return (
     <section
       id="logo cloud"
       aria-label="Company logos"
-      className="mt-24 flex animate-slide-up-fade flex-col items-center justify-center gap-y-6 text-center sm:mt-1"
+      className="bg-gradient-to-br from-[#e1eaf7] to-[#ffffff] mx-auto mt-24 w-full px-10 sm:px-40"
       style={{ animationDuration: "1500ms" }}
     >
-      <Badge className="mt-26 text-2xl"> Partners</Badge>
-      <p className="text-lg tracking-tighter text-gray-600">
-        Partnering with leading financial institutions.
-      </p>
-      <div className="mt-16 grid grid-cols-2 gap-6 gap-y-4 text-gray-900 md:grid-cols-4 md:gap-x-20">
+      <div className="mt-26 flex flex-col items-center gap-8 md:flex-row">
+        <div className="mr-auto">
+          <h1
+            id="Partners-title"
+            className="max-w-2xl text-left inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-3xl text-transparent font-bold tracking-tighter sm:text-2xl md:text-3xl"
+          >
+            Partners
+          </h1>
+          <p className="max-w-3xl text-3xl text-[#0095da] font-bold tracking-tighter sm:text-2xl md:text-3xl">
+            We believe in the power <br /> of collaboration.
+          </p>
+        </div>
+        <span className="max-w-2xl ml-auto">
+          Through strategic partnerships with leading organizations and
+          professional bodies, we enhance our expertise, ensure continuous
+          innovation, and deliver exceptional value to our clients.
+        </span>
+      </div>
+
+      <div className="mt-16  mb-26 grid grid-cols-2 gap-6 gap-y-4 text-gray-900 md:grid-cols-4 md:gap-x-20">
         {[
           { src: "/dnamaz.png", alt: "dnamazcapital", className: "w-16" },
           {

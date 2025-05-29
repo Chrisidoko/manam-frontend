@@ -5,7 +5,8 @@ import LogoCloud from "@/components/ui/LogoCloud";
 import Features from "@/components/ui/Features";
 // import Services from "@/components/ui/services";
 import Services2 from "@/components/ui/services2";
-import Contact from "@/components/ui/contact";
+import Industries from "@/components/ui/industries";
+// import Contact from "@/components/ui/contact";
 
 export default function Home() {
   return (
@@ -15,9 +16,11 @@ export default function Home() {
 
       <Products />
       {/* <Services /> */}
+      <Industries />
       <Services2 />
-      <Features />
       <LogoCloud />
+      <Features />
+
       {/* <Contact /> */}
     </main>
   );
