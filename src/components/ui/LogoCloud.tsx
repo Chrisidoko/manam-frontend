@@ -1,5 +1,21 @@
 // import { Badge } from "../Badge";
 
+const logos = [
+  { src: "/dnamaz.png", alt: "dnamazcapital", className: "w-18" },
+  {
+    src: "/kano_state(1).png",
+    alt: "Kano state govt",
+    className: "w-16",
+  },
+
+  { src: "/sec.png", alt: "Sec Nigeria", className: "w-38" },
+  {
+    src: "/goldenspring.png",
+    alt: "goldenspring securities",
+    className: "w-20",
+  },
+];
+
 export default function LogoCloud() {
   return (
     <section
@@ -27,29 +43,17 @@ export default function LogoCloud() {
         </span>
       </div>
 
-      <div className="mt-16  mb-26 grid grid-cols-2 gap-6 gap-y-4 text-gray-900 md:grid-cols-4 md:gap-x-20">
-        {[
-          { src: "/dnamaz.png", alt: "dnamazcapital", className: "w-16" },
-          {
-            src: "/goldenspring.png",
-            alt: "goldenspring securities",
-            className: "w-28",
-          },
-
-          { src: "/sec.png", alt: "Sec Nigeria", className: "w-38" },
-          {
-            src: "/goldenspring.png",
-            alt: "goldenspring securities",
-            className: "w-28",
-          },
-        ].map((logo, i) => (
-          <img
-            key={i}
-            src={logo.src}
-            alt={logo.alt}
-            className={`${logo.className} cursor-pointer grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition duration-300`}
-          />
-        ))}
+      <div className="mt-26 mb-26 relative overflow-hidden w-full">
+        <div className="flex animate-scroll whitespace-nowrap gap-10">
+          {[...logos, ...logos].map((logo, i) => (
+            <img
+              key={i}
+              src={logo.src}
+              alt={logo.alt}
+              className={`${logo.className} cursor-pointer grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition duration-300 inline-block`}
+            />
+          ))}
+        </div>
       </div>
     </section>
   );

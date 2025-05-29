@@ -14,6 +14,11 @@ const config: Config = {
         handwriting: ["NanumPenScript"],
       },
       keyframes: {
+        scroll: {
+          "0%": { transform: "translateX(0)" },
+          "100%": { transform: "translateX(-50%)" },
+        },
+
         hide: {
           from: { opacity: "1" },
           to: { opacity: "0" },
@@ -77,6 +82,8 @@ const config: Config = {
         },
       },
       animation: {
+        //partners
+        scroll: "scroll 40s linear infinite",
         hide: "hide 150ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideDownAndFade:
           "slideDownAndFade 150ms cubic-bezier(0.16, 1, 0.3, 1)",
