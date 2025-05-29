@@ -7,8 +7,10 @@ import {
   RiRocketLine,
   RiStethoscopeLine,
   RiGovernmentLine,
+  RiHospitalLine,
   RiBookLine,
   RiBuilding4Line,
+  RiMic2Line,
 } from "@remixicon/react";
 
 const industries = [
@@ -17,9 +19,11 @@ const industries = [
   { label: "Manufacturing", icon: <RiBuildingLine /> },
   { label: "SMEs & Startups", icon: <RiRocketLine /> },
   { label: "Healthcare", icon: <RiStethoscopeLine /> },
-  { label: "Hospitality", icon: <RiGovernmentLine /> },
+  { label: "Hospitality", icon: <RiHospitalLine /> },
   { label: "Education", icon: <RiBookLine /> },
   { label: "Real Estate", icon: <RiBuilding4Line /> },
+  { label: "Public Sector & Government Agencies", icon: <RiGovernmentLine /> },
+  { label: "Lifestyle & Creative Industries", icon: <RiMic2Line /> },
 ];
 
 export default function Industries() {
@@ -40,10 +44,10 @@ export default function Industries() {
             compliant, improve performance, and build capacity through
             professional training and advisory services.
           </p>
-          <div className="py-12 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="py-12 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-6">
             {industries.map((industry, index) => (
               <div key={index} className="flex flex-col items-center gap-2">
-                <div className="bg-white py-3 px-3 shadow rounded-xl text-[#0095da] text-2xl">
+                <div className="bg-white py-3 px-3 shadow rounded-xl text-[#0095da] text-2xl transform transition duration-400 hover:-translate-y-2 hover:shadow-lg">
                   {industry.icon}
                 </div>
                 <p className="text-sm text-center text-[#0b4c6f]">

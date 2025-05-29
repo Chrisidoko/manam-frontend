@@ -28,7 +28,6 @@ export default function Hero() {
       <h1
         id="hero-title"
         className="inline-block animate-slide-up-fade bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text p-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-6xl"
-        style={{ animationDuration: "700ms" }}
       >
         Manam Professional services
         <br />

@@ -1,4 +1,5 @@
 // import { Badge } from "../Badge";
+"use client";
 
 const logos = [
   { src: "/dnamaz.png", alt: "dnamazcapital", className: "w-16" },
@@ -35,6 +36,36 @@ const logos = [
     alt: "federa judiciary commission service",
     className: "w-44",
   },
+  {
+    src: "/nigerstate.png",
+    alt: "niger state",
+    className: "w-34",
+  },
+  {
+    src: "/kadirs.png",
+    alt: "kaduna state internal revenue services",
+    className: "w-18",
+  },
+  {
+    src: "/sahad.png",
+    alt: "sahad stores",
+    className: "w-40",
+  },
+  {
+    src: "/nile.png",
+    alt: "nile university",
+    className: "w-40",
+  },
+  {
+    src: "/gilmore.png",
+    alt: "gilmore construction",
+    className: "w-34",
+  },
+  {
+    src: "/undp.png",
+    alt: "undp",
+    className: "w-32",
+  },
 ];
 
 export default function LogoCloud() {
@@ -65,7 +96,7 @@ export default function LogoCloud() {
       </div>
 
       <div className="mt-26 mb-26 relative overflow-hidden w-full">
-        <div className="flex animate-scroll whitespace-nowrap gap-10 w-max">
+        <div className="flex whitespace-nowrap gap-10 w-max py-4 animate-marquee">
           {[...logos, ...logos].map((logo, i) => (
             <img
               key={i}
@@ -76,6 +107,29 @@ export default function LogoCloud() {
           ))}
         </div>
       </div>
+      <style jsx>{`
+        @keyframes scroll-inline {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        @keyframes marquee {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+
+        .animate-marquee {
+          animation: marquee 40s linear infinite;
+        }
+      `}</style>
     </section>
   );
 }
