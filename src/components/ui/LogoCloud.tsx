@@ -1,18 +1,39 @@
 // import { Badge } from "../Badge";
 
 const logos = [
-  { src: "/dnamaz.png", alt: "dnamazcapital", className: "w-18" },
+  { src: "/dnamaz.png", alt: "dnamazcapital", className: "w-16" },
   {
     src: "/kano_state(1).png",
     alt: "Kano state govt",
-    className: "w-16",
+    className: "w-18",
   },
 
-  { src: "/sec.png", alt: "Sec Nigeria", className: "w-38" },
+  { src: "/dunes.png", alt: "dunes", className: "w-44" },
   {
-    src: "/goldenspring.png",
-    alt: "goldenspring securities",
-    className: "w-20",
+    src: "/scc.jpg",
+    alt: "scc",
+    className: "w-40",
+  },
+  {
+    src: "/bob.png",
+    alt: "scc",
+    className: "w-18",
+  },
+  {
+    src: "/UBEC.jpg",
+    alt: "subeb jigawa",
+    className: "w-18",
+  },
+  {
+    src: "/eurofoam.png",
+    alt: "eurofoam",
+    className: "w-38",
+  },
+
+  {
+    src: "/fjsc.png",
+    alt: "federa judiciary commission service",
+    className: "w-44",
   },
 ];
 
