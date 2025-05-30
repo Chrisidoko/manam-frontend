@@ -63,7 +63,7 @@ export default function UserTable() {
       const result = await res.json();
       if (res.ok) {
         alert(`User promoted to admin: ${result.message || "Success"}`);
-        // Optionally, re-fetch or update users state:
+        // Update users state
         setUsers((prev) =>
           prev.map((u) => (u._id === userId ? { ...u, role: "admin" } : u))
         );
@@ -72,6 +72,41 @@ export default function UserTable() {
       }
     } catch (error) {
       alert("Error promoting user");
+      console.error(error);
+    }
+  };
+
+  const deleteUser = async (userId: string, userName: string) => {
+    // Confirmation dialog
+    const isConfirmed = window.confirm(
+      `Are you sure you want to delete user "${userName}"? This action cannot be undone.`
+    );
+
+    if (!isConfirmed) return;
+
+    const token = Cookies.get("token");
+    try {
+      const res = await fetch(
+        `https://mana-event.onrender.com/api/delete-admin/${userId}`,
+        {
+          method: "DELETE",
+          headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      const result = await res.json();
+      if (res.ok) {
+        alert(`User "${userName}" has been deleted successfully.`);
+        // Remove user from state
+        setUsers((prev) => prev.filter((user) => user._id !== userId));
+      } else {
+        alert(result.message || result.error || "Failed to delete user.");
+      }
+    } catch (error) {
+      alert("Error deleting user");
       console.error(error);
     }
   };
@@ -87,7 +122,7 @@ export default function UserTable() {
             <th className="px-4 py-2 border">Email</th>
             <th className="px-4 py-2 border">Phone</th>
             <th className="px-4 py-2 border">Role</th>
-            <th className="px-4 py-2 border">Action</th>
+            <th className="px-4 py-2 border">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -100,18 +135,30 @@ export default function UserTable() {
               <td className="px-4 py-2 border">{user.phone}</td>
               <td className="px-4 py-2 border capitalize">{user.role}</td>
               <td className="px-4 py-2 border">
-                {user.role !== "admin" && user.role !== "superAdmin" ? (
-                  <button
-                    onClick={() => makeAdmin(user._id)}
-                    className="bg-gray-600 text-white text-xs px-3 py-1 rounded hover:bg-blue-700 transition"
-                  >
-                    Make Admin
-                  </button>
-                ) : (
-                  <span className="text-gray-400 text-xs">
-                    Already {user.role}
-                  </span>
-                )}
+                <div className="flex gap-2">
+                  {user.role !== "admin" && user.role !== "superAdmin" ? (
+                    <button
+                      onClick={() => makeAdmin(user._id)}
+                      className="bg-blue-600 text-white text-xs px-3 py-1 rounded hover:bg-blue-700 transition"
+                    >
+                      Make Admin
+                    </button>
+                  ) : (
+                    <span className="text-gray-400 text-xs px-3 py-1">
+                      {user.role}
+                    </span>
+                  )}
+
+                  {/* Delete button - available for all users except superAdmin */}
+                  {user.role !== "superAdmin" && (
+                    <button
+                      onClick={() => deleteUser(user._id, user.username)}
+                      className="bg-red-600 text-white text-xs px-3 py-1 rounded hover:bg-red-700 transition"
+                    >
+                      Delete
+                    </button>
+                  )}
+                </div>
               </td>
             </tr>
           ))}

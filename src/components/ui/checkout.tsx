@@ -11,9 +11,16 @@ type CheckoutProps = {
   date: string;
   image: string;
   title: string;
+  event_id: string;
 };
 
-export function Checkout({ price, date, image, title }: CheckoutProps) {
+export function Checkout({
+  price,
+  date,
+  image,
+  title,
+  event_id,
+}: CheckoutProps) {
   const [showInfo, setShowInfo] = useState(false);
   const [showModal, setShowModal] = useState(false);
 
@@ -54,6 +61,7 @@ export function Checkout({ price, date, image, title }: CheckoutProps) {
           date={date}
           image={image}
           title={title}
+          event_id={event_id}
           onClose={() => setShowModal(false)}
         />
       )}
