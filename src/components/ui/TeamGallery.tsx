@@ -4,7 +4,7 @@ export default function TeamGallery() {
   return (
     <section
       aria-labelledby="teamwork-title"
-      className="mx-auto mt-5 max-w-4xl animate-slide-up-fade"
+      className="mx-auto mt-5 max-w-xs sm:max-w-4xl animate-slide-up-fade"
       style={{
         animationDuration: "600ms",
         animationDelay: "200ms",
@@ -14,7 +14,7 @@ export default function TeamGallery() {
       <div className="mt-20">
         <div className="flex w-full flex-col items-center justify-between md:flex-row">
           <InstaxImage
-            className="w-[25rem] -rotate-6 sm:-ml-10"
+            className="w-[20rem] sm:w-[25rem] -rotate-6 sm:-ml-10"
             src="/images/working.webp"
             alt="picture 1"
             width={640}
@@ -22,7 +22,7 @@ export default function TeamGallery() {
             caption="picture 1"
           />
           <InstaxImage
-            className="w-[15rem] rotate-3"
+            className="w-[14rem] sm:w-[15rem] rotate-3"
             src="/images/workplace.webp"
             alt="picture 2"
             width={640}
@@ -30,7 +30,7 @@ export default function TeamGallery() {
             caption="picture 2"
           />
           <InstaxImage
-            className="-mr-10 w-[15rem] rotate-1"
+            className="-mr-10 w-[14rem] sm:w-[15rem] rotate-1"
             src="/images/home.webp"
             alt="picture 2"
             width={640}

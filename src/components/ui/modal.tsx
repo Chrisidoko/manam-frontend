@@ -2,11 +2,11 @@
 import Image from "next/image";
 import { RiCloseLine } from "@remixicon/react";
 import { formatInTimeZone } from "date-fns-tz";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Cookies from "js-cookie";
 
 type ModalProps = {
-  price: string;
+  price: number;
   date: string;
   image: string;
   title: string;
@@ -32,6 +32,20 @@ export default function Modal({
   });
   const [loading, setLoading] = useState(false);
   const [success, setSuccess] = useState(false);
+
+  // Prevent body scroll when modal is open
+  useEffect(() => {
+    // Store original overflow style
+    const originalOverflow = document.body.style.overflow;
+
+    // Prevent body scroll
+    document.body.style.overflow = "hidden";
+
+    // Cleanup function to restore original scroll behavior
+    return () => {
+      document.body.style.overflow = originalOverflow;
+    };
+  }, []);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, type, checked } = e.target;
@@ -103,13 +117,29 @@ export default function Modal({
       setLoading(false);
     }
   };
+
+  // Enhanced close handler to restore body scroll
+  const handleClose = () => {
+    document.body.style.overflow = "";
+    onClose();
+  };
+
   return (
-    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4">
-      <div className="bg-white rounded-md w-full max-w-5xl shadow-lg max-h-[95vh] overflow-hidden flex ">
-        <div className="grid sm:grid-cols-[2fr_1fr] gap-4 h-full overflow-hidden">
+    <div
+      className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-4 overflow-y-auto"
+      onClick={handleClose}
+    >
+      <div
+        className="bg-white rounded-md w-full max-w-5xl shadow-lg my-4 sm:my-8 overflow-hidden flex min-h-[90vh] sm:min-h-0 sm:max-h-[95vh] mt-76 sm:mt-0"
+        onClick={(e) => e.stopPropagation()}
+      >
+        <div className="grid sm:grid-cols-[2fr_1fr] gap-4 h-full overflow-hidden w-full">
           <div className="relative w-full flex flex-col overflow-hidden">
             <div className="flex items-center text-gray-700 p-2 flex-shrink-0">
-              <RiCloseLine onClick={onClose} className="h-6 cursor-pointer" />
+              <RiCloseLine
+                onClick={handleClose}
+                className="h-6 cursor-pointer"
+              />
               <span className="mx-auto text-xl text-center font-semibold">
                 Checkout
               </span>
@@ -118,11 +148,11 @@ export default function Modal({
             <div className="mt-4 md:border-y md:border-[#f7f6f9] flex-shrink-0"></div>
 
             {/* Scrollable content area */}
-            <div className="flex overflow-y-auto px-4 sm:px-9 pb-4">
+            <div className="flex overflow-y-auto px-4 sm:px-9 pb-4 flex-1">
               {success ? (
                 // Success message
                 <div className="flex flex-col items-center justify-center h-full text-center py-12 sm:flex-row">
-                  <div className="mb-6">
+                  <div className="mb-6 ml-12">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <svg
                         className="w-8 h-8 text-green-600"
@@ -159,7 +189,7 @@ export default function Modal({
                       Present your registration code at the event for admission
                     </p>
                     <button
-                      onClick={onClose}
+                      onClick={handleClose}
                       className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-md hover:bg-gray-700 transition"
                     >
                       Close
@@ -168,13 +198,13 @@ export default function Modal({
                 </div>
               ) : (
                 // Original form content
-                <div className="mt-4 py-6">
+                <div className="mt-4 py-6 w-full">
                   <span className="text-2xl font-bold">
                     Contact Information
                   </span>
                   <div className="mt-2 flex items-center justify-between text-xs text-gray-500">
                     <span>Personal Attendee Info</span>
-                    <span>
+                    <span className="mr-2">
                       <span className="text-red-500">*</span> Required
                     </span>
                   </div>
@@ -197,7 +227,7 @@ export default function Modal({
                       </div>
                       <div>
                         <label className="block text-xs font-medium text-gray-700">
-                          Phone
+                          Phone <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="tel"
@@ -226,7 +256,7 @@ export default function Modal({
 
                       <div>
                         <label className="block text-xs font-medium text-gray-700">
-                          Organization
+                          Organization <span className="text-red-500">*</span>
                         </label>
                         <input
                           type="text"
@@ -303,46 +333,44 @@ export default function Modal({
               )}
             </div>
           </div>
-          {/* Desktop sidebar - hide when success */}
-          {!success && (
-            <div className="hidden sm:block h-full bg-[#f2f7fb] rounded-sm overflow-hidden">
-              <div className="relative w-full h-60">
-                <Image
-                  src={
-                    image
-                      ? `${api_url}/${image.replace(/^\/+/, "")}`
-                      : "/No-Image.png"
-                  }
-                  alt={title}
-                  fill
-                  className="object-cover rounded-sm"
-                />
-              </div>
-              <div className="px-4 h-[calc(100%-240px)] overflow-y-auto">
-                <h2 className="text-sm font-bold mt-4">Reservation Summary</h2>
-                <p className="text-sm text-gray-700 mt-4">
-                  You&apos;re about to reserve a spot for{" "}
-                  <strong>₦{price}</strong> <br />
-                  <br />
-                  Event is on{" "}
-                  <strong>
-                    {" "}
-                    {formatInTimeZone(
-                      date,
-                      "Africa/Lagos",
-                      "EEE, MMM d • h:mmaaa"
-                    )}
-                  </strong>
-                  .
-                </p>
-                {/* border */}
-                <div className="mt-8 border-t border-[#f7f6f9]"></div>
-                <span className="mt-12 font-bold flex items-center justify-between">
-                  Total: <p>₦{price}</p>
-                </span>
-              </div>
+          {/* Desktop sidebar */}
+          <div className="hidden sm:block w-[22rem] h-full bg-[#f2f7fb] rounded-sm overflow-hidden">
+            <div className="relative w-full h-60">
+              <Image
+                src={
+                  image
+                    ? `${api_url}/${image.replace(/^\/+/, "")}`
+                    : "/No-Image.png"
+                }
+                alt={title}
+                fill
+                className="object-cover rounded-sm"
+              />
             </div>
-          )}
+            <div className="px-4 h-[calc(100%-240px)] overflow-y-auto">
+              <h2 className="text-sm font-bold mt-4">Reservation Summary</h2>
+              <p className="text-sm text-gray-700 mt-4">
+                You&apos;re about to reserve a spot for{" "}
+                <strong>₦{price}</strong> <br />
+                <br />
+                Event is on{" "}
+                <strong>
+                  {" "}
+                  {formatInTimeZone(
+                    date,
+                    "Africa/Lagos",
+                    "EEE, MMM d • h:mmaaa"
+                  )}
+                </strong>
+                .
+              </p>
+              {/* border */}
+              <div className="mt-8 border-t border-[#f7f6f9]"></div>
+              <span className="mt-12 font-bold flex items-center justify-between">
+                Total: <p>₦{price}</p>
+              </span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

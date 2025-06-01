@@ -11,10 +11,11 @@ interface Event {
   event_name?: string;
   event_date: string;
   event_location: string;
-  price: string;
+  price: number;
   slug: string;
   image?: string;
   event_image?: string;
+  space_available: number;
   event_description?: string;
   event_organizer?: string;
 }
@@ -53,6 +54,7 @@ const Event = async ({ params }: { params: Params }) => {
       slug: event.slug,
       image: event.image || event.event_image || "/No-Image.png",
       event_description: event.event_description || "No description available",
+      space_available: event.space_available,
       event_id: event.event_id,
       organizer: event.event_organizer || "Event Organizer",
     };
@@ -137,6 +139,7 @@ const Event = async ({ params }: { params: Params }) => {
             image={eventData.image}
             title={eventData.title}
             event_id={eventData.event_id}
+            space_available={eventData.space_available}
           />
         </div>
 

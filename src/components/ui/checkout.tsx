@@ -7,11 +7,12 @@ import Modal from "@/components/ui/modal";
 import { formatInTimeZone } from "date-fns-tz";
 
 type CheckoutProps = {
-  price: string;
+  price: number;
   date: string;
   image: string;
   title: string;
   event_id: string;
+  space_available: number;
 };
 
 export function Checkout({
@@ -20,6 +21,7 @@ export function Checkout({
   image,
   title,
   event_id,
+  space_available,
 }: CheckoutProps) {
   const [showInfo, setShowInfo] = useState(false);
   const [showModal, setShowModal] = useState(false);
@@ -29,7 +31,7 @@ export function Checkout({
       <div className="flex mt-10 h-46 flex-col justify-center space-y-3 p-4 rounded-xl ring-2 ring-gray-200/80">
         <div className="flex justify-between">
           <span className="text-gray-800">Spaces Available</span>
-          <span className="text-xl font-semibold">24</span>
+          <span className="text-xl font-semibold">{space_available}</span>
         </div>
         <span className="flex gap-2 items-center font-semibold">
           ₦{price}
