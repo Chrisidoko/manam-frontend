@@ -130,7 +130,7 @@ export default function Modal({
       onClick={handleClose}
     >
       <div
-        className="bg-white rounded-md w-full max-w-5xl shadow-lg my-4 sm:my-8 overflow-hidden flex min-h-[90vh] sm:min-h-0 sm:max-h-[95vh] mt-76 sm:mt-0"
+        className="bg-white rounded-md w-full max-w-5xl shadow-lg my-4 sm:my-8 overflow-hidden flex min-h-[90vh] sm:min-h-0 sm:max-h-[95vh] mt-66 sm:mt-0"
         onClick={(e) => e.stopPropagation()}
       >
         <div className="grid sm:grid-cols-[2fr_1fr] gap-4 h-full overflow-hidden w-full">
@@ -152,7 +152,7 @@ export default function Modal({
               {success ? (
                 // Success message
                 <div className="flex flex-col items-center justify-center h-full text-center py-12 sm:flex-row">
-                  <div className="mb-6 ml-12">
+                  <div className="mb-6 ml-0 sm:ml-12">
                     <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
                       <svg
                         className="w-8 h-8 text-green-600"
