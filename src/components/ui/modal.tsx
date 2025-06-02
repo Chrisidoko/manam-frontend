@@ -101,10 +101,10 @@ export default function Modal({
       if (response.ok && result.paymentLink) {
         // Show success state first
         setSuccess(true);
-        // Redirect to payment link after a brief delay
+        // Redirect to payment link after a brief delay same page this time around
         setTimeout(() => {
-          window.open(result.paymentLink, "_blank");
-        }, 1000);
+          window.location.href = result.paymentLink;
+        }, 5000);
       } else {
         alert(
           result.message || "Failed to initiate payment. Please try again."
