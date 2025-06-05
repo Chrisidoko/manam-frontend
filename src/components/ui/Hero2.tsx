@@ -29,7 +29,7 @@ export default function Hero2() {
 
   return (
     <div className="w-full">
-      <div className="bg-white h-[14vh]"></div>
+      <div className="bg-white h-[10vh] sm:h-[14vh]"></div>
       <section className="relative h-[86vh] w-full overflow-hidden bg-gray-900">
         {/* Background images */}
         {images.map((src, i) => (
@@ -70,13 +70,13 @@ export default function Hero2() {
         <div className="relative z-20 flex items-center h-full px-6 sm:px-38">
           <div className="max-w-4xl text-white">
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight"
+              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight animate-[slideUpFade_700ms_ease-in-out]"
               style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.4)" }}
             >
               Manam Professional services
             </h1>
 
-            <p className="mt-6 text-lg sm:text-3xl text-gray-200">
+            <p className="mt-6 text-lg sm:text-3xl text-gray-200 animate-[slideUpFade_700ms_ease-in-out]">
               Navigating Business. Delivering Excellence
             </p>
 
@@ -95,6 +95,18 @@ export default function Hero2() {
             </div>
           </div>
         </div>
+        <style jsx>{`
+          @keyframes slideUpFade {
+            from {
+              opacity: 0;
+              transform: translateY(12px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0px);
+            }
+          }
+        `}</style>
       </section>
     </div>
   );

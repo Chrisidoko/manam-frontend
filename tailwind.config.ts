@@ -78,6 +78,7 @@ const config: Config = {
       },
       animation: {
         //partners
+        "spin-slow": "spin linear infinite",
 
         hide: "hide 150ms cubic-bezier(0.16, 1, 0.3, 1)",
         slideDownAndFade:

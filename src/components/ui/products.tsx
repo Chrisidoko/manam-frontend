@@ -26,7 +26,7 @@ export default function Products() {
       className="flex animate-slide-up-fade flex-col items-center justify-center gap-y-6 text-center sm:mt-1"
       style={{ animationDuration: "1500ms" }}
     >
-      <h3 className="mt-24 text-[#a9b7c5]">WHAT WE DO</h3>
+      <h3 className="mt-20 text-gray-400">WHAT WE DO</h3>
       <h2 className="w-full sm:w-[76%] mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-2xl font-bold tracking-tighter text-transparent sm:text-4xl md:text-4xl">
         We an Africa-focused firm, that ensures financial integrity, and deliver
         empowering training.

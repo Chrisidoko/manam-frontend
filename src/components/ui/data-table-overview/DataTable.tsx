@@ -24,7 +24,6 @@ import {
 import { useState } from "react";
 import { Filterbar } from "./DataTableFilterbar";
 import { DataTablePagination } from "./DataTablePagination";
-import { useMemo } from "react";
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 const fuzzyFilter: FilterFn<any> = (
@@ -41,49 +40,37 @@ const fuzzyFilter: FilterFn<any> = (
   return itemRank.passed;
 };
 
-interface DataTableProps<TData extends { start_date: string }> {
+interface DataTableProps<TData> {
   columns: ColumnDef<TData>[];
   data: TData[];
+  month: number;
+  year: number;
+  onMonthChange: (month: number) => void;
+  onYearChange: (year: number) => void;
+  onExport?: () => void; // New prop for export functionality
+  isExporting?: boolean; // New prop for export loading state
 }
 
-export function DataTable<TData extends { start_date: string }>({
+export function DataTable<TData>({
   columns,
   data,
+  month,
+  year,
+  onMonthChange,
+  onYearChange,
+  onExport,
+  isExporting = false,
 }: DataTableProps<TData>) {
   const pageSize = 16;
   const [globalFilter, setGlobalFilter] = useState("");
   const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>([]);
-  const [month, setMonth] = useState(new Date().getMonth());
-  const [year, setYear] = useState(new Date().getFullYear());
 
   const registeredFilterValue = columnFilters.find(
     (filter) => filter.id === "registered"
   )?.value as boolean | undefined;
 
-  // const filteredData = data.filter((item) => {
-  //   const date = new Date(item.start_date); // <- make sure item.end_date is a valid date string
-  //   return date.getMonth() === month && date.getFullYear() === year;
-  // });
-
-  const filteredData = useMemo(() => {
-    return data.filter((item) => {
-      if (!item.start_date) return false;
-
-      const date = new Date(item.start_date);
-      if (isNaN(date.getTime())) return false;
-
-      const itemMonth = date.getMonth();
-      const itemYear = date.getFullYear();
-
-      // Only include items from 2024 and beyond
-      if (itemYear < 2024) return false;
-
-      return itemMonth === month && itemYear === year;
-    });
-  }, [data, month, year]);
-
   const table = useReactTable({
-    data: filteredData,
+    data: data,
     columns,
     enableColumnResizing: false,
     filterFns: {
@@ -115,12 +102,16 @@ export function DataTable<TData extends { start_date: string }>({
         setGlobalFilter={setGlobalFilter}
         registeredOnly={Boolean(registeredFilterValue)}
         setRegisteredOnly={(checked: boolean) => {
-          table.getColumn("registered")?.setFilterValue(checked || null);
+          table
+            .getColumn("payment_status")
+            ?.setFilterValue(checked ? "paid" : null);
         }}
-        setMonth={setMonth}
-        setYear={setYear}
         month={month}
+        setMonth={onMonthChange}
         year={year}
+        setYear={onYearChange}
+        onExport={onExport}
+        isExporting={isExporting}
       />
 
       <div className="relative overflow-hidden overflow-x-auto">

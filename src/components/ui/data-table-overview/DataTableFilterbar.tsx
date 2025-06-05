@@ -15,6 +15,8 @@ interface FilterBarProps {
   setMonth: (month: number) => void;
   year: number;
   setYear: (year: number) => void;
+  onExport?: () => void;
+  isExporting?: boolean;
 }
 
 const months = [
@@ -44,6 +46,8 @@ export function Filterbar({
   setMonth,
   year,
   setYear,
+  onExport,
+  isExporting = false,
 }: FilterBarProps) {
   const [searchTerm, setSearchTerm] = useState(globalFilter);
   const searchInputRef = useRef<HTMLInputElement>(null);
@@ -62,6 +66,12 @@ export function Filterbar({
     setSearchTerm("");
     setGlobalFilter("");
     searchInputRef.current?.focus();
+  };
+
+  const handleExport = () => {
+    if (onExport && !isExporting) {
+      onExport();
+    }
   };
 
   return (
@@ -113,13 +123,19 @@ export function Filterbar({
         </div>
       </div>
 
-      <Button className="flex items-center gap-2 text-base sm:text-sm">
-        Export
-        <RiDownloadLine
-          className="-mr-0.5 size-4 shrink-0"
-          aria-hidden="true"
-        />
-      </Button>
+      {onExport && (
+        <Button
+          className="flex items-center gap-2 text-base sm:text-sm"
+          onClick={handleExport}
+          disabled={isExporting}
+        >
+          {isExporting ? "Exporting..." : "Export"}
+          <RiDownloadLine
+            className="-mr-0.5 size-4 shrink-0"
+            aria-hidden="true"
+          />
+        </Button>
+      )}
     </div>
   );
 }

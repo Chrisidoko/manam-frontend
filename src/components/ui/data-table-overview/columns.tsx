@@ -1,46 +1,83 @@
 import { Badge } from "./BadgeOverview";
-import { Agent } from "@/data/agents/schema";
 import { DataTableColumnHeader } from "./DataTableColumnHeader";
 import { cx } from "@/lib/utils";
 import { RiUser3Fill } from "@remixicon/react";
 import { ColumnDef, createColumnHelper } from "@tanstack/react-table";
 
-const columnHelper = createColumnHelper<Agent>();
+// Updated type to match API response
+type TicketType = {
+  _id: string;
+  event: {
+    ticket_sold: number;
+    _id: string;
+    event_creator: string;
+    event_name: string;
+    event_date: string;
+    event_location: string;
+    event_description: string;
+    event_organizer: string;
+    price: number;
+    event_image: string;
+    event_type: string;
+    space_available: number;
+    event_status: string;
+    slug: string;
+    event_id: string;
+    date_created: string;
+    __v: number;
+  };
+  amount_paid: number;
+  payment_status: string;
+  transaction_reference: string;
+  event_name: string;
+  email: string;
+  name: string;
+  organization: string;
+  date_start: string;
+  ticket_id: string;
+  date_paid: string;
+  __v: number;
+};
+
+const columnHelper = createColumnHelper<TicketType>();
 
 export const columns = [
-  columnHelper.accessor("registered", {
+  columnHelper.accessor("payment_status", {
     enableColumnFilter: true,
     enableSorting: true,
     enableHiding: true,
     meta: {
-      displayName: "Registered",
+      displayName: "Payment Status",
       className: "hidden",
     },
   }),
-  columnHelper.accessor("full_name", {
+  columnHelper.accessor("name", {
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Attendee" />
     ),
     enableSorting: true,
     meta: {
       className: "text-left",
-      displayName: "Agent",
+      displayName: "Attendee",
     },
     cell: ({ row }) => {
       return (
         <div className="flex flex-col gap-1">
           <span className="font-medium text-gray-900">
-            {row.original.full_name}
+            {row.original.name || "N/A"}
           </span>
           <div className="flex items-center gap-1 text-xs">
-            <span className="text-gray-500">RefID </span>
+            <span className="text-gray-500">Ticket ID </span>
             <span className="font-mono font-medium uppercase tabular-nums text-gray-900">
-              {row.original.agent_id}
+              {row.original.ticket_id || "N/A"}
+              {/* {row.original.ticket_id?.slice(-8) || "N/A"} */}
             </span>
             <RiUser3Fill
               className={cx(
                 "size-3 shrink-0",
-                row.original.registered ? "text-emerald-600" : "text-gray-400"
+                row.original.payment_status === "paid"
+                  ? "text-emerald-600"
+                  : "text-gray-400"
               )}
             />
           </div>
@@ -49,7 +86,7 @@ export const columns = [
     },
   }),
 
-  columnHelper.accessor("number", {
+  columnHelper.accessor("email", {
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Contact Information" />
     ),
@@ -61,83 +98,84 @@ export const columns = [
     cell: ({ row }) => {
       return (
         <div className="flex flex-col gap-1">
-          <span className="text-gray-900">{row.original.number}</span>
-          <span className="text-xs text-gray-500">{row.original.email}</span>
+          <span className="text-gray-900">{row.original.email || "N/A"}</span>
+          <span className="text-xs text-gray-500">
+            {row.original.organization || "No organization"}
+          </span>
         </div>
       );
     },
   }),
-  columnHelper.accessor("start_date", {
+  columnHelper.accessor("date_paid", {
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Transaction" />
+      <DataTableColumnHeader column={column} title="Payment Status" />
     ),
     enableSorting: true,
     meta: {
       className: "text-left",
-      displayName: "Contact Dates",
+      displayName: "Payment Status",
     },
     cell: ({ row }) => {
+      const isPaid = row.original.payment_status === "paid";
+      const isPending = row.original.payment_status === "pending";
+
       return (
         <div className="flex flex-col gap-1">
           <span className="tabular-nums text-gray-900">
-            <Badge className="px-1.5 py-0.5" variant="success">
-              Paid
+            <Badge
+              className="px-1.5 py-0.5"
+              variant={isPaid ? "success" : isPending ? "warning" : "error"}
+            >
+              {row.original.payment_status === "paid"
+                ? "Paid"
+                : row.original.payment_status === "pending"
+                  ? "Pending"
+                  : "Failed"}
             </Badge>
           </span>
           <span className="text-xs tabular-nums text-gray-500">
             Date:{" "}
-            {new Date(row.original.start_date).toLocaleDateString("en-GB", {
-              day: "2-digit",
-              month: "2-digit",
-              year: "numeric",
-            })}
+            {row.original.date_paid
+              ? new Date(row.original.date_paid).toLocaleDateString("en-GB", {
+                  day: "2-digit",
+                  month: "2-digit",
+                  year: "numeric",
+                })
+              : "N/A"}
           </span>
         </div>
       );
     },
   }),
-  // {
-  //   header: "Transaction date",
-  //   accessorKey: "created",
-  //   meta: {
-  //     className: "text-left",
-  //   },
-  //   cell: ({ row }) => (
-  //     <>
-  //       {new Date(row.original.created).toLocaleDateString("en-GB", {
-  //         day: "2-digit",
-  //         month: "2-digit",
-  //         year: "numeric",
-  //         hour: "2-digit",
-  //         minute: "2-digit",
-  //       })}
-  //     </>
-  //   ),
-  // },
-  columnHelper.accessor("account", {
+
+  columnHelper.accessor("event_name", {
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Event" />
     ),
     enableSorting: true,
     meta: {
       className: "text-left",
-      displayName: "Account",
+      displayName: "Event",
     },
     filterFn: "arrIncludesSome",
     cell: ({ row }) => {
       return (
         <div className="flex flex-col gap-1">
-          <span className="text-gray-900">{row.original.account}</span>
-          <span className="text-xs text-gray-500">Dnamaz Capital</span>
+          <span className="text-gray-900">
+            {row.original.event_name || "N/A"}
+          </span>
+          <span className="text-xs text-gray-500">
+            {row.original.event?.event_organizer || "Unknown Organizer"}
+          </span>
         </div>
       );
     },
   }),
-  columnHelper.accessor("amount", {
+  columnHelper.accessor("amount_paid", {
     header: ({ column }) => (
       <DataTableColumnHeader column={column} title="Amount" />
     ),
-    enableSorting: false,
+    enableSorting: true,
     meta: {
       className: "text-left",
       displayName: "Amount",
@@ -145,84 +183,11 @@ export const columns = [
     cell: ({ row }) => {
       return (
         <div className="flex flex-col gap-1">
-          <span className="text-gray-900">₦{row.original.amount}</span>
+          <span className="text-gray-900">
+            ₦{row.original.amount_paid?.toLocaleString() || "0"}
+          </span>
         </div>
       );
     },
   }),
-  // {
-  //   header: "Event Name",
-  //   accessorKey: "description",
-  //   meta: {
-  //     className: "text-left",
-  //     cell: "font-medium text-gray-900",
-  //   },
-  // },
-  // {
-  //   header: "Ref Code",
-  //   accessorKey: "policyNumber",
-  //   meta: {
-  //     className: "text-left",
-  //     cell: "font-medium",
-  //   },
-  // },
-  // {
-  //   header: "Full Name",
-  //   accessorKey: "type",
-  //   meta: {
-  //     className: "text-left",
-  //   },
-  //   cell: ({ row }) => {
-  //     const Icon = typeIconMapping[row.original.type];
-  //     return (
-  //       <div className="flex items-center gap-2">
-  //         {Icon && <Icon className="size-4 shrink-0" aria-hidden="true" />}
-  //         <span className="capitalize">
-  //           {row.original.type.replace("-contact", "")}
-  //         </span>
-  //       </div>
-  //     );
-  //   },
-  // },
-  // {
-  //   header: "Phone",
-  //   accessorKey: "duration",
-  //   meta: {
-  //     className: "text-left",
-  //   },
-  // },
-  // {
-  //   header: "Status",
-  //   accessorKey: "priority",
-  //   meta: {
-  //     className: "text-left",
-  //   },
-  //   cell: ({ row }) => (
-  //     <Badge
-  //       variant="neutral"
-  //       className="gap-1.5 font-normal capitalize text-gray-700"
-  //     >
-  //       <span
-  //         className={cx(
-  //           "size-2 shrink-0 rounded-sm",
-  //           "bg-gray-500",
-  //           {
-  //             "bg-emerald-600": row.original.priority === "Paid",
-  //           },
-  //           {
-  //             "bg-gray-500": row.original.priority === "Unknown",
-  //           },
-  //           {
-  //             "bg-orange-500": row.original.priority === "Pending",
-  //           },
-  //           {
-  //             "bg-red-500": row.original.priority === "Failed",
-  //           }
-  //         )}
-  //         aria-hidden="true"
-  //       />
-  //       {row.original.priority}
-  //     </Badge>
-  //   ),
-  // },
-] as ColumnDef<Agent>[];
+] as ColumnDef<TicketType>[];
