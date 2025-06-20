@@ -101,10 +101,19 @@ export default function Modal({
       if (response.ok && result.paymentLink) {
         // Show success state first
         setSuccess(true);
-        // Redirect to payment link after a brief delay same page this time around
-        setTimeout(() => {
-          window.location.href = result.paymentLink;
-        }, 5000);
+
+        // Pre-open the tab during user action
+        const newTab = window.open("", "_blank");
+
+        if (newTab) {
+          // Load the payment link after a brief delay
+          setTimeout(() => {
+            newTab.location.href = result.paymentLink;
+          }, 5000);
+        } else {
+          // If tab was blocked or couldn't open, fallback
+          alert("Please allow popups or click the link manually.");
+        }
       } else {
         alert(
           result.message || "Failed to initiate payment. Please try again."
