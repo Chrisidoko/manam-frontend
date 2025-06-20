@@ -112,7 +112,7 @@ export default function Modal({
           }, 5000);
         } else {
           // If tab was blocked or couldn't open, fallback
-          alert("Please allow popups or click the link manually.");
+          alert("Please allow popups to open check out link.");
         }
       } else {
         alert(

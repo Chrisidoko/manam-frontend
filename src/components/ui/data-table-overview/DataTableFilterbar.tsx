@@ -52,6 +52,10 @@ export function Filterbar({
   const [searchTerm, setSearchTerm] = useState(globalFilter);
   const searchInputRef = useRef<HTMLInputElement>(null);
 
+  const [showSelector, setShowSelector] = useState(false);
+  const [tempMonth, setTempMonth] = useState(month);
+  const [tempYear, setTempYear] = useState(year);
+
   const debouncedSetGlobalFilter = useDebouncedCallback((value) => {
     setGlobalFilter(value);
   }, 300);
@@ -94,32 +98,65 @@ export function Filterbar({
             Clear
           </Button>
         )}
-        <div className="flex items-center gap-2">
-          {/* Month Selector */}
-          <select
-            className="border border-gray-200 rounded-md px-2 py-2 text-sm shadow-sm"
-            value={month}
-            onChange={(e) => setMonth(parseInt(e.target.value))}
-          >
-            {months.map((monthName, index) => (
-              <option key={index} value={index}>
-                {monthName}
-              </option>
-            ))}
-          </select>
 
-          {/* Year Selector */}
-          <select
-            className="border border-gray-200 rounded-md px-2 py-2 text-sm shadow-sm"
-            value={year}
-            onChange={(e) => setYear(parseInt(e.target.value))}
+        {/* Combined Month-Year Display with Selector */}
+        <div className="relative">
+          <button
+            type="button"
+            className="text-sm font-medium border border-gray-200 rounded-md px-3 py-2 shadow-sm bg-white hover:bg-gray-50"
+            onClick={() => {
+              setTempMonth(month);
+              setTempYear(year);
+              setShowSelector(true);
+            }}
           >
-            {yearRange.map((yearOption) => (
-              <option key={yearOption} value={yearOption}>
-                {yearOption}
-              </option>
-            ))}
-          </select>
+            {`01 ${months[month]} - ${new Date(year, month + 1, 0).getDate()} ${months[month]} ${year}`}
+          </button>
+
+          {showSelector && (
+            <div className="absolute z-10 mt-2 w-64 rounded-md border bg-white shadow-lg p-4">
+              <div className="flex flex-col gap-3">
+                <label className="text-sm font-semibold">Select Month</label>
+                <select
+                  className="border border-gray-300 rounded-md px-2 py-1 text-sm"
+                  value={tempMonth}
+                  onChange={(e) => setTempMonth(parseInt(e.target.value))}
+                >
+                  {months.map((monthName, index) => (
+                    <option key={index} value={index}>
+                      {monthName}
+                    </option>
+                  ))}
+                </select>
+
+                <label className="text-sm font-semibold mt-2">
+                  Select Year
+                </label>
+                <select
+                  className="border border-gray-300 rounded-md px-2 py-1 text-sm"
+                  value={tempYear}
+                  onChange={(e) => setTempYear(parseInt(e.target.value))}
+                >
+                  {yearRange.map((yearOption) => (
+                    <option key={yearOption} value={yearOption}>
+                      {yearOption}
+                    </option>
+                  ))}
+                </select>
+
+                <button
+                  onClick={() => {
+                    setMonth(tempMonth);
+                    setYear(tempYear);
+                    setShowSelector(false);
+                  }}
+                  className="mt-4 text-sm bg-blue-600 text-white rounded-md px-3 py-1 hover:bg-blue-700"
+                >
+                  Done
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
