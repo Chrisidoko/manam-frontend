@@ -173,11 +173,11 @@ export function Navigation() {
         {/* Mobile Menu */}
         <nav
           className={cx(
-            "my-6 flex text-lg ease-in-out will-change-transform md:hidden",
+            "mt-4 mb-1 flex text-lg ease-in-out will-change-transform md:hidden",
             openMobileMenu ? "" : "hidden"
           )}
         >
-          <ul className="space-y-4 font-medium text-sm">
+          <ul className="space-y-5 font-medium text-sm">
             <li onClick={() => setOpenMobileMenu(false)}>
               <Link href={siteConfig.baseLinks.home}>Home</Link>
             </li>

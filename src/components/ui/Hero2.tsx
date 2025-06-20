@@ -29,7 +29,7 @@ export default function Hero2() {
 
   return (
     <div className="w-full">
-      <div className="bg-white h-[10vh] sm:h-[14vh]"></div>
+      <div className="bg-white h-[11vh] sm:h-[14vh]"></div>
       <section className="relative h-[86vh] w-full overflow-hidden bg-gray-900">
         {/* Background images */}
         {images.map((src, i) => (

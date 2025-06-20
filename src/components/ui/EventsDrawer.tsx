@@ -202,17 +202,17 @@ const SummaryPage = ({ formData }: { formData: TicketFormData }) => (
         <div className="border-b border-gray-200 p-4">
           <h3 className="font-medium">Event Information</h3>
           <div className="mt-4 space-y-4">
-            <SummaryItem label="Event Name" value={formData.title} />
+            <SummaryItem label="Event Name" value={formData.event_name} />
+
             <SummaryItem
-              label="Event Type"
-              value={
-                categoryTypes.find((c) => c.value === formData.category)
-                  ?.name ?? undefined
-              }
+              label="Event Location"
+              value={formData.event_location}
             />
-            <SummaryItem label="Event Location" value={formData.author} />
-            <SummaryItem label="Amount" value={formData.author} />
-            <SummaryItem label="Space Available" value={formData.author} />
+            <SummaryItem label="Amount" value={formData.price} />
+            <SummaryItem
+              label="Space Available"
+              value={formData.space_available}
+            />
           </div>
         </div>
         <div className="p-4">
