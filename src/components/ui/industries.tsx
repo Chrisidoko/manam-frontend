@@ -37,7 +37,7 @@ export default function Industries() {
           <h3 className="max-w-2xl text-left mt-2 inline-block text-[#07314a] py-2 text-3xl font-bold tracking-tighter sm:text-2xl md:text-3xl">
             Industries We Serve
           </h3>
-          <p className="max-w-3xl text-[#0b4c6f]">
+          <p className="max-w-3xl text-justify text-[#0b4c6f]">
             We understand that each industry operates within a unique regulatory
             and operational landscape. Our team brings deep expertise and
             tailored solutions to help organizations across sectors stay

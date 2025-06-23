@@ -2,7 +2,7 @@
 "use client";
 
 const logos = [
-  { src: "/dnamaz.png", alt: "dnamazcapital", className: "w-16" },
+  // { src: "/dnamaz.png", alt: "dnamazcapital", className: "w-16" },
   {
     src: "/kano_state(1).png",
     alt: "Kano state govt",
@@ -41,11 +41,11 @@ const logos = [
     alt: "niger state",
     className: "w-34",
   },
-  {
-    src: "/kadirs.png",
-    alt: "kaduna state internal revenue services",
-    className: "w-18",
-  },
+  // {
+  //   src: "/kadirs.png",
+  //   alt: "kaduna state internal revenue services",
+  //   className: "w-18",
+  // },
   {
     src: "/sahad.png",
     alt: "sahad stores",
@@ -82,7 +82,7 @@ export default function LogoCloud() {
             id="Partners-title"
             className="max-w-2xl text-left inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-3xl text-transparent font-bold tracking-tighter sm:text-2xl md:text-3xl"
           >
-            Partners
+            Our Clients
           </h1>
           <p className="max-w-3xl text-3xl text-[#0095da] font-bold tracking-tighter sm:text-2xl md:text-3xl">
             We believe in the power <br /> of collaboration.
@@ -102,7 +102,8 @@ export default function LogoCloud() {
               key={i}
               src={logo.src}
               alt={logo.alt}
-              className={`${logo.className} cursor-pointer grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition duration-300 inline-block`}
+              className={`${logo.className} cursor-pointer opacity-90  hover:opacity-100 transition duration-300 inline-block`}
+              // className={`${logo.className} cursor-pointer grayscale opacity-90 hover:grayscale-0 hover:opacity-100 transition duration-300 inline-block`}
             />
           ))}
         </div>

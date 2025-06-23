@@ -52,8 +52,8 @@ export default function Services2() {
     },
     {
       id: 4,
-      title: "Taxation/Due Diligence",
-      slug: "taxation-due-diligence",
+      title: "Taxation",
+      slug: "taxation",
       description:
         "We offer comprehensive tax advisory and due diligence services that help businesses navigate the complexities of local tax laws",
       image: "/stack.png",
@@ -84,7 +84,7 @@ export default function Services2() {
 
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => (prevIndex + 1) % services.length);
-    }, 5000); // Change slide every 5 seconds
+    }, 12000); // Change slide every 12 seconds
 
     return () => clearInterval(interval);
   }, [isAutoPlaying, services.length]);
@@ -122,9 +122,9 @@ export default function Services2() {
       >
         Bring your organization <br /> to life with us
       </h2>
-      <p className="mt-6 max-w-2xl text-lg text-gray-600">
+      <p className="mt-6 max-w-2xl text-lg text-justify text-gray-600">
         Empowering your organization&apos;s growth with tailored services that
-        ensures your ambitions becomes a reality.
+        ensures your goal becomes a reality
       </p>
 
       {/* Slider Container */}

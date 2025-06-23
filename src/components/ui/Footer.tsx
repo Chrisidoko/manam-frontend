@@ -1,7 +1,7 @@
 import {
   RiArrowRightUpLine,
   RiInstagramLine,
-  RiTwitterLine,
+  RiTwitterXLine,
   RiLinkedinBoxLine,
   RiFacebookCircleLine,
 } from "@remixicon/react";
@@ -79,7 +79,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 aria-label="Follow us on Instagram"
               >
-                <RiTwitterLine
+                <RiTwitterXLine
                   size={21}
                   className="text-white hover:text-[#0095da] cursor-pointer"
                 />

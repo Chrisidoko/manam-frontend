@@ -29,7 +29,9 @@ const ServicePage = async ({ params }: { params: Params }) => {
     ${service.slug === "assurance-services" ? "md:h-[190px]" : ""}`}
         />
       </div>
-      <p className="mt-4 text-gray-700">{service.description}</p>
+      <p className="mt-4 text-justify leading-10 whitespace-pre-line text-gray-700">
+        {service.description}
+      </p>
     </div>
   );
 };

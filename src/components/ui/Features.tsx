@@ -27,12 +27,12 @@ export default function Features() {
         id="features-title"
         className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-6xl"
       >
-        Delivering Strategic Financial Solutions.
+        Delivering Strategic Business Solutions.
       </h2>
-      <p className="mt-6 max-w-3xl text-lg leading-7 text-gray-600">
-        Manam&rsquo; professional services provides expert strategic financial
-        advice designed to meet your unique needs. We offer tailored solutions
-        across investment, retirement, and more, empowering you to achieve your
+      <p className="mt-6 max-w-3xl text-lg text-justify leading-7 text-gray-600">
+        Manam professional services provides expert strategic business advice
+        designed to meet your unique needs. We offer tailored solutions across
+        investment, retirement, and more, empowering you to achieve your
         financial goals with confidence.
       </p>
       <dl className="mt-12 grid grid-cols-1 gap-y-8 md:grid-cols-3 md:border-y md:border-gray-200 md:py-14">
