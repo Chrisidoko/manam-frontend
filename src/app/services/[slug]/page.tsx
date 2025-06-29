@@ -11,6 +11,20 @@ const ServicePage = async ({ params }: { params: Params }) => {
 
   if (!service) return notFound();
 
+  // Each slug gets only one width rule, avoiding class conflict.
+  const baseClasses = "absolute bottom-0 right-3 sm:w-30";
+
+  const conditionalClasses =
+    service.slug === "taxation"
+      ? "w-22 md:w-[140px] sm:mr-30"
+      : service.slug === "corporate-recovery-and-insolvency"
+        ? "rotate-0 md:w-[320px]"
+        : service.slug === "assurance-services"
+          ? "w-60 md:w-[454px] left-38 sm:left-60 rotate-[-38deg] md:rotate-[-38deg]"
+          : service.slug === "management-consultancy"
+            ? "w-34 md:w-[300px]"
+            : "md:w-[360px]"; // default width
+
   return (
     <div className="p-6">
       {/* <h1 className="text-3xl font-bold">{service.name}</h1> */}
@@ -25,9 +39,8 @@ const ServicePage = async ({ params }: { params: Params }) => {
           width={160}
           height={80}
           alt={service.name}
-          className={`absolute bottom-0 right-5 w-23 sm:w-20 md:w-[360px]  ${service.slug === "corporate-recovery-and-insolvency" ? "rotate-[-0deg] w-[120px]" : ""} 
-    ${service.slug === "assurance-services" ? "md:w-[400px] md:right-0 md:rotate-[-38deg]" : ""}  ${service.slug === "management-consultancy" ? "md:w-[200px] mt-10" : ""}`}
-        />
+          className={`${baseClasses} ${conditionalClasses}`}
+        ></Image>
       </div>
 
       <p className="mt-4 text-lg text-justify leading-7 whitespace-pre-line text-gray-700">

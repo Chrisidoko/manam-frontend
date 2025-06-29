@@ -1,6 +1,7 @@
 // app/service/services.ts
 export const services = [
   {
+    id: 1,
     slug: "taxation",
     name: "Taxation",
     description:
@@ -11,6 +12,7 @@ export const services = [
     textColor: "#000000",
   },
   {
+    id: 2,
     slug: "human-capital-development",
     name: "Human Capital Development",
     description:
@@ -20,6 +22,7 @@ export const services = [
     textColor: "#000000",
   },
   {
+    id: 3,
     slug: "management-consultancy",
     name: "Management Consultancy",
     description:
@@ -29,6 +32,7 @@ export const services = [
     textColor: "#000000",
   },
   {
+    id: 4,
     slug: "assurance-services",
     name: "Assurance Services",
     description:
@@ -39,6 +43,7 @@ export const services = [
   },
 
   {
+    id: 5,
     slug: "corporate-recovery-and-insolvency",
     name: "Corporate Recovery and Insolvency",
     description:

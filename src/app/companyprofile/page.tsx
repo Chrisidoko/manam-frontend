@@ -23,7 +23,7 @@ export default function About() {
               src="/mission.png"
               width={500}
               height={500}
-              className="rounded-2xl h-80 object-fit"
+              className="rounded-2xl h-80 object-cover"
             />
             <div className="ml-auto flex flex-col">
               <h2 className="inline-block bg-gradient-to-t from-gray-900 to-gray-800 bg-clip-text py-2 text-3xl font-bold tracking-tighter text-transparent md:text-4xl ">
@@ -54,7 +54,7 @@ export default function About() {
               src="/vision.png"
               width={500}
               height={500}
-              className="rounded-2xl h-80 object-fit"
+              className="rounded-2xl h-80 object-cover"
             />
           </div>
         </div>

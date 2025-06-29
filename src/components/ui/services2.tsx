@@ -17,12 +17,11 @@ export default function Services2() {
       slug: "human-capital-development",
       description:
         " We believe that people are the core of every successful organization.",
-      image: "/hands.png",
+      image: "/human.png",
       bgColor: "bg-white",
       textColor: "text-gray-900",
       descColor: "text-[#667085]",
-      imageClasses:
-        "absolute bottom-0 right-5 w-32 sm:w-40 sm:h-36 md:w-[210px] md:h-[190px]",
+      imageClasses: "absolute bottom-0 right-0 w-32 sm:w-40 md:w-[410px]",
     },
     {
       id: 2,
@@ -30,12 +29,12 @@ export default function Services2() {
       slug: "management-consultancy",
       description:
         "We work closely with our clients to understand their organizational  structure, market positioning, and internal capabilities",
-      image: "/knight.png",
+      image: "/advisor.png",
       bgColor: "bg-gradient-to-br from-[#b9e8fe] to-[#7cd6fd]",
       textColor: "text-gray-900",
       descColor: "text-gray-800",
       imageClasses:
-        "absolute bottom-16 sm:bottom-6 right-0 w-38 sm:w-46 md:bottom-12 md:w-[180px]",
+        "absolute bottom-16 sm:bottom-6 right-0 w-38 sm:w-46 md:bottom-12 md:w-[340px]",
     },
     {
       id: 3,
@@ -43,12 +42,12 @@ export default function Services2() {
       slug: "assurance-services",
       description:
         "Our Assurance Services provide clients with confidence in the accuracy and integrity of their financial information.",
-      image: "/shield.png",
+      image: "/handshake.png",
       bgColor: "bg-[#065c86]",
       textColor: "text-white",
       descColor: "text-[#e0f3fe]",
       imageClasses:
-        "absolute top-33 right-4 xl:top-9 xl:right-16 w-28 sm:w-30 sm:h-40",
+        "absolute top-33 right-4 rotate-[-48deg] xl:top-23 xl:right-0 w-28 sm:w-130",
     },
     {
       id: 4,
@@ -56,12 +55,12 @@ export default function Services2() {
       slug: "taxation",
       description:
         "We offer comprehensive tax advisory and due diligence services that help businesses navigate the complexities of local tax laws",
-      image: "/stack.png",
+      image: "/tax3.png",
       bgColor: "bg-[#E6EEF3]",
       textColor: "text-[#07314a]",
       descColor: "text-[#065c86]",
       imageClasses:
-        "absolute bottom-20 right-1 w-36 xl:bottom-14 xl:right-20 sm:w-50 sm:h-54",
+        "absolute bottom-20 right-1 w-36 xl:bottom-6 xl:right-7 sm:w-46",
     },
     {
       id: 5,
@@ -69,12 +68,11 @@ export default function Services2() {
       slug: "corporate-recovery-and-insolvency",
       description:
         " We support stakeholders through debt resolution, turnaround  strategies, liquidation processes, and creditor negotiations.",
-      image: "/arrow.png",
+      image: "/recover.png",
       bgColor: "bg-[#0e172a]",
       textColor: "text-white",
       descColor: "text-[#98a2b2]",
-      imageClasses:
-        "absolute bottom-2 right-0 rotate-[-24deg] xl:right-6 w-38 sm:w-50 sm:h-46",
+      imageClasses: "absolute bottom-2 right-0  xl:right-6 w-38 sm:w-90",
     },
   ];
 

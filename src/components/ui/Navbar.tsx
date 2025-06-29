@@ -21,6 +21,7 @@ export function Navigation() {
   const [openServicesDropdown, setOpenServicesDropdown] = React.useState(false);
   const servicesDropdownRef = React.useRef<HTMLDivElement>(null);
   const [openMobileServices, setOpenMobileServices] = React.useState(false);
+  const [openMobileCompany, setOpenMobileCompany] = React.useState(false);
 
   React.useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
@@ -181,8 +182,31 @@ export function Navigation() {
             <li onClick={() => setOpenMobileMenu(false)}>
               <Link href={siteConfig.baseLinks.home}>Home</Link>
             </li>
-            <li onClick={() => setOpenMobileMenu(false)}>
+            {/* <li onClick={() => setOpenMobileMenu(false)}>
               <Link href={siteConfig.baseLinks.about}>About</Link>
+            </li> */}
+            <li>
+              <button
+                onClick={() => setOpenMobileCompany(!openMobileCompany)}
+                className="w-full flex items-center text-left"
+              >
+                About <RiArrowDropDownLine />
+              </button>
+              {openMobileCompany && (
+                <ul className="mt-2 ml-4 space-y-2 text-sm">
+                  {company.map((company) => (
+                    <li
+                      key={company.name}
+                      onClick={() => {
+                        setOpenMobileCompany(false);
+                        setOpenMobileMenu(false);
+                      }}
+                    >
+                      <Link href={company.path}>{company.name}</Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
             <li>
               <button
