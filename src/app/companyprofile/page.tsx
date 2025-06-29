@@ -17,7 +17,7 @@ export default function About() {
       >
         <Badge>company profile</Badge>
         <div className="flex flex-col gap-20 mt-13">
-          <div className="grid grid-cols-2 gap-x-10 items-center">
+          <div className="grid grid-cols-1 gap-x-10 items-center sm:grid-cols-2">
             <Image
               alt="mission image"
               src="/mission.png"
@@ -37,7 +37,7 @@ export default function About() {
             </div>
           </div>
           {/* vision */}
-          <div className="grid grid-cols-2 gap-x-10 items-center">
+          <div className="grid grid-cols-1 gap-x-10 items-center sm:grid-cols-2 sm: gap-y-10 ">
             <div className="ml-auto flex flex-col">
               <h2 className="inline-block bg-gradient-to-t from-gray-900 to-gray-800 bg-clip-text py-2 text-3xl font-bold tracking-tighter text-transparent md:text-4xl ">
                 Our Vision
