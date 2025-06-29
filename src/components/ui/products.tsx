@@ -26,7 +26,7 @@ export default function Products() {
       className="flex animate-slide-up-fade flex-col items-center justify-center gap-y-6 text-center sm:mt-1"
       style={{ animationDuration: "1500ms" }}
     >
-      <h3 className="mt-20 text-gray-400">WHAT WE DO</h3>
+      <h3 className="mt-20 text-gray-600">WHAT WE DO</h3>
       <h2 className="w-full sm:w-[76%] mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-2xl font-bold tracking-tighter text-transparent sm:text-4xl md:text-4xl">
         We are an Africa-focused firm, that ensures financial integrity, and
         deliver empowering training.
@@ -38,11 +38,11 @@ export default function Products() {
         {features.map((item) => (
           <div
             key={item.name}
-            className="flex flex-col px-6 py-5 items-center gap-2 rounded-xl hover:shadow-md hover:shadow-black/15  ring-2 ring-gray-200/80 hover:ring-blue-200/80 "
+            className="flex flex-col px-6 py-5 items-start gap-2 rounded-xl hover:shadow-md hover:bg-[#e0f2fe] hover:shadow-black/15  ring-2 ring-gray-200/80 hover:ring-[#0395da] "
           >
             <Badge className="text-2xl"> {item.name}</Badge>
 
-            <p className="mt-2 text-justify leading-6 text-[#4B4949]">
+            <p className="mt-2 text-left leading-6 text-[#4B4949] hover:text-[#07314a]">
               {item.description}
             </p>
           </div>

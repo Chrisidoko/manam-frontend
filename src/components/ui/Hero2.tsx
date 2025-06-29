@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from "react";
 
-// Using placeholder images for testing - replace with your actual image paths
-const images = ["/1390.jpg", "/4122.jpg", "/tree.jpg"];
+// Using placeholder images for testing - replace with your actual image paths when its ready
+const images = ["/1390.jpg", "/4122.jpg", "/slide.jpg"];
 
 export default function Hero2() {
   const [index, setIndex] = useState(0);

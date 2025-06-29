@@ -15,27 +15,27 @@ export default function TeamGallery() {
         <div className="flex w-full flex-col items-center justify-between md:flex-row">
           <InstaxImage
             className="w-[20rem] sm:w-[25rem] -rotate-6 sm:-ml-10"
-            src="/images/working.webp"
+            src="/train.png"
             alt="picture 1"
             width={640}
             height={427}
-            caption="picture 1"
+            caption="Tax Advocacy"
           />
           <InstaxImage
             className="w-[14rem] sm:w-[15rem] rotate-3"
-            src="/images/workplace.webp"
+            src="/etax.jpg"
             alt="picture 2"
             width={640}
             height={853}
-            caption="picture 2"
+            caption="E-Tax"
           />
           <InstaxImage
-            className="-mr-10 w-[14rem] sm:w-[15rem] rotate-1"
+            className="-mr-10 w-[14rem] sm:w-[15rem]  rotate-1"
             src="/images/home.webp"
-            alt="picture 2"
+            alt="picture 3"
             width={640}
             height={960}
-            caption="picture 2"
+            caption="picture 3"
           />
         </div>
       </div>

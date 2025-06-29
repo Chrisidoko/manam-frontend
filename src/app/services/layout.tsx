@@ -18,7 +18,7 @@ export default function Layout({
             <li key={service.slug}>
               <Link
                 href={`/services/${service.slug}`}
-                className="text-sm font-semibold hover:underline"
+                className="text-sm font-semibold hover:bg-[#0395da] hover:p-2 hover:rounded-lg hover:text-white"
               >
                 {service.name}
               </Link>

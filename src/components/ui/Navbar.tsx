@@ -11,8 +11,8 @@ import { Button } from "../Button";
 
 const company = [
   { name: "About Us", path: "/about" },
+  { name: "Company profile", path: "/companyprofile" },
   { name: "Our Team", path: "/#" },
-  { name: "Company profile", path: "/#" },
 ];
 
 export function Navigation() {

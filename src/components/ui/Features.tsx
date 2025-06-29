@@ -27,7 +27,7 @@ export default function Features() {
         id="features-title"
         className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-6xl"
       >
-        Delivering Strategic Business Solutions.
+        Delivering Strategic Business Solutions
       </h2>
       <p className="mt-6 max-w-3xl text-lg text-justify leading-7 text-gray-600">
         Manam professional services provides expert strategic business advice

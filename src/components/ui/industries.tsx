@@ -14,7 +14,7 @@ import {
 } from "@remixicon/react";
 
 const industries = [
-  { label: "Banking & Financial Services", icon: <RiBankLine /> },
+  { label: "Financial Services", icon: <RiBankLine /> },
   { label: "Oil & Gas", icon: <RiGasStationLine /> },
   { label: "Manufacturing", icon: <RiBuildingLine /> },
   { label: "SMEs & Startups", icon: <RiRocketLine /> },
@@ -22,7 +22,7 @@ const industries = [
   { label: "Hospitality", icon: <RiHospitalLine /> },
   { label: "Education", icon: <RiBookLine /> },
   { label: "Real Estate", icon: <RiBuilding4Line /> },
-  { label: "Public Sector & Government Agencies", icon: <RiGovernmentLine /> },
+  { label: "Public Sector", icon: <RiGovernmentLine /> },
   { label: "Lifestyle & Creative Industries", icon: <RiMic2Line /> },
 ];
 

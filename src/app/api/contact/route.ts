@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import path from "path";
 
 export async function POST(request: Request) {
   try {
@@ -16,8 +17,8 @@ export async function POST(request: Request) {
     // Configure nodemailer to Hostinger SMTP
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: parseInt(process.env.SMTP_PORT || "587"),
-      secure: false, // true for 465, false for other ports
+      port: parseInt(process.env.SMTP_PORT || "465"),
+      secure: process.env.SMTP_SECURE === "true", // true for port 465
       auth: {
         user: process.env.SMTP_USERNAME,
         pass: process.env.SMTP_PASSWORD,
@@ -38,12 +39,22 @@ export async function POST(request: Request) {
         ${message}
       `,
       html: `
+        <div style="text-align: center;">
+          <img src="cid:headerImage" alt="Header Image" style="max-width: 100%; height: auto;" />
+        </div>
         <h3>New Contact Form Submission</h3>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, "<br>")}</p>
       `,
+      attachments: [
+        {
+          filename: "header.jpg",
+          path: path.resolve("./public/email.png"), // Make sure the path is correct
+          cid: "headerImage", // same as in the `src="cid:headerImage"`
+        },
+      ],
     };
 
     // Send email
