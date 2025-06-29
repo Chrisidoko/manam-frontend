@@ -10,6 +10,8 @@ export const services = [
 
     bgColor: "#c3e9fc",
     textColor: "#000000",
+    shortdesc:
+      "We offer comprehensive tax advisory and due diligence services that help businesses navigate the complexities of local tax laws",
   },
   {
     id: 2,
@@ -20,6 +22,8 @@ export const services = [
     image: "/human.png",
     bgColor: "#FFFFFF",
     textColor: "#000000",
+    shortdesc:
+      "We believe that people are the core of every successful organization.",
   },
   {
     id: 3,
@@ -30,6 +34,8 @@ export const services = [
     image: "/advisor.png",
     bgColor: "#b9e8fe",
     textColor: "#000000",
+    shortdesc:
+      "We work closely with our clients to understand their organizational  structure, market positioning, and internal capabilities",
   },
   {
     id: 4,
@@ -40,6 +46,8 @@ export const services = [
     image: "/handshake.png",
     bgColor: "#065c86",
     textColor: "#FFFFFF",
+    shortdesc:
+      "Our Assurance Services provide clients with confidence in the accuracy and integrity of their financial information.",
   },
 
   {
@@ -51,5 +59,7 @@ export const services = [
     image: "/recover.png",
     bgColor: "#524c50",
     textColor: "#ffffff",
+    shortdesc:
+      "We support stakeholders through debt resolution, turnaround  strategies, liquidation processes, and creditor negotiations.",
   },
 ];

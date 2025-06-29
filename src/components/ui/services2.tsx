@@ -67,7 +67,7 @@ export default function Services2() {
       title: "Corporate Recovery and Insolvency",
       slug: "corporate-recovery-and-insolvency",
       description:
-        " We support stakeholders through debt resolution, turnaround  strategies, liquidation processes, and creditor negotiations.",
+        "We support stakeholders through debt resolution, turnaround  strategies, liquidation processes, and creditor negotiations.",
       image: "/recover.png",
       bgColor: "bg-[#0e172a]",
       textColor: "text-white",
