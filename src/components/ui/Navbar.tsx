@@ -113,7 +113,7 @@ export function Navigation() {
                     <li key={company.name}>
                       <Link
                         href={company.path}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:rounded-lg hover:ml-5 hover:bg-[#e5eef2] transition-all duration-300 ease-in-out"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:rounded-lg hover:ml-5 hover:bg-[#e0f2fe] transition-all duration-300 ease-in-out"
                       >
                         <div className="flex flex-col gap-1">
                           <span className="text-sm text-[#07314a]">
@@ -140,7 +140,7 @@ export function Navigation() {
                     <li key={service.slug}>
                       <Link
                         href={`/services/${service.slug}`}
-                        className="block px-4 py-4 hover:bg-[#e5eef2] hover:rounded-lg hover:ml-5 transition-all duration-300 ease-in-out"
+                        className="block px-4 py-4 hover:bg-[#e0f2fe] hover:rounded-lg hover:ml-5 transition-all duration-300 ease-in-out"
                       >
                         <div className="flex flex-col gap-1">
                           <span className="text-sm text-[#07314a]">
