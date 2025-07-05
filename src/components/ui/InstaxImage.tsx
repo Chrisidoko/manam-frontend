@@ -33,7 +33,7 @@ export function InstaxImage({
       <div
         className={cx("px-2 pb-2 pt-2 font-handwriting text-xl text-gray-700")}
       >
-        <figcaption className="text-center">{caption}</figcaption>
+        {/* <figcaption className="text-center">{caption}</figcaption> */}
       </div>
     </figure>
   );

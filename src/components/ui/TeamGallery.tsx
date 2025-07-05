@@ -15,7 +15,7 @@ export default function TeamGallery() {
         <div className="flex w-full flex-col items-center justify-between md:flex-row">
           <InstaxImage
             className="w-[20rem] sm:w-[25rem] -rotate-6 sm:-ml-10"
-            src="/train.png"
+            src="/galleryphoto1.jpeg"
             alt="picture 1"
             width={640}
             height={427}
@@ -23,7 +23,7 @@ export default function TeamGallery() {
           />
           <InstaxImage
             className="w-[14rem] sm:w-[15rem] rotate-3"
-            src="/etax.jpg"
+            src="/photogallery2.jpeg"
             alt="picture 2"
             width={640}
             height={853}
@@ -31,7 +31,7 @@ export default function TeamGallery() {
           />
           <InstaxImage
             className="-mr-10 w-[14rem] sm:w-[15rem]  rotate-1"
-            src="/images/home.webp"
+            src="/photogallery3.jpeg"
             alt="picture 3"
             width={640}
             height={960}
@@ -64,7 +64,7 @@ export default function TeamGallery() {
             <iframe
               width="100%"
               height="500"
-              src="https://www.youtube.com/embed/mBYEjPRoG1E?si=tGx8JEoXzdppXAFZ"
+              src="https://www.youtube.com/embed/5CA-1F2X6Kc?si=kmKW-WHwpB5ivh7u"
               title="Training Video"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
               allowFullScreen
