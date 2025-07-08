@@ -21,7 +21,8 @@ export default function Services2() {
       bgColor: "bg-white",
       textColor: "text-gray-900",
       descColor: "text-[#667085]",
-      imageClasses: "absolute bottom-0 right-0 w-32 sm:w-40 md:w-[410px]",
+      imageClasses:
+        "absolute right-10 sm:bottom-0 sm:right-0 w-72 sm:w-40 md:w-[410px]",
     },
     {
       id: 2,
@@ -34,7 +35,7 @@ export default function Services2() {
       textColor: "text-gray-900",
       descColor: "text-gray-800",
       imageClasses:
-        "absolute bottom-16 sm:bottom-6 right-0 w-38 sm:w-46 md:bottom-12 md:w-[340px]",
+        "absolute bottom-3 sm:bottom-6 right-20 sm:right-0 w-43 sm:w-46 md:bottom-12 md:w-[340px]",
     },
     {
       id: 3,
@@ -47,7 +48,7 @@ export default function Services2() {
       textColor: "text-white",
       descColor: "text-[#e0f3fe]",
       imageClasses:
-        "absolute top-33 right-4 rotate-[-48deg] xl:top-23 xl:right-0 w-28 sm:w-130",
+        "absolute top-46 sm:top-33 right-0 sm:rotate-[-48deg] xl:top-23 xl:right-0 w-160 sm:w-130",
     },
     {
       id: 4,
@@ -60,7 +61,7 @@ export default function Services2() {
       textColor: "text-[#07314a]",
       descColor: "text-[#065c86]",
       imageClasses:
-        "absolute bottom-20 right-1 w-36 xl:bottom-6 xl:right-7 sm:w-46",
+        "absolute bottom-4 sm:bottom-20 right-26 w-26 xl:bottom-6 xl:right-7 sm:w-46",
     },
     {
       id: 5,
@@ -72,7 +73,7 @@ export default function Services2() {
       bgColor: "bg-[#0e172a]",
       textColor: "text-white",
       descColor: "text-[#98a2b2]",
-      imageClasses: "absolute bottom-2 right-0  xl:right-6 w-38 sm:w-90",
+      imageClasses: "absolute bottom-2 right-18  xl:right-6 w-48 sm:w-90",
     },
   ];
 
@@ -177,7 +178,7 @@ export default function Services2() {
             {services.map((service) => (
               <div
                 key={service.id}
-                className={`flex-shrink-0 w-full ${service.bgColor} h-[24rem] sm:h-[20rem] px-6 py-7 sm:px-8 sm:py-9 rounded-xl lg:rounded-3xl cursor-pointer overflow-hidden relative`}
+                className={`flex-shrink-0 w-full ${service.bgColor} h-[20rem] sm:h-[20rem] px-6 py-7 sm:px-8 sm:py-9 rounded-xl lg:rounded-3xl cursor-pointer overflow-hidden relative`}
               >
                 <h3
                   className={`text-xl sm:text-3xl font-bold ${service.textColor}`}
@@ -185,7 +186,7 @@ export default function Services2() {
                   {service.title}
                 </h3>
                 <p
-                  className={`w-[76%] text-md sm:text-2xl ${service.descColor} leading-relaxed`}
+                  className={`w-full sm:w-[76%] text-sm sm:text-2xl ${service.descColor} leading-relaxed`}
                 >
                   <br />
                   {service.description}
@@ -195,7 +196,7 @@ export default function Services2() {
                   {" "}
                   <Link
                     href={`/services/${service.slug}`}
-                    className="mt-8 flex items-center gap-1 text-[#0095DA] font-semibold"
+                    className="mt-3 sm:mt-8 flex items-center gap-1 text-[#0095DA] font-semibold"
                   >
                     View More <RiArrowRightUpLine size={20} />
                   </Link>
