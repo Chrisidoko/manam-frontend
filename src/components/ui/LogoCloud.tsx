@@ -80,8 +80,8 @@ export default function LogoCloud() {
           >
             Our Clients
           </h1>
-          <p className="max-w-3xl text-3xl text-[#0095da] font-bold tracking-tighter sm:text-2xl md:text-3xl">
-             We believe in the power <br /> of shared success
+          <p className="w-[76%] text-3xl text-[#0095da] font-bold tracking-tighter sm:text-2xl md:text-3xl">
+             We believe in the power of shared success
           </p>
         </div>
         <span className="max-w-2xl ml-auto">

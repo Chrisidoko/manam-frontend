@@ -96,9 +96,9 @@ const EnhancedMultiLevelDropdown: React.FC<MultiLevelDropdownProps> = ({ service
                 <h3 className="text-base font-semibold text-gray-800">
                   Our Products
                 </h3>
-                <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+                {/** <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
                   {products.length} items
-                </span>
+                </span>*/ }
               </div>
               
               <div className="grid grid-cols-1 gap-1 max-h-80 overflow-y-auto">
@@ -129,9 +129,9 @@ const EnhancedMultiLevelDropdown: React.FC<MultiLevelDropdownProps> = ({ service
                 <h3 className="text-base font-semibold text-gray-800">
                   Our Services
                 </h3>
-                <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
+             {/**   <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">
                   {services.length} items
-                </span>
+                </span>*/ }
               </div>
               
               <div className="grid grid-cols-1 gap-2 max-h-90 overflow-y-auto">
@@ -163,9 +163,9 @@ const EnhancedMultiLevelDropdown: React.FC<MultiLevelDropdownProps> = ({ service
             >
               View All {activeSubmenu === 'products' ? 'Products' : 'Services'} →
             </Link>
-            <span className="text-xs text-gray-400">
+            {/**<span className="text-xs text-gray-400">
               Updated recently
-            </span>
+            </span>**/}
           </div>
         </div>
       </div>
