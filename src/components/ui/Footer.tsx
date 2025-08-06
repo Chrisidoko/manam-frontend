@@ -1,3 +1,4 @@
+import { services } from "@/app/services/services";
 import {
   RiArrowRightUpLine,
   RiInstagramLine,
@@ -9,14 +10,16 @@ import Link from "next/link";
 
 const navigation = {
   product: [
-    { name: "Advisory", href: "#", external: false },
-    { name: "Training", href: "#", external: false },
-    { name: "Tax & Assurance", href: "#", external: false },
+    { name: "eeziTax", href: "#", external: false },
+    { name: "Taxcess", href: "#", external: false },
+   
   ],
+
+
   resources: [
     { name: "FAQs", href: "/about#faq-title", external: false },
     { name: "Blogs", href: "/blogs#blogs-page", external: false },
-    { name: "YouTube", href: "https://www.youtube.com/", external: true },
+    { name: "YouTube", href: "https://www.youtube.com/channel/UCtF7a5beRkR0J7zU_OTWvWQ?themeRefresh=1", external: true },
   ],
   company: [
     { name: "About", href: "/about", external: false },
@@ -25,7 +28,7 @@ const navigation = {
       href: "https://www.linkedin.com/manamprofessionalservices",
       external: true,
     },
-    { name: "Contact", href: "#", external: false },
+    { name: "Contact", href: "/contact", external: false },
   ],
   legal: [
     { name: "Regulatory", href: "#", external: false },
@@ -47,7 +50,7 @@ export default function Footer() {
             />
 
             <p className="text-sm leading-6 text-white">
-              6th Floor, Yobe Investment House, Plot 1332, Ralph Shodeinde
+              Plot 1332, Ralph Shodeinde
               Street, Central Business District, Fct-Abuja.
             </p>
             <div className="flex space-x-6">
@@ -102,11 +105,10 @@ export default function Footer() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {/*return to check mobile grid*/}
               <div></div>
-              <div>
-                <h3 className="text-sm font-semibold leading-6 text-white">
+              <div><h3 className="text-sm font-semibold leading-6 text-white">
                   Products
                 </h3>
-                <ul
+                 <ul
                   role="list"
                   className="mt-6 space-y-4"
                   aria-label="Quick links Product"
@@ -130,7 +132,9 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
-              </div>
+                
+                </div>
+             
             </div>
             <div className="grid grid-cols-2 gap-8">
               <div>

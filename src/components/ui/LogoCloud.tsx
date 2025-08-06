@@ -9,7 +9,7 @@ const logos = [
     className: "w-18",
   },
 
-  { src: "/dunes.png", alt: "dunes", className: "w-44" },
+  { src: "/dunesinvest.png", alt: "dunesinvest", className: "w-44" },
   {
     src: "/scc.jpg",
     alt: "scc",
@@ -61,11 +61,7 @@ const logos = [
     alt: "gilmore construction",
     className: "w-34",
   },
-  {
-    src: "/undp.png",
-    alt: "undp",
-    className: "w-32",
-  },
+
 ];
 
 export default function LogoCloud() {
@@ -85,13 +81,11 @@ export default function LogoCloud() {
             Our Clients
           </h1>
           <p className="max-w-3xl text-3xl text-[#0095da] font-bold tracking-tighter sm:text-2xl md:text-3xl">
-            We believe in the power <br /> of collaboration.
+             We believe in the power <br /> of shared success
           </p>
         </div>
         <span className="max-w-2xl ml-auto">
-          Through strategic partnerships with leading organizations and
-          professional bodies, we enhance our expertise, ensure continuous
-          innovation, and deliver exceptional value to our clients.
+         Our success is a reflection of their ambition, resilience, and unwavering commitment to excellence.
         </span>
       </div>
 

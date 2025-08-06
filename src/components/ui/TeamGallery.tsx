@@ -40,19 +40,12 @@ export default function TeamGallery() {
         </div>
       </div>
 
-      <p className="mt-18 max-w-2xl text-lg text-gray-700">
+      <p className="mt-18 max-w-2xl text-lg  text-justify text-gray-700">
         From startups to established enterprises, we provide strategic guidance
         on key challenges, including business growth, staff retention,
         regulatory compliance, taxation, financing, economic shifts,
         international expansion, and succession planning.
-        {/* At Manam, we go beyond traditional service delivery—we build lasting
-        value. Whether you're a startup navigating growth or an established
-        enterprise facing complex challenges, our professionals offer strategic
-        support in areas such as regulatory compliance, taxation, management
-        consultancy, human capital management as well as business growth and
-        expansion. Rooted in professionalism, independence, and objectivity, our
-        approach is shaped by continuous learning and unwavering dedication to
-        your success. */}
+   
         <br />
         <br />
         At Manam, we don’t just offer services—we create value. Let’s build your

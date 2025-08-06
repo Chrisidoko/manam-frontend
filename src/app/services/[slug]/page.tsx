@@ -43,7 +43,7 @@ const ServicePage = async ({ params }: { params: Params }) => {
         ></Image>
       </div>
 
-      <p className="mt-4 text-lg text-justify leading-7 whitespace-pre-line text-gray-700">
+      <p className="mt-4 text-lg sm:w-[48rem] text-justify leading-7 whitespace-pre-line text-gray-700">
         {service.description}
       </p>
     </div>

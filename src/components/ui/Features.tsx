@@ -32,7 +32,7 @@ export default function Features() {
       <p className="mt-6 max-w-3xl text-lg text-justify leading-7 text-gray-600">
         Manam professional services provides expert strategic business advice
         designed to meet your unique needs. We offer tailored solutions across
-        investment, retirement, and more, empowering you to achieve your
+        tax, advisory, training and more, empowering you to achieve your
         financial goals with confidence.
       </p>
       <dl className="mt-12 grid grid-cols-1 gap-y-8 md:grid-cols-3 md:border-y md:border-gray-200 md:py-14">

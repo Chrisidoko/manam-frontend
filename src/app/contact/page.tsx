@@ -208,16 +208,7 @@ export default function Contactpage() {
                   Street, Central Business District, Fct-Abuja.
                 </p>
               </div>
-              <div className="flex flex-col gap-y-4 w-[13rem]">
-                <div className="flex gap-x-2 items-center text-[#0095DA]">
-                  <RiMapPin2Fill />
-                  <p className="text-gray-900 text-sm">Kaduna</p>
-                </div>
-                <p className="text-xs text-gray-700 leading">
-                  6th Floor, Yobe Investment House, Plot 1332, Ralph Shodeinde
-                  Street, Central Business District, Fct-Abuja.
-                </p>
-              </div>
+             
             </div>
           </div>
         </section>

@@ -70,10 +70,10 @@ export default function Hero2() {
         <div className="relative z-20 flex items-center h-full px-6 sm:px-38">
           <div className="max-w-4xl text-white">
             <h1
-              className="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight animate-[slideUpFade_700ms_ease-in-out]"
+              className="text-4xl sm:text-5xl md:text-6 xl font-bold leading-tight animate-[slideUpFade_700ms_ease-in-out]"
               style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.4)" }}
             >
-              Manam Professional services
+              Manam Professional Services
             </h1>
 
             <p className="mt-6 text-lg sm:text-3xl text-gray-200 animate-[slideUpFade_700ms_ease-in-out]">

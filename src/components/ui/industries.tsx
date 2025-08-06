@@ -41,8 +41,7 @@ export default function Industries() {
             We understand that each industry operates within a unique regulatory
             and operational landscape. Our team brings deep expertise and
             tailored solutions to help organizations across sectors stay
-            compliant, improve performance, and build capacity through
-            professional training and advisory services.
+            compliant, improve performance and build capacity.
           </p>
           <div className="py-12 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-5 gap-6">
             {industries.map((industry, index) => (

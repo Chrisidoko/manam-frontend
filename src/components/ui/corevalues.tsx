@@ -1,9 +1,5 @@
 const corevalues = [
-  {
-    title: "Integrity",
-    description:
-      "We uphold the highest standards of honesty and ethical behavior in all our dealings.",
-  },
+
   {
     title: "Professionalism",
     description:
@@ -14,15 +10,11 @@ const corevalues = [
     description:
       "We take full responsibility for our commitments and outcomes.",
   },
-  {
-    title: "Innovation",
-    description:
-      "We embrace change and continuously improve our delivery to provide cutting-edge solutions.",
-  },
+
   {
     title: "Client-Centricity",
     description:
-      "Our solutions are tailored to meet the unique needs of every client..",
+      "Our solutions are tailored to meet the unique needs of every client.",
   },
   {
     title: "Teamwork",
@@ -44,7 +36,7 @@ export default function Corevalues() {
         {corevalues.map((corevalue, index) => (
           <div key={index} className="col-span-4 sm:col-span-2 lg:col-span-1">
             <dt className="font-semibold text-gray-900">{corevalue.title}</dt>
-            <dd className="mt-2 leading-7 text-gray-600">
+            <dd className="mt-2 leading-7 text-gray-600 text-justify">
               {corevalue.description}
             </dd>
           </div>

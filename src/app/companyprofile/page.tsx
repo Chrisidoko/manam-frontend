@@ -29,10 +29,8 @@ export default function About() {
               <h2 className="inline-block bg-gradient-to-t from-gray-900 to-gray-800 bg-clip-text py-2 text-3xl font-bold tracking-tighter text-transparent md:text-4xl ">
                 Our Mission
               </h2>
-              <p className="leading-7 text-gray-600">
-                To provide value-driven professional consultancy and assurance
-                services, empowering clients through strategic insights,
-                technical excellence, and commitment to integrity.
+              <p className="leading-7 text-gray-600 text-justify">
+           To provide value-driven professional consultancy and advisory services, empowering clients through strategic insights, technical excellence, and commitment to integrity. 
               </p>
             </div>
           </div>
@@ -42,11 +40,8 @@ export default function About() {
               <h2 className="inline-block bg-gradient-to-t from-gray-900 to-gray-800 bg-clip-text py-2 text-3xl font-bold tracking-tighter text-transparent md:text-4xl ">
                 Our Vision
               </h2>
-              <p className="leading-7 text-gray-600">
-                To be a trusted leader in delivering innovative and impactful
-                management, advisory, Taxation and assurance solutions that
-                drive sustainable growth for businesses across Nigeria and
-                beyond
+              <p className="leading-7 text-gray-600 text-justify">
+           To be a trusted leader in delivering innovative and impactful management, advisory, Taxation and Human Capital solutions that drive sustainable growth for businesses across Nigeria and beyond.
               </p>
             </div>
             <Image

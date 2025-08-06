@@ -37,25 +37,25 @@ export default function Services2() {
       imageClasses:
         "absolute bottom-3 sm:bottom-6 right-20 sm:right-0 w-43 sm:w-46 md:bottom-12 md:w-[340px]",
     },
-    {
-      id: 3,
-      title: "Assurance Services",
-      slug: "assurance-services",
-      description:
-        "Our Assurance Services provide clients with confidence in the accuracy and integrity of their financial information.",
-      image: "/handshake.png",
-      bgColor: "bg-[#065c86]",
-      textColor: "text-white",
-      descColor: "text-[#e0f3fe]",
-      imageClasses:
-        "absolute top-46 sm:top-33 right-0 sm:rotate-[-48deg] xl:top-23 xl:right-0 w-160 sm:w-130",
-    },
+   // {
+  //   id: 3,
+  //   title: "Assurance Services",
+  //  slug: "assurance-services",
+  //  description:
+  //       "Our Assurance Services provide clients with confidence in the accuracy and integrity of their financial information.",
+  //  image: "/handshake.png",
+  //    bgColor: "bg-[#065c86]",
+  //    textColor: "text-white",
+  //    descColor: "text-[#e0f3fe]",
+  // imageClasses:
+   //      "absolute top-46 sm:top-33 right-0 sm:rotate-[-48deg] xl:top-23 xl:right-0 w-160 sm:w-130",
+    // },
     {
       id: 4,
       title: "Taxation",
       slug: "taxation",
       description:
-        "We offer comprehensive tax advisory and due diligence services that help businesses navigate the complexities of local tax laws",
+        "We offer comprehensive tax advisory services that help businesses navigate the complexities of local tax laws",
       image: "/tax3.png",
       bgColor: "bg-[#E6EEF3]",
       textColor: "text-[#07314a]",
@@ -119,7 +119,7 @@ export default function Services2() {
         id="code-example-title"
         className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-6xl"
       >
-        Bring your organization <br /> to a higher level with us
+        Take your organization <br /> to a higher level with us
       </h2>
       <p className="mt-6 max-w-2xl text-lg text-justify text-gray-600">
         Empowering your organization&apos;s growth with tailored services that

@@ -7,7 +7,15 @@ import { RiCloseLine, RiMenuLine, RiArrowDropDownLine } from "@remixicon/react";
 import Link from "next/link";
 import React from "react";
 import { services } from "@/app/services/services";
+import  MultiLevelDropdown from "@/components/ui/navsubmenu"
 import { Button } from "../Button";
+
+  // Your products data
+  const products = [
+    { slug: 'eeziTax', name: 'eeziTax', shortdesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' },
+    { slug: 'taxcess', name: 'Taxcess ', shortdesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' },
+    // ... more products
+  ];
 
 const company = [
   {
@@ -20,11 +28,11 @@ const company = [
     path: "/companyprofile",
     shortdesc: "Learn about our mission, vision, and values.",
   },
-  {
-    name: "Our Team",
-    path: "/#",
-    shortdesc: "Get to know the experts who make it happen.",
-  },
+ // {
+ //   name: "Our Team",
+ //   path: "/#",
+ //   shortdesc: "Get to know the experts who make it happen.",
+ // },
 ];
 
 export function Navigation() {
@@ -96,15 +104,10 @@ export function Navigation() {
               >
                 Home
               </Link>
-              {/* <Link
-                className="px-2 py-1 text-gray-900"
-                href={siteConfig.baseLinks.about}
-              >
-                Company
-              </Link> */}
+            
               {/* Company Dropdown */}
               <div className="relative group">
-                <button className=" flex gap-1 px-2 py-1 text-gray-900 hover:underline focus:outline-none">
+                <button className=" flex gap-1 px-2 py-1 text-gray-900 cursor-pointer hover:underline focus:outline-none">
                   Company <RiArrowDropDownLine />
                 </button>
 
@@ -113,13 +116,13 @@ export function Navigation() {
                     <li key={company.name}>
                       <Link
                         href={company.path}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:rounded-lg hover:ml-5 hover:bg-[#e0f2fe] transition-all duration-300 ease-in-out"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:rounded-lg hover:bg-[#e0f2fe]  group/item transition-all duration-300 ease-in-out"
                       >
                         <div className="flex flex-col gap-1">
-                          <span className="text-sm text-[#07314a]">
+                          <span className="text-sm text-black group-hover/item:text-blue-600 ">
                             {company.name}
                           </span>
-                          <span className="text-xs text-gray-500 font-light">
+                          <span className="text-xs text-gray-900 font-light">
                             {company.shortdesc}
                           </span>
                         </div>
@@ -129,32 +132,10 @@ export function Navigation() {
                 </ul>
               </div>
 
-              {/* Services Dropdown */}
-              <div className="relative group">
-                <button className=" flex gap-1 px-2 py-1 text-gray-900 hover:underline focus:outline-none">
-                  Services <RiArrowDropDownLine />
-                </button>
+                {/* Multi-level dropdown */}
+      <MultiLevelDropdown services={services} products={products} />
 
-                <ul className="absolute left-0 mt-2 p-4 w-160 bg-white shadow-lg rounded-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 grid grid-cols-2 gap-x-2 gap-y-1">
-                  {services.map((service) => (
-                    <li key={service.slug}>
-                      <Link
-                        href={`/services/${service.slug}`}
-                        className="block px-4 py-4 hover:bg-[#e0f2fe] hover:rounded-lg hover:ml-5 transition-all duration-300 ease-in-out"
-                      >
-                        <div className="flex flex-col gap-1">
-                          <span className="text-sm text-[#07314a]">
-                            {service.name}
-                          </span>
-                          <span className="text-xs text-gray-500 font-light">
-                            {service.shortdesc}
-                          </span>
-                        </div>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+
 
               <Link
                 className="px-2 py-1 text-gray-900"
@@ -173,7 +154,7 @@ export function Navigation() {
 
           {/* Desktop Contact Button */}
           <Link href={siteConfig.baseLinks.contact}>
-            <Button className="hidden h-10 font-semibold md:flex">
+            <Button className="hidden cursor-pointer h-10 font-semibold md:flex">
               Contact Us
             </Button>
           </Link>
