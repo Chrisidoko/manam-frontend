@@ -26,7 +26,7 @@ export default function Services2() {
     },
     {
       id: 2,
-      title: "Management Consultancy",
+      title: "Advisory",
       slug: "management-consultancy",
       description:
         "We work closely with our clients to understand their organizational  structure, market positioning, and internal capabilities",
