@@ -37,18 +37,18 @@ export default function Services2() {
       imageClasses:
         "absolute bottom-3 sm:bottom-6 right-20 sm:right-0 w-43 sm:w-46 md:bottom-12 md:w-[340px]",
     },
-   // {
-  //   id: 3,
-  //   title: "Assurance Services",
-  //  slug: "assurance-services",
-  //  description:
-  //       "Our Assurance Services provide clients with confidence in the accuracy and integrity of their financial information.",
-  //  image: "/handshake.png",
-  //    bgColor: "bg-[#065c86]",
-  //    textColor: "text-white",
-  //    descColor: "text-[#e0f3fe]",
-  // imageClasses:
-   //      "absolute top-46 sm:top-33 right-0 sm:rotate-[-48deg] xl:top-23 xl:right-0 w-160 sm:w-130",
+    // {
+    //   id: 3,
+    //   title: "Assurance Services",
+    //  slug: "assurance-services",
+    //  description:
+    //       "Our Assurance Services provide clients with confidence in the accuracy and integrity of their financial information.",
+    //  image: "/handshake.png",
+    //    bgColor: "bg-[#065c86]",
+    //    textColor: "text-white",
+    //    descColor: "text-[#e0f3fe]",
+    // imageClasses:
+    //      "absolute top-46 sm:top-33 right-0 sm:rotate-[-48deg] xl:top-23 xl:right-0 w-160 sm:w-130",
     // },
     {
       id: 4,
@@ -70,7 +70,7 @@ export default function Services2() {
       description:
         "We support stakeholders through debt resolution, turnaround  strategies, liquidation processes, and creditor negotiations.",
       image: "/recover.png",
-      bgColor: "bg-[#0e172a]",
+      bgColor: "bg-[#524c50]",
       textColor: "text-white",
       descColor: "text-[#98a2b2]",
       imageClasses: "absolute bottom-2 right-18  xl:right-6 w-48 sm:w-90",
