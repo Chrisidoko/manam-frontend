@@ -12,7 +12,7 @@ const navigation = {
     services: [
        { name: "Taxation", href: "/services/taxation", external: false },
         { name: "Human Capital Development",  href: "/services/human-capital-development", external: false },
-        { name: "Management Consultancy",  href: "/services/management-consultancy", external: false },
+        { name: "Advisory",  href: "/services/management-consultancy", external: false },
 
     { name: "Corporate Recovery and Insolvency",  href: "/services/corporate-recovery-and-insolvency", external: false },
     
