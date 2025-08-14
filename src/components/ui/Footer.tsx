@@ -9,6 +9,19 @@ import {
 import Link from "next/link";
 
 const navigation = {
+    services: [
+       { name: "Taxation", href: "/services/taxation", external: false },
+        { name: "Human Capital Development",  href: "/services/human-capital-development", external: false },
+        { name: "Management Consultancy",  href: "/services/management-consultancy", external: false },
+
+    { name: "Corporate Recovery and Insolvency",  href: "/services/corporate-recovery-and-insolvency", external: false },
+    
+   
+   
+   
+  ],
+
+
   product: [
     { name: "eeziTax", href: "#", external: false },
     { name: "Taxcess", href: "#", external: false },
@@ -104,8 +117,8 @@ export default function Footer() {
           <div className="mt-16 grid grid-cols-1 gap-14 sm:gap-8 md:grid-cols-2 xl:col-span-2 xl:mt-0">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
               {/*return to check mobile grid*/}
-              <div></div>
-              <div><h3 className="text-sm font-semibold leading-6 text-white">
+
+               <div><h3 className="text-sm font-semibold leading-6 text-white">
                   Products
                 </h3>
                  <ul
@@ -115,7 +128,8 @@ export default function Footer() {
                 >
                   {navigation.product.map((item) => (
                     <li key={item.name} className="w-fit">
-                      <span
+                      <Link
+                       href={item.href}
                         className="flex rounded-md text-sm text-white transition hover:text-[#0095da]"
                         rel={item.external ? "noopener noreferrer" : undefined}
                       >
@@ -128,13 +142,43 @@ export default function Footer() {
                             />
                           </div>
                         )}
-                      </span>
+                      </Link>
                     </li>
                   ))}
                 </ul>
                 
                 </div>
-             
+  
+              <div><h3 className="text-sm font-semibold leading-6 text-white">
+                  Company
+                </h3>
+                <ul
+                  role="list"
+                  className="mt-6 space-y-4"
+                  aria-label="Quick links Company"
+                >
+                  {navigation.company.map((item) => (
+                    <li key={item.name} className="w-fit">
+                      <Link
+                        className="flex rounded-md text-sm text-white transition hover:text-[#0095da]"
+                        href={item.href}
+                        target={item.external ? "_blank" : undefined}
+                        rel={item.external ? "noopener noreferrer" : undefined}
+                      >
+                        <span>{item.name}</span>
+                        {item.external && (
+                          <div className="ml-1 aspect-square size-3 rounded-full bg-gray-100 p-px">
+                            <RiArrowRightUpLine
+                              aria-hidden="true"
+                              className="size-full shrink-0 text-gray-900"
+                            />
+                          </div>
+                        )}
+                      </Link>
+                    </li>
+                  ))}
+                </ul></div>
+                        
             </div>
             <div className="grid grid-cols-2 gap-8">
               <div>
@@ -171,19 +215,18 @@ export default function Footer() {
 
               <div>
                 <h3 className="text-sm font-semibold leading-6 text-white">
-                  Company
+                  Services
                 </h3>
-                <ul
+                 <ul
                   role="list"
                   className="mt-6 space-y-4"
-                  aria-label="Quick links Company"
+                  aria-label="Quick links services"
                 >
-                  {navigation.company.map((item) => (
-                    <li key={item.name} className="w-fit">
-                      <Link
+                  {navigation.services.map((item) => (
+                    <li key={item.name} className="w-fit sm:w-[220px]">
+                     <Link
+                       href={item.href}
                         className="flex rounded-md text-sm text-white transition hover:text-[#0095da]"
-                        href={item.href}
-                        target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
                       >
                         <span>{item.name}</span>
@@ -199,6 +242,7 @@ export default function Footer() {
                     </li>
                   ))}
                 </ul>
+                
               </div>
             </div>
           </div>
