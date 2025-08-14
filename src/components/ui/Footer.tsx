@@ -115,7 +115,7 @@ export default function Footer() {
             <div></div>
           </div>
           <div className="mt-16 grid grid-cols-1 gap-14 sm:gap-8 md:grid-cols-2 xl:col-span-2 xl:mt-0">
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 gap-8">
               {/*return to check mobile grid*/}
 
                <div><h3 className="text-sm font-semibold leading-6 text-white">
