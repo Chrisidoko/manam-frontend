@@ -27,17 +27,17 @@ export const services = [
   },
   {
     id: 3,
-    slug: "management-consultancy",
-    name: "Management Consultancy",
+    slug: "management-consultancy", // left the slug this way as not to break prevoius work
+    name: "Advisory",
     description:
-      "Our Management Consultancy services focus on delivering practical and result-oriented solutions to help businesses solve complex challenges, improve operations, and drive growth. \n\n  We work closely with our clients to understand their organizational structure, market positioning, and internal capabilities. \n\n From strategic planning and process optimization to business transformation and corporate restructuring, our consultancy offerings are tailored to help organizations enhance performance, achieve operational excellence, and sustain long-term success.",
+      "Our advisory services focus on delivering practical and result-oriented solutions to help businesses solve complex challenges, improve operations, and drive growth. \n\n  We work closely with our clients to understand their organizational structure, market positioning, and internal capabilities. \n\n From strategic planning and process optimization to business transformation and corporate restructuring, our consultancy offerings are tailored to help organizations enhance performance, achieve operational excellence, and sustain long-term success.",
     image: "/advisor.png",
     bgColor: "#b9e8fe",
     textColor: "#000000",
     shortdesc:
       "We work closely with our clients to understand their organizational  structure, market positioning, and internal capabilities",
   },
- // {
+  // {
   //  id: 4,
   //  slug: "assurance-services",
   //  name: "Assurance Services",
