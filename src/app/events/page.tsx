@@ -30,24 +30,65 @@ export interface Event {
 }
 
 export default async function Events() {
-  //only image the link below
+  //only for image the link below
   const api_url = "https://mana-event.onrender.com";
 
-  const res = await fetch("https://mana-event.onrender.com/api/event", {
-    next: { revalidate: 0 }, // disable caching
-  });
+  // const res = await fetch("https://mana-event.onrender.com/api/event", {
+  //   next: { revalidate: 0 }, // disable caching
+  // });
 
-  const data = await res.json();
+  // const data = await res.json();
 
-  if (!data?.events) {
-    return (
-      <div className="w-full mt-[40%] flex justify-center">
-        Error loading events.
-      </div>
-    );
+  // if (!data?.events) {
+  //   return (
+  //     <div className="w-full mt-[40%] flex justify-center">
+  //       Error loading events.
+  //     </div>
+  //   );
+  // }
+
+  // const events = data.events;
+
+  let events: Event[] = [];
+  let errorMessage: string | null = null;
+
+  try {
+    const res = await fetch("https://mana-event.onrender.com/api/event", {
+      next: { revalidate: 0 }, // disable caching
+    });
+
+    // Check if the HTTP status code indicates success (200-299)
+    if (!res.ok) {
+      // Handles 404, 500, 502 (Bad Gateway), etc.
+      console.error(
+        `Event fetch failed with status: ${res.status} (${res.statusText})`
+      );
+      errorMessage = `Failed to load events (Server Status: ${res.status}).`;
+    } else {
+      // Only attempt to parse the response if the status is OK.
+      // Use try/catch to handle non-JSON content (like HTML error pages).
+      try {
+        const data = await res.json();
+
+        // Check for the expected data structure within the parsed JSON
+        if (!data?.events) {
+          errorMessage =
+            "Server returned successful status but missing 'events' data.";
+        } else {
+          events = data.events;
+        }
+      } catch (jsonError) {
+        console.error("Error parsing JSON response for events:", jsonError);
+        errorMessage =
+          "Server returned valid status but invalid data format (JSON syntax error).";
+      }
+    }
+  } catch (networkError) {
+    // Catch network issues (server completely unreachable, DNS errors, etc.)
+    console.error("Network or connection error:", networkError);
+    errorMessage =
+      "Cannot connect to the event server. Please check your network connection or the service status.";
   }
-
-  const events = data.events;
 
   return (
     <div className="mt-36 flex flex-col overflow-hidden px-3">
@@ -71,7 +112,21 @@ export default async function Events() {
         </p>
       </section>
 
-      <section className="mb-10">
+      <section className="mt-10">
+        {errorMessage && (
+          <div
+            className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative"
+            role="alert"
+          >
+            <strong className="font-bold">Error: </strong>
+            <span className="block sm:inline">{errorMessage}</span>
+            <p className="text-sm mt-2">
+              The external API service may be experiencing downtime. We
+              apologize for the inconvenience.
+            </p>
+          </div>
+        )}
+
         <div className="mt-12 grid grid-cols-1 sm:grid-cols-4 md:grid-cols-4 gap-4">
           {events.map((event: Event) => (
             <div

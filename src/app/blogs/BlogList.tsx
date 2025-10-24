@@ -31,7 +31,7 @@ interface BlogListProps {
 const buttons = [
   "All",
   "Advisory",
-  "Tax & Assurance",
+  "Tax",
   "Management",
   "Consultancy",
   "Training",
@@ -72,6 +72,19 @@ export default function BlogList({ blogs }: BlogListProps) {
 
   return (
     <>
+      <div className="mr-auto inline-flex bg-white/70 mt-8 rounded-full border-2 border-[#0095DA] flex items-center w-fit">
+        <div className="p-2 text-[#0095DA] inline-flex mx-auto rounded-xl">
+          <RiSearchLine size={20} />
+        </div>
+        <input
+          type="text"
+          placeholder="Search by title..."
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          className="pr-4 text-sm text-gray-700 outline-none w-84"
+        />
+      </div>
+
       <div className="mt-8 flex flex-wrap gap-3 text-[#141d22]">
         {buttons.map((button, index) => (
           <button
@@ -87,19 +100,6 @@ export default function BlogList({ blogs }: BlogListProps) {
             {button}
           </button>
         ))}
-      </div>
-
-      <div className="mr-auto inline-flex bg-white mt-8 rounded-xl border-2 border-[#0095DA] flex items-center w-fit">
-        <div className="p-2 text-[#0095DA] inline-flex mx-auto rounded-xl">
-          <RiSearchLine size={20} />
-        </div>
-        <input
-          type="text"
-          placeholder="Search by title..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="pr-4 text-sm text-gray-700 outline-none bg-white w-64"
-        />
       </div>
 
       <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">

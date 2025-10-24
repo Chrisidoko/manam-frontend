@@ -11,10 +11,10 @@ export default function TeamGallery() {
         animationFillMode: "backwards",
       }}
     >
-      <div className="mt-20">
+      <div className="mt-7 md:mt-20">
         <div className="flex w-full flex-col items-center justify-between md:flex-row">
           <InstaxImage
-            className="w-[20rem] sm:w-[25rem] -rotate-6 sm:-ml-10"
+            className="w-[17rem] sm:w-[25rem] -rotate-6 sm:-ml-10"
             src="/galleryphoto1.jpeg"
             alt="picture 1"
             width={640}
@@ -22,7 +22,7 @@ export default function TeamGallery() {
             caption="Tax Advocacy"
           />
           <InstaxImage
-            className="w-[14rem] sm:w-[15rem] rotate-3"
+            className="w-[12rem] sm:w-[15rem] rotate-3"
             src="/photogallery2.jpeg"
             alt="picture 2"
             width={640}
@@ -30,7 +30,7 @@ export default function TeamGallery() {
             caption="E-Tax"
           />
           <InstaxImage
-            className="-mr-10 w-[14rem] sm:w-[15rem]  rotate-1"
+            className="-mr-10 w-[12rem] sm:w-[15rem]  rotate-1"
             src="/photogallery3.jpeg"
             alt="picture 3"
             width={640}
@@ -39,13 +39,11 @@ export default function TeamGallery() {
           />
         </div>
       </div>
-
-      <p className="mt-18 max-w-2xl text-lg  text-justify text-gray-700">
+      <p className="mt-18 max-w-4xl text-base md:text-lg text-justify text-gray-700">
         From startups to established enterprises, we provide strategic guidance
         on key challenges, including business growth, staff retention,
         regulatory compliance, taxation, financing, economic shifts,
         international expansion, and succession planning.
-   
         <br />
         <br />
         At Manam, we don’t just offer services—we create value. Let’s build your

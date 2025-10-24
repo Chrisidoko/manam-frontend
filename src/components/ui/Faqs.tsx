@@ -8,8 +8,7 @@ import {
 
 const faqs = [
   {
-    question:
-      "What services does Manam Professional Services offer?",
+    question: "What services does Manam Professional Services offer?",
     answer:
       "We specialize in Taxation, Advisory Services, Human Capital Development, and Corporate Recovery & Insolvency. Our goal is to provide strategic solutions that help businesses grow, stay compliant, and overcome financial challenges.",
   },
@@ -24,8 +23,7 @@ const faqs = [
       "You can reach us via our website’s contact form, email, or phone. We will schedule an initial consultation to assess your needs and provide a tailored proposal.",
   },
   {
-    question:
-      "What type of tax services do you provide?",
+    question: "What type of tax services do you provide?",
     answer:
       "We offer tax planning, compliance, filing, and advisory services, as well as tax due diligence for businesses and individuals.",
   },
@@ -35,38 +33,36 @@ const faqs = [
       "Our advisory services guide businesses in strategy, compliance, risk management, and decision-making to enhance growth and operational efficiency.",
   },
 
-    {
+  {
     question: "What is Human Capital Development?",
     answer:
       "It involves building employee skills, leadership capacity, and performance through training, workshops, and talent management strategies.",
   },
 
-    {
+  {
     question: "Do you provide customized training for organizations?",
     answer:
       "Yes, we design tailored training programs to meet your organization’s specific goals, whether it’s leadership development, compliance training, or performance enhancement.",
   },
 
-    {
+  {
     question: "What does Corporate Recovery and Insolvency entail?",
     answer:
       "We assist businesses facing financial distress with restructuring, turnaround strategies, and insolvency solutions to protect assets and maximize recovery ",
   },
 
-    {
-    question: "At what stage should a company seek corporate recovery services?",
+  {
+    question:
+      "At what stage should a company seek corporate recovery services?",
     answer:
       "The earlier, the better. Companies should contact us at the first signs of cash flow challenges, debt pressure, or operational decline to prevent insolvency.",
   },
 
-    {
+  {
     question: "Do you offer consultations before engaging your services?",
     answer:
       "Yes, we provide an initial consultation to understand your needs and recommend the most effective service plan for your business.",
   },
-
-  
- 
 ];
 
 export function Faqs() {
@@ -83,10 +79,7 @@ export function Faqs() {
           <p className="mt-4 text-base leading-7 text-gray-600">
             Can&rsquo;t find the answer you&rsquo;re looking for? Don&rsquo;t
             hesitate to get in touch with our{" "}
-            <a
-              href="/contact"
-              className="font-medium text-[#0095DA]"
-            >
+            <a href="/#contact-form" className="font-medium text-[#0095DA]">
               support
             </a>{" "}
             team.

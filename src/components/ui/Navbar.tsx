@@ -7,32 +7,83 @@ import { RiCloseLine, RiMenuLine, RiArrowDropDownLine } from "@remixicon/react";
 import Link from "next/link";
 import React from "react";
 import { services } from "@/app/services/services";
-import  MultiLevelDropdown from "@/components/ui/navsubmenu"
+import MultiLevelDropdown from "@/components/ui/navsubmenu";
 import { Button } from "../Button";
 
-  // Your products data
-  const products = [
-    { slug: 'eeziTax', name: 'eeziTax', shortdesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' },
-    { slug: 'taxcess', name: 'Taxcess ', shortdesc: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ' },
-    // ... more products
-  ];
+// Your products data
+const products = [
+  {
+    slug: "eeziTax",
+    name: "eeziTax",
+    path: "",
+    // shortdesc:
+    //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+  },
+  {
+    slug: "taxcess",
+    name: "Taxcess ",
+    path: "",
+    // shortdesc:
+    //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
+  },
+  // ... more products
+];
 
-const company = [
+const industries = [
   {
-    name: "About Us",
-    path: "/about",
-    shortdesc: "Discover our story and what drives us.",
+    id: 1,
+    name: "Business & Finance",
+    slug: "business-finance",
+    subText:
+      "Strategic solutions for sustainable growth and financial excellence.",
+  },
+
+  {
+    id: 2,
+    name: "Entrepreneurs & Innovators",
+    slug: "entrepreneurs-innovators",
+    subText:
+      "From vision to value — enabling businesses to scale with confidence.",
   },
   {
-    name: "Company profile",
-    path: "/companyprofile",
-    shortdesc: "Learn about our mission, vision, and values.",
+    id: 3,
+    name: "People & Society",
+    slug: "people-society",
+    subText:
+      "Strengthening institutions that shape lives and communities. → Learn how we create impact where it matters most.",
   },
- // {
- //   name: "Our Team",
- //   path: "/#",
- //   shortdesc: "Get to know the experts who make it happen.",
- // },
+  {
+    id: 4,
+    name: "Service & Experience",
+    slug: "service-experience",
+    subText:
+      "Optimizing services to deliver impact, efficiency, and customer trust. → Explore tailored solutions for your sector.",
+  },
+  {
+    id: 5,
+    name: "Energy & Natural Resources Sector",
+    slug: "energy-and-natural-resources-sector",
+    subText:
+      "Driving progress through reliable expertise in power and resources. → collaborate with us to fuel sustainable growth.",
+  },
+];
+
+const resource = [
+  {
+    name: "Blogs",
+    path: "/blogs",
+    shortdesc: "Access our latest research and professional perspectives..",
+  },
+  {
+    name: "Events",
+    path: "/events",
+    shortdesc: "Register for our Seminars and workshops",
+  },
+  {
+    name: "Gallery",
+    path: "/gallery",
+    shortdesc: "Get to know us, see our events and office environment.",
+  },
 ];
 
 export function Navigation() {
@@ -79,7 +130,7 @@ export function Navigation() {
         "fixed inset-x-3 top-4 z-50 mx-auto flex max-w-6xl transform-gpu animate-slide-down-fade justify-center rounded-xl border border-transparent px-3 py-3 transition-all duration-300 ease-[cubic-bezier(0.16,1,0.3,1.03)] will-change-transform",
         openMobileMenu ? "h-auto pb-6" : "h-16",
         scrolled || openMobileMenu
-          ? "backdrop-blur-nav max-w-4xl border-gray-100 bg-white/80 shadow-xl shadow-black/5"
+          ? "backdrop-blur-nav max-w-6xl border-gray-100 bg-white/80 shadow-xl shadow-black/5"
           : "bg-white/0"
       )}
     >
@@ -96,7 +147,7 @@ export function Navigation() {
           </Link>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:absolute md:left-1/2 md:top-1/2 md:block md:-translate-x-1/2 md:-translate-y-1/2 md:transform">
+          <nav className="hidden md:w-[80vw] ml-[13vw] md:absolute md:left-1/2 md:top-1/2 md:block md:-translate-x-1/2 md:-translate-y-1/2 md:transform">
             <div className="flex items-center gap-10 font-medium">
               <Link
                 className="px-2 py-1 text-gray-900"
@@ -104,27 +155,61 @@ export function Navigation() {
               >
                 Home
               </Link>
-            
-              {/* Company Dropdown */}
+
+              <Link
+                className="px-2 py-1 text-gray-900"
+                href={siteConfig.baseLinks.about}
+              >
+                About Us
+              </Link>
+              {/* Industries Dropdown */}
               <div className="relative group">
                 <button className=" flex gap-1 px-2 py-1 text-gray-900 cursor-pointer hover:underline focus:outline-none">
-                  Company <RiArrowDropDownLine />
+                  Industries <RiArrowDropDownLine />
+                </button>
+
+                <ul className="absolute left-0 p-4 mt-2 w-168 bg-white shadow-lg rounded-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="grid grid-cols-2 gap-2 max-h-90 overflow-y-auto">
+                    {industries.map((industries) => (
+                      <Link
+                        key={industries.name}
+                        href={`/industries/${industries.slug}`}
+                        className="block px-4 py-3 hover:bg-[#e0f2fe]/40 rounded-lg transition-all duration-200 group/item border border-transparent hover:border-blue-100"
+                      >
+                        <div className="flex flex-col gap-1">
+                          <span className="text-sm text-black font-medium group-hover/item:text-[#0395da] transition-colors">
+                            {industries.name}
+                          </span>
+                          <span className="text-xs text-gray-600 font-light leading-relaxed">
+                            {industries.subText}
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </ul>
+              </div>
+
+              {/* Resource Dropdown */}
+              <div className="relative group">
+                <button className=" flex gap-1 px-2 py-1 text-gray-900 cursor-pointer hover:underline focus:outline-none">
+                  Products <RiArrowDropDownLine />
                 </button>
 
                 <ul className="absolute left-0 p-4 mt-2 w-68 bg-white shadow-lg rounded-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
-                  {company.map((company) => (
-                    <li key={company.name}>
+                  {products.map((products) => (
+                    <li key={products.name}>
                       <Link
-                        href={company.path}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:rounded-lg hover:bg-[#e0f2fe]  group/item transition-all duration-300 ease-in-out"
+                        href={products.path}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:rounded-lg hover:bg-[#e0f2fe]/40  group/item transition-all duration-300 ease-in-out border border-transparent hover:border-blue-100"
                       >
                         <div className="flex flex-col gap-1">
-                          <span className="text-sm text-black group-hover/item:text-blue-600 ">
-                            {company.name}
+                          <span className="text-sm text-black group-hover/item:text-[#0395da] ">
+                            {products.name}
                           </span>
-                          <span className="text-xs text-gray-900 font-light">
-                            {company.shortdesc}
-                          </span>
+                          {/* <span className="text-xs text-gray-900 font-light">
+                            {products.shortdesc}
+                          </span> */}
                         </div>
                       </Link>
                     </li>
@@ -132,23 +217,63 @@ export function Navigation() {
                 </ul>
               </div>
 
-                {/* Multi-level dropdown */}
-      <MultiLevelDropdown services={services} products={products} />
+              {/* Multi-level dropdown
+              <MultiLevelDropdown services={services} products={products} /> */}
 
+              {/* Services Dropdown */}
+              <div className="relative group">
+                <button className=" flex gap-1 px-2 py-1 text-gray-900 cursor-pointer hover:underline focus:outline-none">
+                  Services <RiArrowDropDownLine />
+                </button>
 
+                <ul className="absolute right-0 p-4 mt-2 w-168 bg-white shadow-lg rounded-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  <div className="grid grid-cols-2 gap-2 max-h-90 overflow-y-auto">
+                    {services.map((service) => (
+                      <Link
+                        key={service.slug}
+                        href={`/services/${service.slug}`}
+                        className="block px-4 py-3 hover:bg-[#e0f2fe]/40 rounded-lg transition-all duration-200 group/item border border-transparent hover:border-blue-100"
+                      >
+                        <div className="flex flex-col gap-1">
+                          <span className="text-sm text-black font-medium group-hover/item:text-[#0395da] transition-colors">
+                            {service.name}
+                          </span>
+                          <span className="text-xs text-gray-600 font-light leading-relaxed">
+                            {service.shortdesc}
+                          </span>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </ul>
+              </div>
 
-              <Link
-                className="px-2 py-1 text-gray-900"
-                href={siteConfig.baseLinks.events}
-              >
-                Events
-              </Link>
-              <Link
-                className="px-2 py-1 text-gray-900"
-                href={siteConfig.baseLinks.blogs}
-              >
-                Blog
-              </Link>
+              {/* Resource Dropdown */}
+              <div className="relative group">
+                <button className=" flex gap-1 px-2 py-1 text-gray-900 cursor-pointer hover:underline focus:outline-none">
+                  Resources <RiArrowDropDownLine />
+                </button>
+
+                <ul className="absolute left-0 p-4 mt-2 w-68 bg-white shadow-lg rounded-lg z-50 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200">
+                  {resource.map((resource) => (
+                    <li key={resource.name}>
+                      <Link
+                        href={resource.path}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:rounded-lg hover:bg-[#e0f2fe]/40  group/item transition-all duration-300 ease-in-out border border-transparent hover:border-blue-100"
+                      >
+                        <div className="flex flex-col gap-1">
+                          <span className="text-sm text-black group-hover/item:text-[#0395da] ">
+                            {resource.name}
+                          </span>
+                          <span className="text-xs text-gray-900 font-light">
+                            {resource.shortdesc}
+                          </span>
+                        </div>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </nav>
 
@@ -189,32 +314,10 @@ export function Navigation() {
             <li onClick={() => setOpenMobileMenu(false)}>
               <Link href={siteConfig.baseLinks.home}>Home</Link>
             </li>
-            {/* <li onClick={() => setOpenMobileMenu(false)}>
+            <li onClick={() => setOpenMobileMenu(false)}>
               <Link href={siteConfig.baseLinks.about}>About</Link>
-            </li> */}
-            <li>
-              <button
-                onClick={() => setOpenMobileCompany(!openMobileCompany)}
-                className="w-full flex items-center text-left"
-              >
-                About <RiArrowDropDownLine />
-              </button>
-              {openMobileCompany && (
-                <ul className="mt-2 ml-4 space-y-2 text-sm">
-                  {company.map((company) => (
-                    <li
-                      key={company.name}
-                      onClick={() => {
-                        setOpenMobileCompany(false);
-                        setOpenMobileMenu(false);
-                      }}
-                    >
-                      <Link href={company.path}>{company.name}</Link>
-                    </li>
-                  ))}
-                </ul>
-              )}
             </li>
+
             <li>
               <button
                 onClick={() => setOpenMobileServices(!openMobileServices)}
@@ -244,12 +347,6 @@ export function Navigation() {
             {/* <li onClick={() => setOpenMobileMenu(false)}>
               <Link href={siteConfig.baseLinks.services}>Services</Link>
             </li> */}
-            <li onClick={() => setOpenMobileMenu(false)}>
-              <Link href={siteConfig.baseLinks.events}>Events</Link>
-            </li>
-            <li onClick={() => setOpenMobileMenu(false)}>
-              <Link href={siteConfig.baseLinks.blogs}>Blog</Link>
-            </li>
           </ul>
         </nav>
       </div>

@@ -8,7 +8,7 @@ export const siteConfig = {
     blogs: "/blogs",
     events: "/events",
     services: "/services",
-    contact: "/contact",
+    contact: "/#contact-form",
     terms: "/terms",
   },
 };
