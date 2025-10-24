@@ -1,4 +1,4 @@
-import { Badge } from "@/components/Badge";
+// import { Badge } from "@/components/Badge";
 
 import { Faqs } from "@/components/ui/Faqs";
 import TeamGallery from "@/components/ui/TeamGallery";

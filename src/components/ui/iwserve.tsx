@@ -69,7 +69,7 @@ const slides = [
     cta: {
       label: "Read More",
       icon: <RiArrowRightLine />,
-      link: "/industries/business-finance",
+      link: "/industries/people-society",
     },
     industries: [
       { label: "Healthcare", icon: <RiStethoscopeLine /> },
@@ -85,7 +85,7 @@ const slides = [
     cta: {
       label: "Read More",
       icon: <RiArrowRightLine />,
-      link: "/industries/business-finance",
+      link: "/industries/service-experience",
     },
     industries: [
       { label: "Hospitality", icon: <RiHotelBedLine /> },
@@ -100,7 +100,7 @@ const slides = [
     cta: {
       label: "Read More",
       icon: <RiArrowRightLine />,
-      link: "/industries/business-finance",
+      link: "/industries/energy-and-natural-resources-sector",
     },
     industries: [
       { label: "Oil & Gas", icon: <RiGasStationLine /> },
