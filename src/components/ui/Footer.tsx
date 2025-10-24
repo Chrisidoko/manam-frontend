@@ -2,6 +2,7 @@ import {
   RiArrowRightUpLine,
   RiInstagramLine,
   RiTwitterXLine,
+  RiMailFill,
   RiLinkedinBoxLine,
   RiFacebookCircleLine,
 } from "@remixicon/react";
@@ -18,7 +19,7 @@ const navigation = {
     },
     {
       name: "Advisory",
-      href: "/services/management-consultancy",
+      href: "/services/advisory",
       external: false,
     },
 
@@ -50,7 +51,7 @@ const navigation = {
       href: "https://www.linkedin.com/company/manamprofessionals/jobs/",
       external: true,
     },
-    { name: "Contact", href: "/contact", external: false },
+    { name: "Contact", href: "/#contact-form", external: false },
   ],
   legal: [
     { name: "Regulatory", href: "#", external: false },
@@ -87,6 +88,15 @@ export default function Footer() {
               Plot 1332, Ralph Shodeinde Street, Central Business District,
               Fct-Abuja.
             </p>
+
+            <div className="flex items-center gap-4">
+              <div className="h-[2rem] w-[2rem] flex items-center justify-center rounded-full border border-gray-300 text-white/60">
+                <RiMailFill size={18} />
+              </div>
+              <p className="text-sm text-white/60">
+                info@manamprofessionals.com
+              </p>
+            </div>
 
             <div className="flex space-x-6">
               <Link
@@ -139,7 +149,6 @@ export default function Footer() {
             <div className="grid grid-cols-2 gap-8">
               {/*return to check mobile grid*/}
 
-              <div></div>
               <div>
                 <h3 className="text-sm font-semibold leading-6 text-white">
                   Products
