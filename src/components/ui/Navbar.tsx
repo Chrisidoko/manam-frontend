@@ -92,7 +92,8 @@ export function Navigation() {
   const [openServicesDropdown, setOpenServicesDropdown] = React.useState(false);
   const servicesDropdownRef = React.useRef<HTMLDivElement>(null);
   const [openMobileServices, setOpenMobileServices] = React.useState(false);
-  const [openMobileCompany, setOpenMobileCompany] = React.useState(false);
+  const [openMobileIndustries, setOpenMobileIndustries] = React.useState(false);
+  const [openMobileResource, setOpenMobileResource] = React.useState(false);
 
   React.useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
@@ -320,6 +321,32 @@ export function Navigation() {
 
             <li>
               <button
+                onClick={() => setOpenMobileIndustries(!openMobileIndustries)}
+                className="w-full flex items-center text-left"
+              >
+                Industries <RiArrowDropDownLine />
+              </button>
+              {openMobileIndustries && (
+                <ul className="mt-2 ml-4 space-y-2 text-sm">
+                  {industries.map((industries) => (
+                    <li
+                      key={industries.slug}
+                      onClick={() => {
+                        setOpenMobileIndustries(false);
+                        setOpenMobileMenu(false);
+                      }}
+                    >
+                      <Link href={`/industries/${industries.slug}`}>
+                        {industries.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+
+            <li>
+              <button
                 onClick={() => setOpenMobileServices(!openMobileServices)}
                 className="w-full flex items-center text-left"
               >
@@ -338,6 +365,30 @@ export function Navigation() {
                       <Link href={`/services/${service.slug}`}>
                         {service.name}
                       </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+
+            <li>
+              <button
+                onClick={() => setOpenMobileResource(!openMobileResource)}
+                className="w-full flex items-center text-left"
+              >
+                Resources <RiArrowDropDownLine />
+              </button>
+              {openMobileResource && (
+                <ul className="mt-2 ml-4 space-y-2 text-sm">
+                  {resource.map((resource) => (
+                    <li
+                      key={resource.name}
+                      onClick={() => {
+                        setOpenMobileResource(false);
+                        setOpenMobileMenu(false);
+                      }}
+                    >
+                      <Link href={resource.path}>{resource.name}</Link>
                     </li>
                   ))}
                 </ul>

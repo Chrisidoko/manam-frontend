@@ -16,13 +16,13 @@ const ServicePage = async ({ params }: { params: Params }) => {
 
   const conditionalClasses =
     service.slug === "taxation"
-      ? "w-22 md:w-[240px] sm:mr-10"
+      ? "w-36 md:w-[240px] sm:mr-10"
       : service.slug === "corporate-recovery-and-insolvency"
         ? "rotate-0 md:w-[320px]"
         : service.slug === "advisory"
-          ? "w-60 md:w-[254px] sm:mr-10"
+          ? "w-40 md:w-[254px] sm:mr-10"
           : service.slug === "human-capital-development"
-            ? "w-34 md:w-[300px]"
+            ? "hidden sm:block w-42 md:w-[300px]"
             : "md:w-[360px]"; // default width
 
   return (
@@ -43,7 +43,7 @@ const ServicePage = async ({ params }: { params: Params }) => {
         ></Image>
       </div>
 
-      <p className="mt-4 text-lg sm:w-[48rem] text-justify leading-7 whitespace-pre-line text-gray-700">
+      <p className="mt-4 text-base md:text-lg sm:w-[48rem] text-justify leading-7 whitespace-pre-line text-gray-700">
         {service.description}
       </p>
     </div>
