@@ -16,12 +16,12 @@ const features = [
   },
   {
     id: 2,
-    description: "Simplifying Tax complexity, maximizing opportunities",
+    description: "Simplifying tax complexity, ensuring regulatory",
     src: "/tax3-min.jpg",
     alt: "Taxation",
 
     cta: {
-      label: "Tax",
+      label: "Taxation",
       link: "/services/taxation",
     },
   },

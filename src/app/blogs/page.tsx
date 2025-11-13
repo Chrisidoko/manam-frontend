@@ -65,7 +65,6 @@ export default async function BlogPage() {
   return (
     <div className="mt-36 flex flex-col overflow-hidden px-3">
       <section aria-labelledby="blogs-page" className="animate-slide-up-fade">
-        <Badge>Blogs</Badge>
         <h1
           id="blogs-page"
           className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-5xl"

@@ -72,7 +72,7 @@ const resource = [
   {
     name: "Blogs",
     path: "/blogs",
-    shortdesc: "Access our latest research and professional perspectives..",
+    shortdesc: "Access our latest research and professional perspectives.",
   },
   {
     name: "Events",

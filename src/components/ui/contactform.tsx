@@ -84,8 +84,8 @@ export default function Contactform() {
                 where expertise meets results
               </h2>
               <p className="mt-2 shadow max-w-2xl leading text-sm text-gray-50 ">
-                Fill out our contact form to make enquires or shedule a meeting
-                with us at your covinence
+                Fill out our contact form to make enquiries or schedule a
+                meeting with us at your convenience
               </p>
             </div>
           </div>

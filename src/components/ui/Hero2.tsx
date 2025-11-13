@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { RiPhoneLine } from "@remixicon/react";
 
 // Using placeholder images for testing
 const images = ["/1390.jpg", "/advisorycom.jpg", "/tax1-min.jpg"];
@@ -88,23 +87,21 @@ export default function Hero2() {
             </h1>
 
             <p className="text-sm md:text-base text-white animate-[slideUpFade_700ms_ease-in-out]">
-              Since 2012, we’ve guided businesses through tax complexities,
-              growth decisions, and effective team building—delivering Practical
-              Solutions, Lasting Results.
+              Since inception, we’ve guided businesses through tax complexities,
+              growth decisions, and effective team building—delivering practical
+              solutions, lasting results.
             </p>
 
             <div className="flex flex-col md:flex-row md:items-center gap-4 text-sm animate-[slideUpFade_700ms_ease-in-out]">
               <Link href="/services">
                 <button className="self-auto bg-[#0395da] border-2 border-[#0395da] cursor-pointer font-bold w-full md:w-fit text-white md:px-5 py-3 transform transition duration-400 hover:-translate-y-1 rounded-lg">
-                  What We Offer
+                  What we offer
                 </button>
               </Link>
 
-              <Link href="tel:+2348000000000">
-                <button className="flex justify-center bg-white cursor-pointer font-semibold w-full md:w-fit text-[#0395da] md:px-5 py-3 transform transition duration-400 hover:-translate-y-1 rounded-lg">
-                  <span className="flex items-center gap-2">
-                    Talk to our expert <RiPhoneLine />
-                  </span>
+              <Link href="/#contact-form">
+                <button className="flex justify-center bg-white border-2 border-white cursor-pointer font-semibold w-full md:w-fit text-[#0395da] md:px-5 py-3 transform transition duration-400 hover:-translate-y-1 rounded-lg">
+                  Talk to our expert
                 </button>
               </Link>
             </div>

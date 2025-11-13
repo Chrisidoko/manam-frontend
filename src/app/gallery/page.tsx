@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 
 // import { cx } from "@/lib/utils";
 import Balancer from "react-wrap-balancer";
@@ -101,10 +102,13 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ item, onClose }) => {
         </div>
 
         {/* Details */}
-        <div className="p-6 overflow-y-auto">
+        <div className="flex items-center justify-between p-6 overflow-y-auto">
           <h3 className="text-2xl font-bold text-gray-900 mb-2">
             {item.title}
           </h3>
+          <Link href="/#">
+            <span className="text-blue-600 underline">Link</span>
+          </Link>
         </div>
       </div>
     </div>

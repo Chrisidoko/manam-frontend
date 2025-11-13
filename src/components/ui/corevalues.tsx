@@ -2,7 +2,7 @@ const corevalues = [
   {
     title: "Professionalism",
     description:
-      "We deliver our services with competence, responsibility, and respect.",
+      "We deliver our services with competence, responsiveness, and respect.",
   },
   {
     title: "Accountability",
@@ -18,7 +18,7 @@ const corevalues = [
   {
     title: "Teamwork",
     description:
-      "We work collaboratively, leveraging our diverse strengths for greater impact while striving for the highest quality in our work and results.",
+      "We work collaboratively, while striving for the highest quality in our work and results.",
   },
 ];
 

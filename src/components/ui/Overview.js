@@ -12,7 +12,7 @@ const stats = [
   },
   {
     name: "Years of Collective Experience",
-    value: "13+",
+    value: "20+",
   },
 ];
 

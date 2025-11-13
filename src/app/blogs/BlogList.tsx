@@ -28,14 +28,7 @@ interface BlogListProps {
   blogs: Blog[];
 }
 
-const buttons = [
-  "All",
-  "Advisory",
-  "Tax",
-  "Management",
-  "Consultancy",
-  "Training",
-];
+const buttons = ["All", "Advisory", "Taxation", "Human Capital Development"];
 const blogsPerPage = 9;
 
 export default function BlogList({ blogs }: BlogListProps) {

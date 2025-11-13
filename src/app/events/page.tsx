@@ -1,5 +1,4 @@
 // import { siteConfig } from "@/app/siteConfig";
-import { Badge } from "@/components/Badge";
 import Image from "next/image";
 import Link from "next/link";
 import Balancer from "react-wrap-balancer";
@@ -100,7 +99,6 @@ export default async function Events() {
           animationFillMode: "backwards",
         }}
       >
-        <Badge>Events</Badge>
         <h1
           id="blogs-page"
           className="mt-2 inline-block bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-4xl font-bold tracking-tighter text-transparent sm:text-5xl md:text-5xl"

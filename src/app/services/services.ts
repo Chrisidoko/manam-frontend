@@ -5,7 +5,7 @@ export const services = [
     slug: "taxation",
     name: "Taxation",
     description:
-      "We offer comprehensive tax advisory services that help businesses navigate the complexities of local and international tax laws while maintaining compliance and optimizing tax positions. \n\nOur experienced professionals provide guidance on corporate tax planning, VAT compliance, and withholding tax management. We support clients in mergers, acquisitions, ensuring transparency, minimizing risks, and safeguarding business interests.",
+      "We offer comprehensive tax advisory services that help businesses navigate the complexities of local and international tax laws while maintaining compliance and optimizing tax positions. \n\nOur experienced professionals provide guidance on corporate tax planning, VAT compliance, and withholding tax management.",
     image: "/tax(s).png",
 
     bgColor: "#c3e9fc",
@@ -36,30 +36,5 @@ export const services = [
     textColor: "#000000",
     shortdesc:
       "We work closely with our clients to understand their organizational  structure, market positioning, and internal capabilities",
-  },
-  // {
-  //  id: 4,
-  //  slug: "assurance-services",
-  //  name: "Assurance Services",
-  //  description:
-  //    "Whether through audits, reviews, or agreed-upon procedures, we ensure compliance with regulatory requirements and provide actionable insights that support sound decision-making.\n  We uphold the highest standards of independence and objectivity, delivering value beyond compliance by identifying risks, improving internal controls, and enhancing stakeholder trust.\n Our Assurance Services provide clients with confidence in the accuracy and integrity of their financial information.",
-  //  image: "/handshake.png",
-  //  bgColor: "#065c86",
-  //  textColor: "#FFFFFF",
-  //  shortdesc:
-  //    "Our Assurance Services provide clients with confidence in the accuracy and integrity of their financial information.",
-  // },
-
-  {
-    id: 5,
-    slug: "corporate-recovery-and-insolvency",
-    name: "Corporate Recovery and Insolvency",
-    description:
-      "In times of financial distress, timely intervention is critical, our Corporate Recovery and Insolvency services are structured to assist businesses in evaluating their financial health, identifying restructuring options, and managing insolvency proceedings professionally.\n  We support stakeholders through debt resolution, turnaround strategies, liquidation processes, and creditor negotiations.",
-    image: "/recover.png",
-    bgColor: "#b9e8fe",
-    textColor: "#000000",
-    shortdesc:
-      "We support stakeholders through debt resolution, turnaround  strategies, liquidation processes, and creditor negotiations.",
   },
 ];

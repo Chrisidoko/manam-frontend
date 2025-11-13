@@ -13,7 +13,6 @@ export default function AboutUS() {
       aria-labelledby="Idustries-title"
       className="mx-auto mt-24 pb-30 w-full px-10 sm:px-30"
     >
-      <Badge className="mx-auto"> Who We Are </Badge>
       <div className="w-full ">
         <h3 className="mt-2 text-center bg-gradient-to-br from-gray-900 to-gray-800 bg-clip-text py-2 text-3xl font-bold tracking-tighter sm:text-3xl md:text-7xl">
           About Us
