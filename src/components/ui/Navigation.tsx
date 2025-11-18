@@ -52,6 +52,21 @@ function Navigation() {
           >
             <Link href="/admin/blogs">Blogs</Link>
           </TabNavigationLink>
+          <TabNavigationLink
+            className="inline-flex gap-2"
+            asChild
+            active={pathname === "/admin/gallery"}
+          >
+            <Link href="/admin/gallery">Gallery</Link>
+          </TabNavigationLink>
+
+          <TabNavigationLink
+            className="inline-flex gap-2"
+            asChild
+            active={pathname === "/admin/newsletter"}
+          >
+            <Link href="/admin/newsletter">Newsletter</Link>
+          </TabNavigationLink>
           {role === "superAdmin" && (
             <TabNavigationLink
               className="inline-flex gap-2"

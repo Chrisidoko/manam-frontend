@@ -18,6 +18,8 @@ export default function PersistentLayout({
     "/admin/overview",
     "/admin/blogs",
     "/admin/events",
+    "/admin/gallery",
+    "/admin/newsletter",
     "/admin/user",
   ];
 

@@ -1,4 +1,4 @@
-import { Badge } from "@/components/Badge";
+// import { Badge } from "@/components/Badge";
 import Balancer from "react-wrap-balancer";
 import BlogList from "./BlogList";
 
@@ -23,14 +23,12 @@ export interface Blog {
 export default async function BlogPage() {
   let blogs: Blog[] = [];
   let errorMessage: string | null = null;
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
 
   try {
-    const res = await fetch(
-      "https://mana-event.onrender.com/api/blogs?page=1&limit=100",
-      {
-        next: { revalidate: 0 },
-      }
-    );
+    const res = await fetch(`${baseUrl}/api/blogs?page=1&limit=100`, {
+      next: { revalidate: 0 },
+    });
 
     // 1. Check if the HTTP status code indicates success (200-299)
     if (!res.ok) {

@@ -7,6 +7,7 @@ import Balancer from "react-wrap-balancer";
 export default function Contactform() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<{
@@ -25,7 +26,7 @@ export default function Contactform() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ name, email, message }),
+        body: JSON.stringify({ name, email, phone, message }),
       });
 
       const data = await response.json();
@@ -38,6 +39,7 @@ export default function Contactform() {
         // Reset form fields
         setName("");
         setEmail("");
+        setPhone("");
         setMessage("");
       } else {
         setSubmitStatus({
@@ -69,7 +71,7 @@ export default function Contactform() {
       <div className=" p-6 sm:p-20 border-2 border-gray-200 rounded-lg md:rounded-2xl ">
         <section className="mt-1 grid grid-cols-1 gap-x-24 sm:grid-cols-2">
           <div
-            className="hidden sm:block mt-2 w-full h-56 sm:h-124 gap-1 mx-auto rounded-lg md:rounded-xl p-6
+            className="hidden sm:block mt-2 w-full h-56 sm:h-144 gap-1 mx-auto rounded-lg md:rounded-xl p-6
              bg-cover bg-center bg-no-repeat relative"
             // REMOVED THE EXTRA DOUBLE QUOTE HERE
             style={{ backgroundImage: `url("/contactus.jpg")` }}
@@ -142,6 +144,20 @@ export default function Contactform() {
                   placeholder="Enter Your Email"
                   className="mt-2 block w-full appearance-none rounded-md border px-2.5 py-2 shadow-xs outline-none transition text-xs sm:text-sm border-gray-300 text-gray-700"
                   required
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="text-sm font-medium">
+                  Phone (Optional)
+                </label>
+                <input
+                  type="**numeric**"
+                  id="phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  autoComplete="email"
+                  placeholder="Enter Phone Number"
+                  className="mt-2 block w-full appearance-none rounded-md border px-2.5 py-2 shadow-xs outline-none transition text-xs sm:text-sm border-gray-300 text-gray-700"
                 />
               </div>
               <div>

@@ -8,17 +8,14 @@ export async function GET(req: NextRequest) {
     if (!authHeader) {
       return NextResponse.json({ error: "Missing token" }, { status: 401 });
     }
-
-    const res = await fetch(
-      "https://mana-event.onrender.com/api/dashboard-stats",
-      {
-        headers: {
-          Accept: "application/json",
-          Authorization: authHeader,
-        },
-        cache: "no-store",
-      }
-    );
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+    const res = await fetch(`${baseUrl}/api/dashboard-stats`, {
+      headers: {
+        Accept: "application/json",
+        Authorization: authHeader,
+      },
+      cache: "no-store",
+    });
 
     if (!res.ok) {
       throw new Error("Failed to fetch dashboard stats");

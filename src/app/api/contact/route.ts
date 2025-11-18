@@ -4,7 +4,7 @@ import path from "path";
 
 export async function POST(request: Request) {
   try {
-    const { name, email, message } = await request.json();
+    const { name, email, phone, message } = await request.json();
 
     // Basic validation
     if (!name || !email || !message) {
@@ -34,7 +34,7 @@ export async function POST(request: Request) {
       text: `
         Name: ${name}
         Email: ${email}
-        
+        Phone Number: ${phone}
         Message:
         ${message}
       `,
@@ -45,6 +45,7 @@ export async function POST(request: Request) {
         <h3>New Contact Form Submission</h3>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
+         <p><strong>Phone Number:</strong> ${phone}</p>
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, "<br>")}</p>
       `,

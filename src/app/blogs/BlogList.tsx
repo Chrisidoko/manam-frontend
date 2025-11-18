@@ -35,7 +35,7 @@ export default function BlogList({ blogs }: BlogListProps) {
   const [searchQuery, setSearchQuery] = useState("");
 
   //only image the link below
-  const api_url = "https://mana-event.onrender.com";
+  const api_url = process.env.NEXT_PUBLIC_APP_URL;
 
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);

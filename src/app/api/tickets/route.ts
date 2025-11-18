@@ -20,8 +20,9 @@ export async function GET(req: NextRequest) {
   }
 
   try {
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
     const response = await fetch(
-      `https://mana-event.onrender.com/api/ticket/by-date?date_start=${dateStart}&date_end=${dateEnd}`,
+      `${baseUrl}/api/ticket/by-date?date_start=${dateStart}&date_end=${dateEnd}`,
       {
         method: "GET",
         headers: {

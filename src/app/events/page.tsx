@@ -30,7 +30,7 @@ export interface Event {
 
 export default async function Events() {
   //only for image the link below
-  const api_url = "https://mana-event.onrender.com";
+  const api_url = process.env.NEXT_PUBLIC_APP_URL;
 
   // const res = await fetch("https://mana-event.onrender.com/api/event", {
   //   next: { revalidate: 0 }, // disable caching
@@ -52,7 +52,7 @@ export default async function Events() {
   let errorMessage: string | null = null;
 
   try {
-    const res = await fetch("https://mana-event.onrender.com/api/event", {
+    const res = await fetch(`${api_url}/api/event`, {
       next: { revalidate: 0 }, // disable caching
     });
 

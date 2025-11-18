@@ -68,9 +68,13 @@ export default function SupportDashboard() {
   // const [isLoading, setIsLoading] = useState(false);
 
   // Function to fetch tickets based on month/year
+  // Function to fetch tickets based on month/year
   const fetchTickets = async (selectedMonth: number, selectedYear: number) => {
     const token = Cookies.get("token");
-    if (!token) return;
+    if (!token) {
+      console.warn("No authentication token found");
+      return;
+    }
 
     setLoadingTickets(true);
 
@@ -92,17 +96,56 @@ export default function SupportDashboard() {
         }
       );
 
-      const apiResponse = await response.json();
-      console.log("Fetched ticket data:", apiResponse);
+      // Check if the response is ok (status 200-299)
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
 
-      if (apiResponse && apiResponse.success && apiResponse.data) {
+      // Check if response is JSON
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error("Response is not JSON");
+      }
+
+      const apiResponse = await response.json();
+
+      // Validate response structure
+      if (!apiResponse) {
+        throw new Error("Empty response received");
+      }
+
+      if (apiResponse.success && Array.isArray(apiResponse.data)) {
         setTickets(apiResponse.data);
+      } else if (apiResponse.success && apiResponse.data) {
+        // If data exists but is not an array, try to handle it
+        console.warn(
+          "Data is not an array, attempting to convert:",
+          apiResponse.data
+        );
+        setTickets([apiResponse.data]);
       } else {
-        console.error("Invalid response structure:", apiResponse);
+        // Response doesn't have expected structure
+        console.warn("Invalid response structure:", {
+          hasSuccess: "success" in apiResponse,
+          hasData: "data" in apiResponse,
+          dataType: typeof apiResponse.data,
+          response: apiResponse,
+        });
         setTickets([]);
       }
     } catch (err) {
-      console.error("Ticket data fetch failed:", err);
+      // Handle different types of errors
+      if (err instanceof TypeError && err.message.includes("Failed to fetch")) {
+        console.error("Network error - could not reach the server:", err);
+      } else if (err instanceof SyntaxError) {
+        console.error("JSON parsing error - invalid response format:", err);
+      } else if (err instanceof Error) {
+        console.error("Ticket fetch error:", err.message);
+      } else {
+        console.error("Unknown error occurred:", err);
+      }
+
+      // Always set tickets to empty array on error to prevent undefined issues
       setTickets([]);
     } finally {
       setLoadingTickets(false);

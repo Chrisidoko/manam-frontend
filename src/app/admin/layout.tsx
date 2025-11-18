@@ -19,7 +19,7 @@ function AdminLayoutClient({ children }: { children: React.ReactNode }) {
   const isLoginPage = pathname === "/admin" || pathname === "/admin/";
 
   return (
-    <div className="bg-white">
+    <div className="bg-white min-h-screen">
       {!isLoginPage && <Navigation />}
       <div className="mx-auto max-w-7xl py-10 px-4 sm:px-6">{children}</div>
     </div>

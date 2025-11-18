@@ -26,6 +26,7 @@ import {
   RiRocket2Line,
   RiArrowRightLine,
   RiToolsFill,
+  RiTable2,
 } from "@remixicon/react";
 
 const slides = [
@@ -39,11 +40,36 @@ const slides = [
       link: "/industries/business-finance",
     },
     industries: [
-      { label: "Banking", icon: <RiBankLine /> },
-      { label: "Manufacturing", icon: <RiToolsFill /> },
-      { label: "Real Estate", icon: <RiBuildingLine /> },
-      { label: "Construction", icon: <RiHammerLine /> },
-      { label: "Fintech", icon: <RiMoneyDollarBoxLine /> },
+      {
+        label: "Banking",
+        icon: <RiBankLine />,
+        link: "/industries/business-finance#banking",
+      },
+      {
+        label: "Manufacturing",
+        icon: <RiToolsFill />,
+        link: "/industries/business-finance#manufacturing",
+      },
+      {
+        label: "Real Estate",
+        icon: <RiBuildingLine />,
+        link: "/industries/business-finance#real-estate",
+      },
+      {
+        label: "Construction",
+        icon: <RiHammerLine />,
+        link: "/industries/business-finance#construction",
+      },
+      {
+        label: "Fintech",
+        icon: <RiMoneyDollarBoxLine />,
+        link: "/industries/business-finance#fintech",
+      },
+      {
+        label: "Professional Services",
+        icon: <RiTable2 />,
+        link: "/industries/business-finance#professional-services",
+      },
     ],
   },
 
@@ -57,9 +83,21 @@ const slides = [
       link: "/industries/business-finance",
     },
     industries: [
-      { label: "SMEs", icon: <RiAccountPinCircleLine /> },
-      { label: "Startups", icon: <RiRocket2Line /> },
-      { label: "Creative Industries", icon: <RiLightbulbFlashLine /> },
+      {
+        label: "SMEs",
+        icon: <RiAccountPinCircleLine />,
+        link: "/industries/entrepreneurs-innovators#smes",
+      },
+      {
+        label: "Startups",
+        icon: <RiRocket2Line />,
+        link: "/industries/entrepreneurs-innovators#startups",
+      },
+      {
+        label: "Creative Industries",
+        icon: <RiLightbulbFlashLine />,
+        link: "/industries/entrepreneurs-innovators#creative-industries",
+      },
     ],
   },
   {
@@ -72,10 +110,26 @@ const slides = [
       link: "/industries/people-society",
     },
     industries: [
-      { label: "Healthcare", icon: <RiStethoscopeLine /> },
-      { label: "Education", icon: <RiBook2Line /> },
-      { label: "Public Sector", icon: <RiGovernmentLine /> },
-      { label: "NGO", icon: <RiHandHeartLine /> },
+      {
+        label: "Healthcare",
+        icon: <RiStethoscopeLine />,
+        link: "/industries/people-society#healthcare",
+      },
+      {
+        label: "Education",
+        icon: <RiBook2Line />,
+        link: "/industries/people-society#education",
+      },
+      {
+        label: "Public Sector",
+        icon: <RiGovernmentLine />,
+        link: "/industries/people-society#public-sector",
+      },
+      {
+        label: "NGO",
+        icon: <RiHandHeartLine />,
+        link: "/industries/people-society#ngo",
+      },
     ],
   },
   {
@@ -88,9 +142,21 @@ const slides = [
       link: "/industries/service-experience",
     },
     industries: [
-      { label: "Hospitality", icon: <RiHotelBedLine /> },
-      { label: "Retail outlets", icon: <RiStoreLine /> },
-      { label: "Telecoms", icon: <RiCellphoneFill /> },
+      {
+        label: "Hospitality",
+        icon: <RiHotelBedLine />,
+        link: "/industries/service-experience#hospitality",
+      },
+      {
+        label: "Retail outlets",
+        icon: <RiStoreLine />,
+        link: "/industries/service-experience#retail-outlets",
+      },
+      {
+        label: "Telecoms",
+        icon: <RiCellphoneFill />,
+        link: "/industries/service-experience#telecoms",
+      },
     ],
   },
   {
@@ -103,9 +169,21 @@ const slides = [
       link: "/industries/energy-and-natural-resources-sector",
     },
     industries: [
-      { label: "Oil & Gas", icon: <RiGasStationLine /> },
-      { label: "Mining", icon: <RiBuilding3Line /> },
-      { label: "Energy", icon: <RiFlashlightLine /> },
+      {
+        label: "Oil & Gas",
+        icon: <RiGasStationLine />,
+        link: "/industries/energy-and-natural-resources-sector#oil-and-gas",
+      },
+      {
+        label: "Mining",
+        icon: <RiBuilding3Line />,
+        link: "/industries/energy-and-natural-resources-sector#mining",
+      },
+      {
+        label: "Energy",
+        icon: <RiFlashlightLine />,
+        link: "/industries/energy-and-natural-resources-sector#energy",
+      },
     ],
   },
 ];
@@ -234,15 +312,16 @@ export default function LogoCloud() {
                 <div className="md:w-1/2 mt-2 md:mt-8 flex justify-center md:justify-start items-start">
                   <div className="grid grid-cols-3 sm:grid-cols-3 md:grid-cols-3 gap-2 md:gap-4 place-items-start">
                     {slide.industries.map((industry, i) => (
-                      <div
+                      <Link
                         key={i}
-                        className="bg-white/60 w-26 h-26 md:w-40 md:h-40 flex flex-col justify-center items-center shadow rounded-2xl text-[#0095da] transform transition duration-400 hover:-translate-y-2 hover:shadow-lg"
+                        href={industry.link}
+                        className="bg-white/60 w-26 h-26 md:w-40 md:h-40 flex flex-col justify-center items-center shadow-md shadow-blue-400/30 ring-1 ring-black/5 rounded-2xl text-[#0095da] transform transition duration-400 hover:-translate-y-2 hover:shadow-lg"
                       >
                         <div className="text-3xl mb-2">{industry.icon}</div>
                         <p className="text-xs md:text-sm text-center">
                           {industry.label}
                         </p>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 </div>

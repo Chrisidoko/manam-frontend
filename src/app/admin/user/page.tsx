@@ -34,8 +34,11 @@ export default function UserDashboard() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
+    // ✅ Use an absolute base URL
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+
     try {
-      const res = await fetch("https://mana-event.onrender.com/api/register", {
+      const res = await fetch(`${baseUrl}/api/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

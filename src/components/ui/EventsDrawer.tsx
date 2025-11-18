@@ -302,18 +302,15 @@ export function TicketDrawer({ open, onOpenChange }: TicketDrawerProps) {
       // If no image file, send empty string (API expects this field)
       data.append("event_image", "");
     }
-
+    const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
     try {
-      const res = await fetch(
-        "https://mana-event.onrender.com/api/create-event",
-        {
-          method: "POST",
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          body: data,
-        }
-      );
+      const res = await fetch(`${baseUrl}/api/create-event`, {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+        body: data,
+      });
 
       const result = await res.json();
 

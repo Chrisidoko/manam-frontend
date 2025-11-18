@@ -27,13 +27,13 @@ type Params = Promise<{ slug: string }>;
 
 const BlogPage = async ({ params }: { params: Params }) => {
   //only image the link below
-  const api_url = "https://mana-event.onrender.com";
+  const api_url = process.env.NEXT_PUBLIC_APP_URL;
   try {
     // Await the params object to access its properties
     const { slug } = await params;
 
     const res = await fetch(
-      `https://mana-event.onrender.com/api/blogs?slug=${encodeURIComponent(slug)}`,
+      `${api_url}/api/blogs?slug=${encodeURIComponent(slug)}`,
       { cache: "no-store" }
     );
 
@@ -44,7 +44,7 @@ const BlogPage = async ({ params }: { params: Params }) => {
 
     if (!blog) return notFound();
 
-    const currentUrl = `https://manam.com/blog/${slug}`;
+    const currentUrl = `https://manamprofessionals.com/blog/${slug}`;
     const shareLinks = {
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(currentUrl)}`,
       twitter: `https://twitter.com/intent/tweet?url=${encodeURIComponent(currentUrl)}&text=${encodeURIComponent(blog.title)}`,

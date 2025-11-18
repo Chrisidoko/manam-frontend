@@ -10,6 +10,7 @@ export const schemaTickets = z.object({
   organizer: z.string(),
   price: z.string(),
   author: z.string(),
+  image_description: z.string(),
   image: z.instanceof(File).optional(),
   created: z.string(),
   status: z.string(),

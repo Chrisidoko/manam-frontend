@@ -5,6 +5,7 @@ import {
   RiMailFill,
   RiLinkedinBoxLine,
   RiFacebookCircleLine,
+  RiPhoneFill,
 } from "@remixicon/react";
 import Link from "next/link";
 import Newsletter from "@/components/ui/newsletter";
@@ -76,7 +77,7 @@ export default function Footer() {
           <Newsletter />
         </div>
         <div className="xl:grid xl:grid-cols-3 xl:gap-20 border-t border-gray-100/40 pt-16 ">
-          <div className="space-y-8">
+          <div className="space-y-6">
             <div className="block sm:hidden sm:w-1/3">
               <img
                 src="/manam(s).png"
@@ -84,10 +85,27 @@ export default function Footer() {
                 className="w-32 sm:w-40 mb-10 sm:mb-0"
               />
             </div>
-            <p className="text-sm leading-6 text-white">
-              Plot 1332, Ralph Shodeinde Street, Central Business District,
-              Fct-Abuja.
-            </p>
+            <div>
+              <h3 className="uppercase text-sm text-blue-200">ABUJA</h3>
+              <p className="text-sm leading-6 text-white">
+                Plot 1332, Ralph Shodeinde Street, Central Business District,
+                Fct-Abuja.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="uppercase text-sm text-blue-200">Kaduna</h3>
+              <p className="text-sm leading-6 text-white">
+                2nd Floor, Hafsat Plaza, Plot 4, Constitutional Road, Kaduna
+              </p>
+            </div>
+
+            <div>
+              <h3 className="uppercase text-sm text-blue-200">Kano</h3>
+              <p className="text-sm leading-6 text-white">
+                No.32 Link Road, Magajin Rumfa, Nasarawa GRA, Kano.
+              </p>
+            </div>
 
             <div className="flex items-center gap-4">
               <div className="h-[2rem] w-[2rem] flex items-center justify-center rounded-full border border-gray-300 text-white/60">
@@ -96,6 +114,13 @@ export default function Footer() {
               <p className="text-sm text-white/60">
                 info@manamprofessionals.com
               </p>
+            </div>
+
+            <div className="flex items-center gap-4">
+              <div className="h-[2rem] w-[2rem] flex items-center justify-center rounded-full border border-gray-300 text-white/60">
+                <RiPhoneFill size={18} />
+              </div>
+              <p className="text-sm text-white/60">+234 916 042 2222</p>
             </div>
 
             <div className="flex space-x-6">
@@ -150,7 +175,7 @@ export default function Footer() {
               {/*return to check mobile grid*/}
 
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-white">
+                <h3 className="text-lg font-semibold leading-6 text-white">
                   Products
                 </h3>
                 <ul
@@ -162,7 +187,7 @@ export default function Footer() {
                     <li key={item.name} className="w-fit">
                       <Link
                         href={item.href}
-                        className="flex rounded-md text-sm text-white transition hover:text-[#0095da]"
+                        className="flex rounded-md text-sm text-blue-100 transition hover:text-[#0095da]"
                         rel={item.external ? "noopener noreferrer" : undefined}
                       >
                         <span>{item.name}</span>
@@ -181,7 +206,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-white">
+                <h3 className="text-lg font-semibold leading-6 text-white">
                   Company
                 </h3>
                 <ul
@@ -192,7 +217,7 @@ export default function Footer() {
                   {navigation.company.map((item) => (
                     <li key={item.name} className="w-fit">
                       <Link
-                        className="flex rounded-md text-sm text-white transition hover:text-[#0095da]"
+                        className="flex rounded-md text-sm text-blue-100 transition hover:text-blue-300"
                         href={item.href}
                         target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
@@ -214,7 +239,7 @@ export default function Footer() {
             </div>
             <div className="grid grid-cols-2 gap-8">
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-white">
+                <h3 className="text-lg font-semibold leading-6 text-white">
                   Resources
                 </h3>
                 <ul
@@ -225,7 +250,7 @@ export default function Footer() {
                   {navigation.resources.map((item) => (
                     <li key={item.name} className="w-fit">
                       <Link
-                        className="flex rounded-md text-sm text-white transition hover:text-[#0095da]"
+                        className="flex rounded-md text-sm text-blue-100 transition hover:text-blue-300"
                         href={item.href}
                         target={item.external ? "_blank" : undefined}
                         rel={item.external ? "noopener noreferrer" : undefined}
@@ -246,7 +271,7 @@ export default function Footer() {
               </div>
 
               <div>
-                <h3 className="text-sm font-semibold leading-6 text-white">
+                <h3 className="text-lg font-semibold leading-6 text-white">
                   Services
                 </h3>
                 <ul
@@ -258,7 +283,7 @@ export default function Footer() {
                     <li key={item.name} className="w-fit sm:w-[220px]">
                       <Link
                         href={item.href}
-                        className="flex rounded-md text-sm text-white transition hover:text-[#0095da]"
+                        className="flex rounded-md text-sm text-blue-100 transition hover:text-blue-300"
                         rel={item.external ? "noopener noreferrer" : undefined}
                       >
                         <span>{item.name}</span>

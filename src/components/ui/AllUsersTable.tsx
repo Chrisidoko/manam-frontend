@@ -16,20 +16,20 @@ interface User {
 export default function UserTable() {
   const [users, setUsers] = useState<User[]>([]);
 
+  // ✅ Use an absolute base URL
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+
   useEffect(() => {
     const fetchUsers = async () => {
       try {
         const token = Cookies.get("token");
 
-        const res = await fetch(
-          "https://mana-event.onrender.com/api/get-AllUser",
-          {
-            headers: {
-              accept: "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
+        const res = await fetch(`${baseUrl}/api/get-AllUser`, {
+          headers: {
+            accept: "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         const responseData = await res.json();
 
@@ -49,16 +49,13 @@ export default function UserTable() {
   const makeAdmin = async (userId: string) => {
     const token = Cookies.get("token");
     try {
-      const res = await fetch(
-        `https://mana-event.onrender.com/api/make-admin/${userId}`,
-        {
-          method: "PUT",
-          headers: {
-            accept: "*/*",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await fetch(`${baseUrl}/api/make-admin/${userId}`, {
+        method: "PUT",
+        headers: {
+          accept: "*/*",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       const result = await res.json();
       if (res.ok) {
@@ -86,16 +83,13 @@ export default function UserTable() {
 
     const token = Cookies.get("token");
     try {
-      const res = await fetch(
-        `https://mana-event.onrender.com/api/delete-admin/${userId}`,
-        {
-          method: "DELETE",
-          headers: {
-            accept: "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await fetch(`${baseUrl}/api/delete-admin/${userId}`, {
+        method: "DELETE",
+        headers: {
+          accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       const result = await res.json();
       if (res.ok) {

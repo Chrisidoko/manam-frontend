@@ -9,25 +9,19 @@ import {
   DrawerHeader,
   DrawerTitle,
 } from "@/components/Drawer";
-import {
-  Select,
-  SelectContent,
-  SelectItemExtended,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/Select";
+
 import {
   categoryTypes,
   eventTypes,
   priorities,
   ticketTypes,
-  type Category,
   type Ticket,
 } from "@/data/support/schema";
 import React from "react";
 import { Input } from "../Input";
 import { Label } from "../Label";
 import { Textarea } from "../Textarea";
+
 import Cookies from "js-cookie";
 
 type TicketFormData = Partial<Ticket>;
@@ -72,83 +66,28 @@ const FirstPage = ({ formData, onUpdateForm }: FormPageProps) => (
   <>
     <DrawerHeader>
       <DrawerTitle>
-        <p>Create Post</p>
+        <p>Send Out Mails</p>
         <span className="text-sm font-normal text-gray-500">
-          Text & Category
+          Subject & Mail Body
         </span>
       </DrawerTitle>
     </DrawerHeader>
     <DrawerBody className="-mx-6 space-y-6 overflow-y-scroll border-t border-gray-200 px-6">
-      <FormField label="Title">
+      <FormField label="Email Subject">
         <Input
-          value={formData.title || ""}
-          onChange={(e) => onUpdateForm({ title: e.target.value })}
-          placeholder="Title"
+          value={formData.image_description || ""}
+          onChange={(e) => onUpdateForm({ image_description: e.target.value })}
+          placeholder="Subject"
         ></Input>
       </FormField>
 
-      <FormField label="Category">
-        <Select
-          value={formData.category}
-          onValueChange={(value: Category) => onUpdateForm({ category: value })}
-        >
-          <SelectTrigger>
-            <SelectValue placeholder="Select Category" />
-          </SelectTrigger>
-          <SelectContent>
-            {categoryTypes.map((category) => (
-              <SelectItemExtended
-                key={category.value}
-                value={category.value}
-                option={category.name}
-              />
-            ))}
-          </SelectContent>
-        </Select>
-      </FormField>
-
-      <FormField label="Author">
-        <Input
-          value={formData.author || ""}
-          onChange={(e) => onUpdateForm({ author: e.target.value })}
-          placeholder="Author"
-        ></Input>
-      </FormField>
-    </DrawerBody>
-  </>
-);
-
-const SecondPage = ({ formData, onUpdateForm }: FormPageProps) => (
-  <>
-    <DrawerHeader>
-      <DrawerTitle>
-        <p>Post Details</p>
-        <span className="text-sm font-normal text-gray-500">
-          Image & Description
-        </span>
-      </DrawerTitle>
-    </DrawerHeader>
-    <DrawerBody className="-mx-6 space-y-6 overflow-y-scroll border-t border-gray-200 px-6">
-      <FormField label="Image ex.4:3">
-        <Input
-          type="file"
-          accept="image/*"
-          onChange={(e) => {
-            const file = e.target.files?.[0];
-            if (file) {
-              onUpdateForm({ image: file });
-            }
-          }}
-        />
-      </FormField>
-
-      <FormField label="Description">
+      <FormField label="Email Body">
         <Textarea
           name="description"
           value={formData.description || ""}
           onChange={(e) => onUpdateForm({ description: e.target.value })}
-          placeholder="Detailed description of the issue..."
-          className="h-72"
+          placeholder="Email body text..."
+          className="h-82"
         />
       </FormField>
     </DrawerBody>
@@ -168,36 +107,15 @@ const SummaryPage = ({ formData }: { formData: TicketFormData }) => (
     <DrawerBody className="-mx-6 space-y-4 overflow-y-scroll border-t border-gray-200 px-6">
       <div className="rounded-md border border-gray-200">
         <div className="border-b border-gray-200 p-4">
-          <h3 className="font-medium">Post Information</h3>
+          <h3 className="font-medium">Mail Information</h3>
           <div className="mt-4 space-y-4">
-            <SummaryItem label="Title" value={formData.title} />
-            <SummaryItem
-              label="Category"
-              value={
-                categoryTypes.find((c) => c.value === formData.category)
-                  ?.name ?? undefined
-              }
-            />
-            <SummaryItem label="Author" value={formData.author} />
+            <SummaryItem label="Subject" value={formData.title} />
           </div>
         </div>
         <div className="p-4">
           <h3 className="font-medium">Details</h3>
           <div className="mt-4 space-y-4">
-            {formData.image ? (
-              <img
-                src={URL.createObjectURL(formData.image)}
-                alt="Uploaded"
-                className="h-32 w-32 rounded object-cover"
-              />
-            ) : (
-              <SummaryItem label="Image" value="No image uploaded" />
-            )}
-            <SummaryItem
-              label="Description"
-              value={formData.description || undefined}
-            />
-
+            <SummaryItem label="Body" value={formData.description} />
             <SummaryItem
               label="Created"
               value={
@@ -241,18 +159,17 @@ export function TicketDrawer({ open, onOpenChange }: TicketDrawerProps) {
     }
 
     const formDataToSend = new FormData();
-    formDataToSend.append("title", formData.title || "");
-    formDataToSend.append("content", formData.description || "");
-    formDataToSend.append("author", formData.author || "");
-    formDataToSend.append("category", formData.category || "");
-    if (formData.image) {
-      formDataToSend.append("image", formData.image);
-    }
+    formDataToSend.append("subject", formData.image_description || "");
+    formDataToSend.append("htmlContent", formData.description || "");
+
     const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+
     try {
-      const res = await fetch(`${baseUrl}/api/create-blog`, {
+      const res = await fetch(`${baseUrl}/api/newsletter/send`, {
         method: "POST",
         headers: {
+          accept: "application/json",
+          // Content-Type: "multipart/form-data",
           Authorization: `Bearer ${token}`,
         },
         body: formDataToSend,
@@ -266,7 +183,7 @@ export function TicketDrawer({ open, onOpenChange }: TicketDrawerProps) {
         return;
       }
 
-      alert("Blog post created successfully!");
+      alert("Gallery post created successfully!");
       onOpenChange(false);
     } catch (error) {
       console.error("Error:", error);
@@ -281,11 +198,8 @@ export function TicketDrawer({ open, onOpenChange }: TicketDrawerProps) {
           <FirstPage formData={formData} onUpdateForm={handleUpdateForm} />
         );
       case 2:
-        return (
-          <SecondPage formData={formData} onUpdateForm={handleUpdateForm} />
-        );
-      case 3:
         return <SummaryPage formData={formData} />;
+
       default:
         return null;
     }
@@ -298,26 +212,19 @@ export function TicketDrawer({ open, onOpenChange }: TicketDrawerProps) {
           <DrawerClose asChild>
             <Button variant="secondary">Cancel</Button>
           </DrawerClose>
-          <Button onClick={() => setCurrentPage(2)}>Continue</Button>
-        </>
-      );
-    }
-    if (currentPage === 2) {
-      return (
-        <>
-          <Button variant="secondary" onClick={() => setCurrentPage(1)}>
-            Back
-          </Button>
-          <Button onClick={() => setCurrentPage(3)}>Review</Button>
+
+          <Button onClick={() => setCurrentPage(2)}>Review</Button>
         </>
       );
     }
     return (
       <>
-        <Button variant="secondary" onClick={() => setCurrentPage(2)}>
+        <Button variant="secondary" onClick={() => setCurrentPage(1)}>
           Back
         </Button>
-        <Button onClick={handleSubmit}>Create Post</Button>
+        <Button className="cursor-pointer" onClick={handleSubmit}>
+          Create Post
+        </Button>
       </>
     );
   };

@@ -43,12 +43,13 @@ export default function EventDashboard() {
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true); // to disable next if no more events
 
+  // ✅ Use an absolute base URL
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+
   const fetchEvents = async (pageNum: number) => {
     setLoading(true);
     try {
-      const res = await fetch(
-        `https://mana-event.onrender.com/api/event?page=${pageNum}&limit=12`
-      );
+      const res = await fetch(`${baseUrl}/api/event?page=${pageNum}&limit=12`);
       const data = await res.json();
 
       if (data.events && data.events.length > 0) {
@@ -84,16 +85,13 @@ export default function EventDashboard() {
     if (!confirmed) return;
 
     try {
-      const res = await fetch(
-        `https://mana-event.onrender.com/api/delete-event/${eventId}`,
-        {
-          method: "DELETE",
-          headers: {
-            Accept: "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await fetch(`${baseUrl}/api/delete-event/${eventId}`, {
+        method: "DELETE",
+        headers: {
+          Accept: "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       if (!res.ok) {
         const err = await res.json();

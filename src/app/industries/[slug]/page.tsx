@@ -1,4 +1,4 @@
-// app/service/[slug]/page.tsx
+// app/industries/[slug]/page.tsx
 import { notFound } from "next/navigation";
 import { industries } from "../industries";
 // import Image from "next/image";
@@ -55,6 +55,30 @@ const ServicePage = async ({ params }: { params: Params }) => {
       <p className="mt-4 text-base md:text-lg sm:w-[48rem] text-justify leading-7 whitespace-pre-line text-gray-700">
         {service.description}
       </p>
+      <h2 className="mt-6 font-semibold text-xl text-gray-900 sm:text-2xl sm:leading-9">
+        Industries We Support
+      </h2>
+      <dl className="mt-10 grid grid-cols-1 gap-10">
+        {service.industries?.map((item) => (
+          <div
+            key={item.id}
+            className="col-span-full sm:col-span-2 lg:col-span-1"
+          >
+            <div
+              className="flex items-center gap-3 scroll-mt-[50vh]" // 50vh = middle of screen incase if specific navigations
+              id={item.id}
+            >
+              <div className="w-fit text-[#0095da] rounded-lg p-2 shadow-md shadow-blue-400/30 ring-1 ring-black/5">
+                {item.icon}
+              </div>
+              <dt className="font-semibold text-gray-900 ">{item.label}</dt>
+            </div>
+            <dd className="mt-2 leading-7 text-gray-600">
+              What we deliver: {item.text}
+            </dd>
+          </div>
+        ))}
+      </dl>
     </div>
   );
 };

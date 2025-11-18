@@ -25,13 +25,13 @@ type Params = Promise<{ slug: string }>;
 
 const Event = async ({ params }: { params: Params }) => {
   //only image the link below
-  const api_url = "https://mana-event.onrender.com";
+  const api_url = process.env.NEXT_PUBLIC_APP_URL;
   try {
     // Await the params object to access its properties
     const { slug } = await params;
 
     // Fetch ALL events
-    const res = await fetch("https://mana-event.onrender.com/api/event", {
+    const res = await fetch(`${api_url}/api/event`, {
       cache: "no-store",
     });
 
@@ -59,7 +59,7 @@ const Event = async ({ params }: { params: Params }) => {
       organizer: event.event_organizer || "Event Organizer",
     };
 
-    const currentUrl = `https://manam.com/event/${eventData.slug}`;
+    const currentUrl = `https://manamprofessionals.com/event/${eventData.slug}`;
 
     const shareLinks = {
       facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(
