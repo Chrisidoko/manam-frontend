@@ -240,7 +240,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-        <div className="mt-[5vh] flex items-center gap-6">
+        <div className="mt-[5vh] flex flex-col sm:flex-row sm:items-center gap-6">
           <div className="flex space-x-6">
             <Link
               href="https://www.instagram.com/manamprofessionals/"
@@ -287,7 +287,7 @@ export default function Footer() {
               />
             </Link>
           </div>
-          <div className="h-7 w-[1px] bg-white"></div>
+          <div className="hidden sm:block h-7 w-[1px] bg-white"></div>
 
           <div className="flex items-center gap-4">
             <div className="h-[2rem] w-[2rem] flex items-center justify-center rounded-full border border-gray-300 text-white/60">
@@ -296,7 +296,7 @@ export default function Footer() {
             <p className="text-sm text-white/60">info@manamprofessionals.com</p>
           </div>
 
-          <div className="h-7 w-[1px] bg-white"></div>
+          <div className=" hidden sm:block h-7 w-[1px] bg-white"></div>
 
           <div className="flex items-center gap-4">
             <div className="h-[2rem] w-[2rem] flex items-center justify-center rounded-full border border-gray-300 text-white/60">

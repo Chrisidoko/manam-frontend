@@ -94,6 +94,7 @@ export function Navigation() {
   const [openMobileServices, setOpenMobileServices] = React.useState(false);
   const [openMobileIndustries, setOpenMobileIndustries] = React.useState(false);
   const [openMobileResource, setOpenMobileResource] = React.useState(false);
+  const [openMobileProducts, setOpenMobileProducts] = React.useState(false);
 
   React.useEffect(() => {
     const mediaQuery = window.matchMedia("(min-width: 768px)");
@@ -338,6 +339,32 @@ export function Navigation() {
                     >
                       <Link href={`/industries/${industries.slug}`}>
                         {industries.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </li>
+
+            <li>
+              <button
+                onClick={() => setOpenMobileProducts(!openMobileProducts)}
+                className="w-full flex items-center text-left"
+              >
+                Products <RiArrowDropDownLine />
+              </button>
+              {openMobileProducts && (
+                <ul className="mt-2 ml-4 space-y-2 text-sm">
+                  {products.map((products) => (
+                    <li
+                      key={products.slug}
+                      onClick={() => {
+                        setOpenMobileProducts(false);
+                        setOpenMobileMenu(false);
+                      }}
+                    >
+                      <Link href={`/products/${products.slug}`}>
+                        {products.name}
                       </Link>
                     </li>
                   ))}
