@@ -11,6 +11,8 @@ export default function Loginform() {
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false); // ✅ loading state
 
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
@@ -21,7 +23,7 @@ export default function Loginform() {
     setLoading(true);
 
     try {
-      const res = await fetch("https://mana-event.onrender.com/api/login", {
+      const res = await fetch(`${baseUrl}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

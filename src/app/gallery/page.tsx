@@ -25,19 +25,47 @@ interface GalleryResponse {
 interface GalleryModalProps {
   item: GalleryItem;
   onClose: () => void;
+  onNext: () => void;
+  onPrevious: () => void;
+  hasNext: boolean;
+  hasPrevious: boolean;
 }
 
-const GalleryModal: React.FC<GalleryModalProps> = ({ item, onClose }) => {
+const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+
+const GalleryModal: React.FC<GalleryModalProps> = ({
+  item,
+  onClose,
+  onNext,
+  onPrevious,
+  hasNext,
+  hasPrevious,
+}) => {
   React.useEffect(() => {
     document.body.style.overflow = "hidden";
+
+    // Keyboard navigation
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "ArrowLeft" && hasPrevious) {
+        onPrevious();
+      } else if (e.key === "ArrowRight" && hasNext) {
+        onNext();
+      } else if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+
     return () => {
       document.body.style.overflow = "unset";
+      window.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [hasNext, hasPrevious, onNext, onPrevious, onClose]);
 
   return (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/30 p-4 transition-opacity duration-300"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 p-4 transition-opacity duration-300"
       onClick={onClose}
     >
       <div
@@ -47,10 +75,12 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ item, onClose }) => {
         {/* Actual Image */}
         <div className="relative h-96 w-full bg-gray-300 flex items-center justify-center overflow-hidden">
           <img
-            src={`https://mana-event.onrender.com${item.image_url}`}
+            src={`${baseUrl}${item.image_url}`}
             alt={item.image_description || "Gallery image"}
             className="w-full h-full object-cover"
           />
+
+          {/* Close Button */}
           <button
             onClick={onClose}
             className="absolute top-4 right-4 text-white bg-black/50 hover:bg-black/70 rounded-full p-2 transition-colors z-10"
@@ -71,6 +101,54 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ item, onClose }) => {
               />
             </svg>
           </button>
+
+          {/* Previous Button */}
+          {hasPrevious && (
+            <button
+              onClick={onPrevious}
+              className="absolute left-4 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-black/70 rounded-full p-3 transition-all hover:scale-110 z-10"
+              aria-label="Previous image"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+          )}
+
+          {/* Next Button */}
+          {hasNext && (
+            <button
+              onClick={onNext}
+              className="absolute right-4 top-1/2 -translate-y-1/2 text-white bg-black/50 hover:bg-black/70 rounded-full p-3 transition-all hover:scale-110 z-10"
+              aria-label="Next image"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          )}
         </div>
 
         {/* Details */}
@@ -87,8 +165,17 @@ const GalleryModal: React.FC<GalleryModalProps> = ({ item, onClose }) => {
               })}
             </p>
           </div>
-          <Link href={item?.social_link}>
-            <span className="text-blue-600 underline">Link</span>
+          <Link
+            href={
+              item.social_link.startsWith("http")
+                ? item.social_link
+                : `https://${item.social_link}`
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="View Post on Social Media"
+          >
+            <span className="text-blue-600 underline">Social Media Link</span>
           </Link>
         </div>
       </div>
@@ -110,7 +197,7 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item, openModal }) => {
       {/* Actual Image */}
       <div className="relative h-64 w-full bg-gray-200 overflow-hidden">
         <img
-          src={`https://mana-event.onrender.com${item.image_url}`}
+          src={`${baseUrl}${item.image_url}`}
           alt={item.image_description || "Gallery image"}
           className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
         />
@@ -128,25 +215,24 @@ const GalleryCard: React.FC<GalleryCardProps> = ({ item, openModal }) => {
 
 export default function Gallery() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState<GalleryItem | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number>(0);
   const [galleryData, setGalleryData] = useState<GalleryItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
 
   // Fetch gallery data from API
   useEffect(() => {
     const fetchGalleryData = async () => {
       try {
         setLoading(true);
-        const response = await fetch(
-          "https://mana-event.onrender.com/api/gallery",
-          {
-            method: "GET",
-            headers: {
-              accept: "application/json",
-            },
-          }
-        );
+        const response = await fetch(`${baseUrl}/api/gallery`, {
+          method: "GET",
+          headers: {
+            accept: "application/json",
+          },
+        });
 
         if (!response.ok) {
           throw new Error("Failed to fetch gallery images");
@@ -167,14 +253,29 @@ export default function Gallery() {
   }, []);
 
   const openModal = (item: GalleryItem) => {
-    setSelectedItem(item);
+    const index = galleryData.findIndex((i) => i._id === item._id);
+    setSelectedIndex(index);
     setIsModalOpen(true);
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
-    setSelectedItem(null);
   };
+
+  const goToNext = () => {
+    if (selectedIndex < galleryData.length - 1) {
+      setSelectedIndex(selectedIndex + 1);
+    }
+  };
+
+  const goToPrevious = () => {
+    if (selectedIndex > 0) {
+      setSelectedIndex(selectedIndex - 1);
+    }
+  };
+
+  const hasNext = selectedIndex < galleryData.length - 1;
+  const hasPrevious = selectedIndex > 0;
 
   return (
     <div className="mt-6 flex flex-col overflow-hidden px-0">
@@ -235,7 +336,7 @@ export default function Gallery() {
 
           {/* Gallery Grid */}
           {!loading && !error && galleryData.length > 0 && (
-            <div className="my-[5vw] grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-8">
+            <div className="my-[4vw] grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-8">
               {galleryData.map((item) => (
                 <GalleryCard key={item._id} item={item} openModal={openModal} />
               ))}
@@ -252,7 +353,7 @@ export default function Gallery() {
           )}
 
           {/* Load More Button - Only show if there are items */}
-          {!loading && !error && galleryData.length > 0 && (
+          {!loading && !error && galleryData.length > 10 && (
             <div className="mt-12 flex justify-center">
               <button
                 type="button"
@@ -265,8 +366,15 @@ export default function Gallery() {
         </div>
 
         {/* Modal Render */}
-        {isModalOpen && selectedItem && (
-          <GalleryModal item={selectedItem} onClose={closeModal} />
+        {isModalOpen && galleryData[selectedIndex] && (
+          <GalleryModal
+            item={galleryData[selectedIndex]}
+            onClose={closeModal}
+            onNext={goToNext}
+            onPrevious={goToPrevious}
+            hasNext={hasNext}
+            hasPrevious={hasPrevious}
+          />
         )}
       </section>
     </div>

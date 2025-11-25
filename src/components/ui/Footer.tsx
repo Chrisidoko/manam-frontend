@@ -106,69 +106,6 @@ export default function Footer() {
                 No.32 Link Road, Magajin Rumfa, Nasarawa GRA, Kano.
               </p>
             </div>
-
-            <div className="flex items-center gap-4">
-              <div className="h-[2rem] w-[2rem] flex items-center justify-center rounded-full border border-gray-300 text-white/60">
-                <RiMailFill size={18} />
-              </div>
-              <p className="text-sm text-white/60">
-                info@manamprofessionals.com
-              </p>
-            </div>
-
-            <div className="flex items-center gap-4">
-              <div className="h-[2rem] w-[2rem] flex items-center justify-center rounded-full border border-gray-300 text-white/60">
-                <RiPhoneFill size={18} />
-              </div>
-              <p className="text-sm text-white/60">+234 916 042 2222</p>
-            </div>
-
-            <div className="flex space-x-6">
-              <Link
-                href="https://www.instagram.com/manamprofessionals/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on Instagram"
-              >
-                <RiInstagramLine
-                  size={21}
-                  className="text-white cursor-pointer hover:text-[#0095da] transition-colors"
-                />
-              </Link>
-              <Link
-                href="https://www.linkedin.com/company/manamprofessionals/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Visit Our LinkedIn"
-              >
-                <RiLinkedinBoxLine
-                  size={21}
-                  className="text-white hover:text-[#0095da] cursor-pointer"
-                />
-              </Link>
-              <Link
-                href="https://x.com/manam121212"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on X"
-              >
-                <RiTwitterXLine
-                  size={21}
-                  className="text-white hover:text-[#0095da] cursor-pointer"
-                />
-              </Link>
-              <Link
-                href="https://web.facebook.com/manamprofessionalservices"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Follow us on facebook"
-              >
-                <RiFacebookCircleLine
-                  size={21}
-                  className="text-white hover:text-[#0095da] cursor-pointer"
-                />
-              </Link>
-            </div>
           </div>
           <div className="mt-16 grid grid-cols-1 gap-14 sm:gap-8 md:grid-cols-2 xl:col-span-2 xl:mt-0">
             <div className="grid grid-cols-2 gap-8">
@@ -301,6 +238,71 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="mt-[5vh] flex items-center gap-6">
+          <div className="flex space-x-6">
+            <Link
+              href="https://www.instagram.com/manamprofessionals/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on Instagram"
+            >
+              <RiInstagramLine
+                size={21}
+                className="text-white cursor-pointer hover:text-[#0095da] transition-colors"
+              />
+            </Link>
+            <Link
+              href="https://www.linkedin.com/company/manamprofessionals/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Visit Our LinkedIn"
+            >
+              <RiLinkedinBoxLine
+                size={21}
+                className="text-white hover:text-[#0095da] cursor-pointer"
+              />
+            </Link>
+            <Link
+              href="https://x.com/manam121212"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on X"
+            >
+              <RiTwitterXLine
+                size={21}
+                className="text-white hover:text-[#0095da] cursor-pointer"
+              />
+            </Link>
+            <Link
+              href="https://web.facebook.com/manamprofessionalservices"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Follow us on facebook"
+            >
+              <RiFacebookCircleLine
+                size={21}
+                className="text-white hover:text-[#0095da] cursor-pointer"
+              />
+            </Link>
+          </div>
+          <div className="h-7 w-[1px] bg-white"></div>
+
+          <div className="flex items-center gap-4">
+            <div className="h-[2rem] w-[2rem] flex items-center justify-center rounded-full border border-gray-300 text-white/60">
+              <RiMailFill size={18} />
+            </div>
+            <p className="text-sm text-white/60">info@manamprofessionals.com</p>
+          </div>
+
+          <div className="h-7 w-[1px] bg-white"></div>
+
+          <div className="flex items-center gap-4">
+            <div className="h-[2rem] w-[2rem] flex items-center justify-center rounded-full border border-gray-300 text-white/60">
+              <RiPhoneFill size={18} />
+            </div>
+            <p className="text-sm text-white/60">+234 916 042 2222</p>
           </div>
         </div>
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-gray-100/40 pt-8 sm:mt-20 sm:flex-row lg:mt-24">

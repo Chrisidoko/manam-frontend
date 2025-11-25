@@ -7,22 +7,22 @@ import { RiCloseLine, RiMenuLine, RiArrowDropDownLine } from "@remixicon/react";
 import Link from "next/link";
 import React from "react";
 import { services } from "@/app/services/services";
-import MultiLevelDropdown from "@/components/ui/navsubmenu";
+// import MultiLevelDropdown from "@/components/ui/navsubmenu";
 import { Button } from "../Button";
 
 // Your products data
 const products = [
   {
-    slug: "eeziTax",
-    name: "eeziTax",
-    path: "",
+    slug: "eeZitax",
+    name: "eeZitax",
+
     // shortdesc:
     //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
   },
   {
     slug: "taxcess",
     name: "Taxcess ",
-    path: "",
+
     // shortdesc:
     //   "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. ",
   },
@@ -201,7 +201,7 @@ export function Navigation() {
                   {products.map((products) => (
                     <li key={products.name}>
                       <Link
-                        href={products.path}
+                        href={`/products/${products.slug}`}
                         className="block px-4 py-2 text-sm text-gray-700 hover:rounded-lg hover:bg-[#e0f2fe]/40  group/item transition-all duration-300 ease-in-out border border-transparent hover:border-blue-100"
                       >
                         <div className="flex flex-col gap-1">

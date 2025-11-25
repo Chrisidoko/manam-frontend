@@ -22,7 +22,8 @@ export default function Modal({
   event_id,
   onClose,
 }: ModalProps) {
-  const api_url = "https://mana-event.onrender.com";
+  const baseUrl = process.env.NEXT_PUBLIC_APP_URL;
+
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -79,7 +80,7 @@ export default function Modal({
       const lastName = nameParts.slice(1).join(" ") || "";
 
       const response = await fetch(
-        `https://mana-event.onrender.com/api/initiate-payment-anonymous/${event_id}`,
+        `${baseUrl}/api/initiate-payment-anonymous/${event_id}`,
         {
           method: "POST",
           headers: {
@@ -348,7 +349,7 @@ export default function Modal({
               <Image
                 src={
                   image
-                    ? `${api_url}/${image.replace(/^\/+/, "")}`
+                    ? `${baseUrl}/${image.replace(/^\/+/, "")}`
                     : "/No-Image.png"
                 }
                 alt={title}
