@@ -63,7 +63,7 @@ const ServicePage = async ({ params }: { params: Params }) => {
         <h2 className=" text-left font-semibold text-xl text-gray-900 sm:text-2xl sm:leading-9">
           Key Features
         </h2>
-        <dl className="mt-8 w-full grid grid-cols-2 gap-10">
+        <dl className="mt-8 w-full grid grid-cols-2 gap-y-14 gap-x-10">
           {service.factors?.map((item) => (
             <div
               key={item.id}
@@ -75,7 +75,9 @@ const ServicePage = async ({ params }: { params: Params }) => {
                 </dt>
                 <dt className="font-semibold text-gray-900 ">{item.label}</dt>
               </div>
-              <dd className="mt-2 leading-7 text-gray-600">{item.text}</dd>
+              <dd className="sm:ml-9 mt-3 leading-7 text-gray-600">
+                {item.text}
+              </dd>
             </div>
           ))}
         </dl>

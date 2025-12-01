@@ -64,15 +64,15 @@ export default function ContactUsCard() {
 
           {/* Right Side - CTA */}
           <div className="md:col-span-3 p-8 md:p-10 flex flex-col justify-center items-center text-center">
-            <div className="max-w-md">
-              <div className="mb-6">
+            <div className="max-w-xl">
+              <div className="mb-2 sm:mb-6">
                 <div className="inline-flex p-4 bg-blue-100 rounded-full mb-4">
                   <RiMessage3Line size={32} className="text-[#0095da]" />
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-3">
                   Find Out More About Our Product
                 </h3>
-                <p className="text-gray-600 mb-8">
+                <p className="text-sm sm:text-lg text-gray-600 mb-8">
                   Fill out our contact form and we'll get back to you as soon as
                   possible. We're here to help with any questions or concerns.
                 </p>
@@ -80,7 +80,7 @@ export default function ContactUsCard() {
 
               <a
                 href="/#contact-form"
-                className="inline-flex items-center justify-center gap-2 bg-[#0095da] text-white font-semibold py-4 px-8 rounded-lg hover:bg-[#007acc] transition-all duration-200 shadow-lg hover:shadow-xl group"
+                className="inline-flex items-center justify-center gap-2 bg-[#0095da] text-white font-semibold px-4 py-3 sm:py-4 sm:px-8 rounded-lg hover:bg-[#007acc] transition-all duration-200 shadow-lg hover:shadow-xl group"
               >
                 Contact Us
                 <RiArrowRightLine
@@ -89,7 +89,7 @@ export default function ContactUsCard() {
                 />
               </a>
 
-              <p className="text-sm text-gray-500 mt-6">
+              <p className="text-xs sm:text-sm text-gray-500 mt-4 sm:mt-6">
                 Our team typically responds within 24 hours
               </p>
             </div>

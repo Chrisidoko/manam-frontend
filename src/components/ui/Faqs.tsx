@@ -10,7 +10,7 @@ const faqs = [
   {
     question: "What services does Manam Professional Services offer?",
     answer:
-      "We specialize in Taxation, Advisory Services, Human Capital Development, and Corporate Recovery & Insolvency. Our goal is to provide strategic solutions that help businesses grow, stay compliant, and overcome financial challenges.",
+      "We specialize in Taxation, Advisory and Human Capital Development. Our goal is to provide strategic solutions that help businesses grow, stay compliant, and overcome financial challenges.",
   },
   {
     question: "Who can benefit from your services?",
@@ -43,19 +43,6 @@ const faqs = [
     question: "Do you provide customized training for organizations?",
     answer:
       "Yes, we design tailored training programs to meet your organization’s specific goals, whether it’s leadership development, compliance training, or performance enhancement.",
-  },
-
-  {
-    question: "What does Corporate Recovery and Insolvency entail?",
-    answer:
-      "We assist businesses facing financial distress with restructuring, turnaround strategies, and insolvency solutions to protect assets and maximize recovery ",
-  },
-
-  {
-    question:
-      "At what stage should a company seek corporate recovery services?",
-    answer:
-      "The earlier, the better. Companies should contact us at the first signs of cash flow challenges, debt pressure, or operational decline to prevent insolvency.",
   },
 
   {

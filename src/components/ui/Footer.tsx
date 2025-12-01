@@ -23,12 +23,6 @@ const navigation = {
       href: "/services/advisory",
       external: false,
     },
-
-    {
-      name: "Corporate Recovery and Insolvency",
-      href: "/services/corporate-recovery-and-insolvency",
-      external: false,
-    },
   ],
 
   product: [

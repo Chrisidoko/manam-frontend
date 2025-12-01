@@ -66,7 +66,7 @@ export default function Newsletter() {
 
   return (
     <div className="flex flex-col gap-3 items-center">
-      <div className="sm:ml-auto flex flex-col sm:flex-row gap-6 items-center ">
+      <div className="w-full  sm:ml-auto flex flex-col sm:flex-row gap-6 items-center ">
         <div className="text-bold text-sm text-white leading-6">
           Subscribe to our newsletter
         </div>

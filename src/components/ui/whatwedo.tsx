@@ -5,7 +5,7 @@ import Link from "next/link";
 const features = [
   {
     id: 1,
-    description: "Expert guidance to scale your business",
+    description: "Expert guidance to scale your business.",
     src: "/advisory-min.jpg",
     alt: "Advisory Services",
 
@@ -16,7 +16,7 @@ const features = [
   },
   {
     id: 2,
-    description: "Simplifying tax complexity, ensuring regulatory",
+    description: "Simplifying tax complexity, ensuring regulatory compliance.",
     src: "/tax3-min.jpg",
     alt: "Taxation",
 
@@ -28,7 +28,7 @@ const features = [
   {
     id: 3,
     name: "Human Capital Development",
-    description: "Building human capital for lasting work place impact",
+    description: "Building human capital for lasting work place impact.",
 
     src: "/4122-min.jpg",
     alt: "Training Services",
@@ -81,7 +81,7 @@ export default function Products() {
                 <div className="font-semibold text-white mt-auto sm:mt-0.5 text-xl text-right sm:text-2xl leading-6">
                   {item.cta.label}
                 </div>
-                <p className="hidden sm:block mt-auto text-left text-base w-[90%]">
+                <p className="hidden sm:block mt-auto text-left text-base w-[96%]">
                   {item.description}
                 </p>
               </div>

@@ -30,16 +30,16 @@ export default function Layout({
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 pt-4 md:pt-0 md:pl-6">{children}</main>
+        <main className="flex-1 pt-4 pb-28 md:pt-0 md:pl-6">{children}</main>
       </div>
 
-      <section
+      {/* <section
         id="testimonial"
         className="mx-auto mt-20 max-w-xl sm:mt-26  sm:mb-26 lg:max-w-6xl"
         aria-labelledby="testimonial"
       >
         <Testimonial />
-      </section>
+      </section> */}
     </div>
   );
 }

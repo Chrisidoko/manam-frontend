@@ -73,9 +73,7 @@ const ServicePage = async ({ params }: { params: Params }) => {
               </div>
               <dt className="font-semibold text-gray-900 ">{item.label}</dt>
             </div>
-            <dd className="mt-2 leading-7 text-gray-600">
-              What we deliver: {item.text}
-            </dd>
+            <dd className="mt-4 leading-7 text-gray-600">{item.text}</dd>
           </div>
         ))}
       </dl>

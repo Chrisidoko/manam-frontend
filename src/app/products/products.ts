@@ -52,6 +52,11 @@ export const products = [
         label: "Regulatory Compliance",
         text: "Fully aligned with Nigerian tax law.",
       },
+      {
+        id: "s-bility",
+        label: "Scalability",
+        text: "The eeZitax solution has the capability to accommodate more users, increase space, new features without undermining optimization and speed.",
+      },
     ],
   },
   {
@@ -74,7 +79,7 @@ export const products = [
       {
         id: "automated-tax-computation",
         label: "Automated Tax computation",
-        text: "We provide regulatory compliance and environmental reporting advisory, financial modelling, and capital allocation support, risk and internal control systems across extraction and supply chains. Our talent development and leadership capacity-building also enhance technical expertise, safety awareness, and leadership capacity within the mining sector.",
+        text: "Instantly calculate accurate tax liabilities using built-in computation engines aligned with the relevant tax schedules and rules.",
       },
       {
         id: "real-time-reporting",
