@@ -73,19 +73,18 @@ export default function Contactform() {
           <div
             className="hidden sm:block mt-2 w-full h-56 sm:h-144 gap-1 mx-auto rounded-lg md:rounded-xl p-6
              bg-cover bg-center bg-no-repeat relative"
-            // REMOVED THE EXTRA DOUBLE QUOTE HERE
             style={{ backgroundImage: `url("/contactus.jpg")` }}
           >
-            {/* OPTIONAL: Add an overlay for text readability */}
+            {/* an overlay for text readability */}
             <div className="absolute inset-0 bg-black opacity-30 rounded-lg md:rounded-xl"></div>
 
             <div className="h-full relative z-10 flex flex-col justify-end">
-              <h2 className="m-0 font-semibold text-white text-lg md:text-xl shadow">
+              <h2 className="m-0 font-semibold text-white text-lg md:text-xl">
                 Start your journey with Manam
                 <br />
                 where expertise meets results
               </h2>
-              <p className="mt-2 shadow max-w-2xl leading text-sm text-gray-50 ">
+              <p className="mt-2 max-w-2xl leading text-sm text-gray-50 ">
                 Fill out our contact form to make enquiries or schedule a
                 meeting with us at your convenience
               </p>
